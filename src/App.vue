@@ -1,18 +1,18 @@
 <template>
   <div id="app">
     <transition name="fade">
-      <Popup v-if="hu" v-on:cha="changepop()"></Popup>
+      <Popup v-if="isPop" v-on:cha="changepop()"></Popup>
     </transition>
     <Header 
-      v-on:change="ChangePort()"
+      v-on:change="ChangeMyProfile()"
+      v-on:change1="ChangePort()"
       v-on:change02="ChangeStb()"
       v-on:change03="ChangeJp()">
     </Header>
-      <Portraito v-if="tab==0"></Portraito>
-      <Starbacks v-if="tab==1">s</Starbacks>
-      <Japan v-if="tab==2"></Japan>
-      <Portraito v-if="tab==3"></Portraito>
-      <Portraito v-if="tab==4"></Portraito>
+      <MyProfile v-if="tab==0"></MyProfile>
+      <Portraito v-if="tab==1"></Portraito>
+      <Starbacks v-if="tab==2">s</Starbacks>
+      <Japan v-if="tab==3"></Japan>
   </div>
 </template>
 
@@ -22,13 +22,14 @@ import Header from './components/Header.vue'
 import Portraito from './components/Portraito.vue'
 import Starbacks from './components/Starbacks.vue'
 import Japan from './components/Japan.vue'
+import MyProfile from './components/MyProfile.vue'
+import 'normalize.css'
 
 export default {
   name: 'App',
   data(){
     return{
-      hu:true,
-      a:'f',
+      isPop:true,
       tab:0
     }
   },
@@ -37,20 +38,24 @@ export default {
     Header,
     Portraito,
     Starbacks,
-    Japan
+    Japan,
+    MyProfile
   },
   methods: {
     changepop() {
-      this.hu = false
+      this.isPop = false
     },
-    ChangePort() {
+    ChangeMyProfile() {
       this.tab = 0
     },
-    ChangeStb() {
+    ChangePort() {
       this.tab = 1
     },
-    ChangeJp() {
+    ChangeStb() {
       this.tab = 2
+    },
+    ChangeJp() {
+      this.tab = 3
     }
   }
 }

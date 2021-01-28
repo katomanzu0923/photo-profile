@@ -1,11 +1,10 @@
 <template>
 	<div class="ly_header">
 		<div class="bl_header">
-				<button @click="change01()" class="el_btn">Portraito</button>
-				<button @click="change02()" class="el_btn">Star</button>
-				<button @click="change03()" class="el_btn">Portraito</button>
-				<button class="el_btn">Portraito</button>
-				<button class="el_btn">Portraito</button>
+			<button @click="change()" class="el_btn">My Profile</button>
+			<button @click="change01()" class="el_btn">Portraito</button>
+			<button @click="change02()" class="el_btn">Japanese Photo</button>
+			<button @click="change03()" class="el_btn">Star Bucks</button>
 		</div>
 	</div>
 </template>
@@ -18,8 +17,11 @@ export default {
 		}
 	},
 	methods: {
-		change01(){
+		change(){
 			this.$emit('change')
+		},
+		change01(){
+			this.$emit('change1')
 		},
 		change02(){
 			this.$emit('change02')
@@ -34,11 +36,12 @@ export default {
 <style lang="scss" scoped>
 .ly_header {
 	background: chartreuse;
-	width: 100%;
+	width: 100
 }
 .bl_header {
 	display: flex;
 	justify-content: center;
+	box-sizing: border-box;
 }
 .el_btn{
 	display: inline;

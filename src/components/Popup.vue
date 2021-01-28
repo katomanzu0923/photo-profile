@@ -1,32 +1,20 @@
 <template>
   <div class="ly_popup">
 		<div class="bl_popup">
-				<div v-if="num==5" class="bl_port"> 
+				<div v-if="num==3" class="bl_port"> 
 					<h1>Portraito</h1>
 					<div>
 						<img src="@/assets/logo.png" alt="">
 					</div>
 				</div>
-				<div v-if="num==4" class="bl_port"> 
+				<div v-if="num==2" class="bl_port"> 
 					<h1>Japanese Photo</h1>
 					<div>
 						<img src="@/assets/logo.png" alt="">
 					</div>
 				</div>
-				<div v-if="num==3" class="bl_port">
+				<div v-if="num==1" class="bl_port">
 					<h1>Star Bucks</h1>
-					<div>
-						<img src="@/assets/logo.png" alt="">
-					</div>
-				</div>
-				<div v-if="num==2" class="bl_port">
-					<h1>Japanese Culture</h1>
-					<div>
-						<img src="@/assets/logo.png" alt="">
-					</div>
-				</div>
-				<div v-if="num==1" class="bl_port"> 
-					<h1>Happy Photo</h1>
 					<div>
 						<img src="@/assets/logo.png" alt="">
 					</div>
@@ -49,7 +37,7 @@
 export default {
   data() {
 		return {
-			num:5,
+			num:0,
 			number:false,
 
 		}
