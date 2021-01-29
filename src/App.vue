@@ -29,7 +29,7 @@ export default {
   name: 'App',
   data(){
     return{
-      isPop:true,
+      isPop:false,
       tab:0
     }
   },
@@ -63,7 +63,7 @@ export default {
 
 <style>
 .fade-leave-active {
-  transition: all 3s ease;
+  transition: all 2s ease;
 }
 .fade-leave{
   opacity: 1;
