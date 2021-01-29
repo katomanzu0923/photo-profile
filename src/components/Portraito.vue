@@ -1,10 +1,9 @@
 <template>
-	<div ly_portraio>
-		<div class="bl_MyProfile">
-			<div>
-				<img  class="el_popImg" :src="Photo">
-			</div>
-			<div class="bl_MyProfile_r">
+	<div class="ly">
+		<div class="bl01">
+			<div v-show="isShow" type="button" @click="of()" class="bl_pop">
+				<img class="imgf" :src="photo">
+				<div class="r">
 				<h1>ー  機種名  ー</h1>
 				<p>{{Body}}</p>
 				<h2>使用レンズ</h2>
@@ -12,10 +11,15 @@
 				<h3>状態</h3>
 				<p>{{State}}</p>
 			</div>
+			</div>
+			<div class="el01">関西エリア</div>
 		</div>
-		<div class="bl_Slide">
-			<button @click="isChange01()">1</button>
-			<button @click="isChange02()">2</button>
+		<div class="bl">
+			<div><img class="el_popImg" :src="PhotoData.portraitoImg[1]" type="button" @click="chi()"></div>
+			<div><img class="el_popImg" :src="PhotoData.portraitoImg[1]" type="button" @click="chi02()"></div>
+			<div><img class="el_popImg" :src="PhotoData.portraitoImg[1]"></div>
+			<div><img class="el_popImg" :src="PhotoData.portraitoImg[1]"></div>
+			<div><img class="el_popImg" :src="PhotoData.portraitoImg[1]"></div>
 		</div>
 	</div>
 </template>
@@ -24,7 +28,8 @@
 export default {
 	data() {
 		return {
-			Photo:[require('@/assets/portraiot01.png')],
+			isShow:false,
+			photo:'a',
 			Body:'x-t2',
 			Renzu:'10-24',
 			State:'F4',
@@ -42,40 +47,72 @@ export default {
 		}
 	},
 	methods:{
-		isChange01(){
-			this.Photo = this.PhotoData.portraitoImg[0]
+		chi(){
+			this.photo = this.PhotoData.portraitoImg[0]
 			this.Body = this.CameraData.Body[0]
-			this.Renzu = this.CameraData.Renzu[1]
-			this.State = this.CameraData.Detail[0]
-		},
-		isChange02(){
-			this.Photo = this.PhotoData.portraitoImg[1]
-			this.Body = this.CameraData.Body[1]
 			this.Renzu = this.CameraData.Renzu[0]
 			this.State = this.CameraData.Detail[0]
+			this.isShow = true
+		},
+		chi02(){
+			this.photo = this.PhotoData.portraitoImg[0]
+			this.Body = this.CameraData.Body[1]
+			this.Renzu = this.CameraData.Renzu[1]
+			this.State = this.CameraData.Detail[0]
+			this.isShow = true
+		},
+		of(){
+			this.isShow = false
 		}
 	}
 }
 </script>
 
 <style lang="scss" scoped>
-.ly_portraio {
-	height: 100vh;
+.ly {
+	height: 100%;
 }
-.bl_MyProfile {
-		display: flex;
-		margin: 10%;
-		justify-content: center;
-	}
-.bl_MyProfile_l {
-		width: 70%;
-	}
-	.el_MyProfile_l {
-		height: 500px;
-		width: 80%;
-	}
-.el_popImg {
+.bl {
+	display: flex;
+	flex-wrap:wrap;
+	flex-direction: row;
+	justify-content: space-around;
 	margin: 10px;
-	height: 50vh;
+	width: 100%;
+}
+.bl:after {
+    content: "";
+    display: block;
+    width: 500px;
+    height: 0;
+}
+.el_popImg{
+	width: 500px;
+	height: 400px;
+}
+.bl_pop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: rgba(128, 128, 128, 0.678);
+	filter: blur(80%);
+}
+.imgf{
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 5%;
+	z-index: 3;
+	width: 70%;
+	height: 700px;
+}
+.r{
+	position: absolute;
+	right: 0;
+	width: 20%;
+	margin: 5% 0;
+	
 }
 </style>

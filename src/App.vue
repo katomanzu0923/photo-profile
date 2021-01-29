@@ -3,7 +3,8 @@
     <transition name="fade">
       <Popup v-if="isPop" v-on:cha="changepop()"></Popup>
     </transition>
-    <Header 
+    <Header
+      class="revise"
       v-on:change="ChangeMyProfile()"
       v-on:change1="ChangePort()"
       v-on:change02="ChangeStb()"
@@ -40,7 +41,10 @@ export default {
     Starbacks,
     Japan,
     MyProfile
-  },
+	},
+	computed: {
+
+	},
   methods: {
     changepop() {
       this.isPop = false

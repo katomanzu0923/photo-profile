@@ -41,10 +41,11 @@ export default {
 	display: flex;
 	justify-content: center;
 	box-sizing: border-box;
+	height: 10%;
 }
 .bl_header_clr {
 	background: rgba(104, 104, 104, 0.082);
-	border-bottom: grey 1px solid;
+	border-bottom:rgba(0, 0, 128, 0.534) 1px solid;
 }
 .el_btn{
 	display: inline;

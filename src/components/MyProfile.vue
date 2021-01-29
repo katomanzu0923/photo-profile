@@ -1,14 +1,17 @@
 <template>
 	<div class="ly_MyProfile">
-		<div class="bl_MyProfile">
-			<div class="bl_MyProfile_l">
-				<img  class="el_MyProfile_l" :src="imgPath">
+			<div class="bl_MyProfile">
+				<div class="l">
+					<h1 class="el_MyProfile_ttl el_MyProfile_ttl_clr">About  Me</h1>
+					<p class="el_MyProfile_cont">名前:加藤貴大</p>
+					<p class="el_MyProfile_cont">一言:趣味で写真撮っています</p>
+					<p class="el_MyProfile_cont">カメラ歴:9年</p>
+					<p class="el_MyProfile_cont">使用カメラ:富士フィルム</p>
+				</div>
+				<div class="r">
+					<img  class="el_MyProfile_img" :src="imgPath">
+				</div>
 			</div>
-			<div class="bl_MyProfile_r">
-				<h1>ー  MyProfile  ー</h1>
-				<p>趣味で写真取ってます。<br>フジフィルムを愛してます。カメラ歴9年</p>
-			</div>
-		</div>
 	</div>
 </template>
 
@@ -16,53 +19,45 @@
 export default {
 	data() {
 		return {
-			imgPath: require('@/assets/myprofile01.png')
+			imgPath: require('@/assets/main01.png')
 		}
 	}
 }
 </script>
 
 <style lang="scss" scoped>
-  
-  .bl_MyProfile {
-		margin: 10%;
-		justify-content: center;
-	}
-	.ly_MyProfile{
-		position: absolute;
-		top: 30%;
-		margin-top: 300px;
-	}
-  .bl_MyProfile_l {
-	}
-	.bl_MyProfile_l::after {
-		position: absolute;
-		content: '';
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		box-shadow:inset 0 0 15px 15px white;
-	}
-	.el_MyProfile_l {
-		height: 100px;
-		width: 100%;
-	}
-	.bl_MyProfile_l::after {
-  position: absolute;
-  content: '';
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  box-shadow:inset 0 0 15px 15px white;
+.ly_MyProfile{
+	z-index: -1;
+	position: relative;
+	width: 60%;
+	margin: 2% 20%;
 }
-	.bl_MyProfile_r {
-		position: absolute;
-		left: 0;
-		top: 100px;
-		text-align: center;
-		width: 30%;
-		background: rgba(192, 192, 192, 0.26);
-	}
+.bl_MyProfile{
+	display: flex;
+	justify-content: space-around;
+}
+.l{
+	position: absolute;
+	width: 30%;
+	left: 5%;
+	z-index: 1;
+}
+.el_MyProfile_ttl{
+	border-bottom: navy 2px solid;
+}
+.el_MyProfile_ttl_clr{
+	color: navy;
+}
+.el_MyProfile_img{
+	position: absolute;
+	right: 0;
+	width: 100%;
+	height: 750px;
+	border: navy 2px solid;
+	filter: opacity(80%);
+}
+.el_MyProfile_cont{
+	text-align: start;
+	margin: 2% 5%;
+}
 </style>
