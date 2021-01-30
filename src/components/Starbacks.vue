@@ -21,11 +21,14 @@
 			</div>
 		</div>
 		<div class="bl">
-			<div><img class="el_popImg" :src="PhotoData.stbkobe[0]" type="button" @click="chi()"></div>
-			<div><img class="el_popImg" :src="PhotoData.stboki[0]" type="button" @click="chi02()"></div>
-			<div><img class="el_popImg" :src="PhotoData.stboki[0]"></div>
-			<div><img class="el_popImg" :src="PhotoData.stboki[0]"></div>
-			<div><img class="el_popImg" :src="PhotoData.stboki[0]"></div>
+			<div class="bl_img"><img class="el_popImg" :src="PhotoData.stbkobe[0]" type="button" @click="chi()"><p class="el_img_ttl">{{CameraData.Location[0]}}</p><button class="bl_imgBtn" type="button" @click="chi()">詳細へ</button></div>
+			<div class="bl_img"><img class="el_popImg" :src="PhotoData.stboki[0]" type="button" @click="chi02()"><p class="el_img_ttl">{{CameraData.Location[1]}}</p><button class="bl_imgBtn" type="button" @click="chi02()">詳細へ</button></div>
+			<div class="bl_img"><img class="el_popImg" :src="PhotoData.stboki[0]"><button class="bl_imgBtn" type="button" @click="chi()">詳細へ</button></div>
+			<div class="bl_img"><img class="el_popImg" :src="PhotoData.stboki[0]"><button class="bl_imgBtn" type="button" @click="chi()">詳細へ</button></div>
+			<div class="bl_img"><img class="el_popImg" :src="PhotoData.stboki[0]"><button class="bl_imgBtn" type="button" @click="chi()">詳細へ</button></div>
+			<div class="bl_img"><img class="el_popImg" :src="PhotoData.stboki[0]"><button class="bl_imgBtn" type="button" @click="chi()">詳細へ</button></div>
+			<div class="bl_img"><img class="el_popImg" :src="PhotoData.stboki[0]"><button class="bl_imgBtn" type="button" @click="chi()">詳細へ</button></div>
+			<div class="bl_img"><img class="el_popImg" :src="PhotoData.stboki[0]"><button class="bl_imgBtn" type="button" @click="chi()">詳細へ</button></div>
 		</div>
 	</div>
 </template>
@@ -59,7 +62,7 @@ export default {
 				Body:['x-t2','x-pro2','iphone11'],
 				Renzu:['10-24','16-80'],
 				Detail:['F4'],
-				Location:['神戸ビリケンタワー店舗','沖縄本町店']
+				Location:['神戸ビリケンタワー店','沖縄本町店']
 			},
 		}
 	},
@@ -170,27 +173,56 @@ export default {
 	flex-wrap:wrap;
 	flex-direction: row;
 	justify-content: space-around;
-	margin: 10px;
 	width: 100%;
 }
-.bl:after {
+
+.bl_img{
+	position: relative;
+	background: rgba(104, 104, 104, 0.082);
+	border: 1px solid navy;
+	width: 30%;
+	height: 40vh;
+	margin: 1%;
+}
+.bl::after {
     content: "";
     display: block;
-    width: 500px;  /* .boxに指定したwidthと同じ幅を指定する */
-    height: 0;
+    width: 30%;
+}
+.bl_imgBtn{
+	position: absolute;
+	left: 0;
+  right: 0;
+  margin: auto;
+	bottom: 5px;
 }
 .el_popImg{
-	width: 500px;
-	height: 400px;
+	position: absolute;
+	left: 2.5%;
+	top: 2.5%;
+	width: 95%;
+	height: 80%;
 }
 .bl_pop {
 	position: absolute;
+	z-index: 10;
 	top: 0%;
 	left: 0;
 	width: 100%;
 	height: 100vh;
 	background: rgba(128, 128, 128, 0.925);
 	filter: blur(80%);
+}
+.el_img_ttl{
+	background: white;
+	position: absolute;
+	bottom: 35px;
+	text-align: center;
+	padding: 2px 0;
+	width: 80%;
+	left: 0;
+  right: 0;
+  margin: auto;
 }
 .el_btn{
 	margin: 0 5px;
@@ -201,7 +233,7 @@ export default {
 	top: 0;
 	padding-right: 2.5%;
 	margin: 5% 2.5%;
-	z-index: 3;
+	z-index: 10;
 	width: 70%;
 	height: 700px;
 	border-right: 1px dotted black;
