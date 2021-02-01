@@ -12,7 +12,7 @@
     </Header>
       <MyProfile v-if="tab==0"></MyProfile>
       <Portraito v-if="tab==1"></Portraito>
-      <Starbacks v-if="tab==2">s</Starbacks>
+      <Starbacks v-if="tab==2"></Starbacks>
       <Japan v-if="tab==3"></Japan>
   </div>
 </template>
