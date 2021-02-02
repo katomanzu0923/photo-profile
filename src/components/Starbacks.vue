@@ -2,8 +2,11 @@
 	<div class="ly">
 		<div class="bl01">
 			<div v-show="isShow" class="bl_pop">
+				<div>
+					<button @click="of()">✖︎</button>
+				</div>
 				<div class="imge">
-					<img class="imgf" type="button" @click="of()" :src="popphoto_m">
+					<img class="imgf" :src="popphoto_m">
 				</div>
 				<div>
 					<div class="r">
@@ -26,7 +29,7 @@
 		<div class="bl">
 			<div class="bl_img">
 				<span class="bl_img_ttl">北海道・東北</span>
-				<img class="el_popImg" :src="photo" type="button" @click="chi()"><p class="el_img_ttl">{{Location}}</p>
+				<img class="el_popImg" :src="photo"><p class="el_img_ttl">{{Location}}</p>
 				<div class="bl_circle">
 					<div :class="[check === 0? 'onCircle': 'circle']">1</div>
 					<div :class="[check === 3? 'onCircle': 'circle']">2</div>
@@ -37,7 +40,7 @@
 			</div>
 			<div class="bl_img">
 				<span class="bl_img_ttl">関東</span>
-				<img class="el_popImg" :src="photo01" type="button" @click="chi()"><p class="el_img_ttl">{{Location01}}</p>
+				<img class="el_popImg" :src="photo01" ><p class="el_img_ttl">{{Location01}}</p>
 				<div class="bl_circle">
 					<div :class="[check01 === 0? 'onCircle': 'circle']">1</div>
 					<div :class="[check01 === 3? 'onCircle': 'circle']">2</div>
@@ -48,7 +51,7 @@
 			</div>
 			<div class="bl_img">
 				<span class="bl_img_ttl">北信越</span>
-				<img class="el_popImg" :src="photo02" type="button" @click="chi()"><p class="el_img_ttl">{{Location02}}</p>
+				<img class="el_popImg" :src="photo02"><p class="el_img_ttl">{{Location02}}</p>
 				<div class="bl_circle">
 					<div :class="[check02 === 0? 'onCircle': 'circle']">1</div>
 					<div :class="[check02 === 3? 'onCircle': 'circle']">2</div>
@@ -59,7 +62,7 @@
 			</div>
 			<div class="bl_img">
 				<span class="bl_img_ttl">東海</span>
-				<img class="el_popImg" :src="photo03" type="button" @click="chi()"><p class="el_img_ttl">{{Location03}}</p>
+				<img class="el_popImg" :src="photo03"><p class="el_img_ttl">{{Location03}}</p>
 				<div class="bl_circle">
 					<div :class="[check03 === 0? 'onCircle': 'circle']">1</div>
 					<div :class="[check03 === 3? 'onCircle': 'circle']">2</div>
@@ -70,7 +73,7 @@
 			</div>
 			<div class="bl_img">
 				<span class="bl_img_ttl">関西</span>
-				<img class="el_popImg" :src="photo04" type="button" @click="chi()"><p class="el_img_ttl">{{Location04}}</p>
+				<img class="el_popImg" :src="photo04"><p class="el_img_ttl">{{Location04}}</p>
 				<div class="bl_circle">
 					<div :class="[check04 === 0? 'onCircle': 'circle']">1</div>
 					<div :class="[check04 === 4? 'onCircle': 'circle']">2</div>
@@ -82,7 +85,7 @@
 			</div>
 			<div class="bl_img">
 				<span class="bl_img_ttl">中国・四国</span>
-				<img class="el_popImg" :src="photo05" type="button" @click="chi()"><p class="el_img_ttl">{{Location05}}</p>
+				<img class="el_popImg" :src="photo05"><p class="el_img_ttl">{{Location05}}</p>
 				<div class="bl_circle">
 					<div :class="[check05 === 0? 'onCircle': 'circle']">1</div>
 					<div :class="[check05 === 3? 'onCircle': 'circle']">2</div>
@@ -93,7 +96,7 @@
 			</div>
 			<div class="bl_img">
 				<span class="bl_img_ttl">九州・沖縄</span>
-				<img class="el_popImg" :src="photo06" type="button" @click="chi()"><p class="el_img_ttl">{{Location06}}</p>
+				<img class="el_popImg" :src="photo06"><p class="el_img_ttl">{{Location06}}</p>
 				<div class="bl_circle">
 					<div :class="[check06 === 0? 'onCircle': 'circle']">1</div>
 					<div :class="[check06 === 3? 'onCircle': 'circle']">2</div>
@@ -328,20 +331,30 @@ export default {
 				if(this.isNum == 0)
 				{
 					this.popphoto = this.photo04
-					this.photo_l = this.PhotoData.stbKNK[8]
-					this.photo_r = this.PhotoData.stbKNK[9]
+					this.photo_l = this.PhotoData.stbKNK[1]
+					this.photo_r = this.PhotoData.stbKNK[2]
+					this.popphoto_m = this.popphoto
+					this.popphoto_l = this.photo_l
+					this.popphoto_r = this.photo_r
 				}
-				else if(this.isNum == 3)
+				else if(this.isNum == 4)
 				{
 					this.popphoto = this.photo04
 					this.photo_l = this.PhotoData.stbKNK[4]
 					this.photo_r = this.PhotoData.stbKNK[5]
+					this.popphoto_m = this.popphoto
+					this.popphoto_l = this.photo_l
+					this.popphoto_r = this.photo_r
+					console.log(this.isNum)
 				}
 				else if(this.isNum == 7)
 				{
 					this.popphoto = this.photo04
-					this.photo_l = this.PhotoData.stbKNK[1]
-					this.photo_r = this.PhotoData.stbKNK[2]
+					this.photo_l = this.PhotoData.stbKNK[8]
+					this.photo_r = this.PhotoData.stbKNK[9]
+					this.popphoto_m = this.popphoto
+					this.popphoto_l = this.photo_l
+					this.popphoto_r = this.photo_r
 				}
 			}
 			else if(isPart == 5)
@@ -597,12 +610,12 @@ export default {
 				}
 				else if(this.isNum == 7)
 				{
-					this.isNum = 4
+					this.isNum = 3
 					this.check04 = this.isNum
 					this.Location04 = this.CameraData.Location[9]
 					this.photo04 = this.PhotoData.stbKNK[this.isNum]
 				}
-				else if(this.isNum == 4)
+				else if(this.isNum == 3)
 				{
 					this.isNum = 0
 					this.check04 = this.isNum
@@ -666,6 +679,9 @@ export default {
 		},
 		of(){
 			this.isShow = false
+			this.isNum = 0
+			this.popphoto =''
+			Object.assign(this.$data, this.$options.data.call(this));
 		}
 	}
 }
@@ -728,10 +744,10 @@ export default {
 .bl_pop {
 	position: absolute;
 	z-index: 10;
-	top: 0%;
-	left: 0;
-	width: 100%;
-	height: 200%;
+	top: 5%;
+	left: 5%;
+	width: 90%;
+	height: 90%;
 	background: rgba(128, 128, 128, 0.925);
 	filter: blur(80%);
 }
