@@ -3,7 +3,7 @@
 		<div class="bl01">
 			<div v-show="isShow" class="bl_pop">
 				<div>
-					<button @click="of()">✖︎</button>
+					<button @click="of()">✖︎</button>{{height}}
 				</div>
 				<div class="imge">
 					<img class="imgf" :src="popphoto_m">
@@ -113,6 +113,7 @@
 export default {
 	data() {
 		return {
+			height:0,
 			NumM:'',
 			Numl:'',
 			Numr:'',
@@ -227,15 +228,19 @@ export default {
 			},
 		}
 	},
-	mounted:{
-		ui(){
-			this.photo = this.PhotoData.stbHKDTHK[0]
-		}
+	mounted(){
+
   },
 	methods:{
 		chi(isPart)
 		{
 			this.isShow = true
+			const posi = window.pageYOffset
+			let height = posi
+			this.height = height
+			window.scrollTo({
+				top: top
+      });
 			if(isPart == 0)
 			{
 				if(this.isNum == 0)
@@ -681,7 +686,9 @@ export default {
 			this.isShow = false
 			this.isNum = 0
 			this.popphoto =''
+			let popPosi = this.height
 			Object.assign(this.$data, this.$options.data.call(this));
+			window.scrollBy(0,popPosi);
 		}
 	}
 }
@@ -699,6 +706,7 @@ export default {
 	width: 100%;
 	margin-top: 2%;
 }
+
 .box {
   width: 100px;
   height: 100px;
@@ -744,12 +752,11 @@ export default {
 .bl_pop {
 	position: absolute;
 	z-index: 10;
-	top: 5%;
-	left: 5%;
-	width: 90%;
-	height: 90%;
-	background: rgba(128, 128, 128, 0.925);
-	filter: blur(80%);
+	width: 100%;
+	height: 300%;
+	top: 0;
+	background: rgba(255, 255, 255, 0.842);
+	backdrop-filter: blur(5px);
 }
 .bl_img_ttl{
 	text-align: center;

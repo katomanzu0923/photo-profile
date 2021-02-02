@@ -3,7 +3,7 @@
 		<div class="bl01">
 			<div v-show="isShow" class="bl_pop">
 				<div>
-					<button @click="of()">✖︎</button>
+					<button @click="of()">✖︎</button>{{height}}
 				</div>
 				<div class="imge">
 					<img class="imgf" :src="popphoto_m">
@@ -32,7 +32,10 @@
 				<img class="el_popImg" :src="photo"><p class="el_img_ttl">{{Location}}</p>
 				<div class="bl_circle">
 					<div :class="[check === 0? 'onCircle': 'circle']">1</div>
-					<div :class="[check === 3? 'onCircle': 'circle']">2</div>
+					<div :class="[check === 1? 'onCircle': 'circle']">2</div>
+					<div :class="[check === 2? 'onCircle': 'circle']">3</div>
+					<div :class="[check === 3? 'onCircle': 'circle']">4</div>
+					<div :class="[check === 4? 'onCircle': 'circle']">5</div>
 				</div>
 				<div class="bl_imgBtn">
 					<button class="el_btn" @click="isBack(0)">Back</button><button class="el_Btn" type="button" @click="chi(0)">詳細へ</button><button @click="isNext(0)" class="el_btn">Next</button>
@@ -43,7 +46,9 @@
 				<img class="el_popImg" :src="photo01" ><p class="el_img_ttl">{{Location01}}</p>
 				<div class="bl_circle">
 					<div :class="[check01 === 0? 'onCircle': 'circle']">1</div>
-					<div :class="[check01 === 3? 'onCircle': 'circle']">2</div>
+					<div :class="[check01 === 1? 'onCircle': 'circle']">2</div>
+					<div :class="[check01 === 2? 'onCircle': 'circle']">3</div>
+					<div :class="[check01 === 3? 'onCircle': 'circle']">4</div>
 				</div>
 				<div class="bl_imgBtn">
 					<button class="el_btn" @click="isBack(1)">Back</button><button class="el_Btn" type="button" @click="chi(1)">詳細へ</button><button @click="isNext(1)" class="el_btn">Next</button>
@@ -54,7 +59,8 @@
 				<img class="el_popImg" :src="photo02"><p class="el_img_ttl">{{Location02}}</p>
 				<div class="bl_circle">
 					<div :class="[check02 === 0? 'onCircle': 'circle']">1</div>
-					<div :class="[check02 === 3? 'onCircle': 'circle']">2</div>
+					<div :class="[check02 === 1? 'onCircle': 'circle']">2</div>
+					<div :class="[check02 === 2? 'onCircle': 'circle']">3</div>
 				</div>
 				<div class="bl_imgBtn">
 					<button class="el_btn" @click="isBack(2)">Back</button><button class="el_Btn" type="button" @click="chi(2)">詳細へ</button><button @click="isNext(2)" class="el_btn">Next</button>
@@ -113,6 +119,7 @@
 export default {
 	data() {
 		return {
+			height:0,
 			NumM:'',
 			Numl:'',
 			Numr:'',
@@ -128,10 +135,10 @@ export default {
 			isNum:0,
 			isShow:false,
 			popphoto:'',
-			photo:require('@/assets/stbHKD01.png'),
-			photo01:require('@/assets/stbKWG01.png'),
-			photo02:require('@/assets/stbTYM01.png'),
-			photo03:require('@/assets/stbFOD01.png'),
+			photo:require('@/assets/japanHKD01.png'),
+			photo01:require('@/assets/japanSHN01.png'),
+			photo02:require('@/assets/japanNGNm.png'),
+			photo03:require('@/assets/japanMIEm.png'),
 			photo04:require('@/assets/stbKTN01.png'),
 			photo05:require('@/assets/stbDGO01.png'),
 			photo06:require('@/assets/stbOKW01.png'),
@@ -164,32 +171,26 @@ export default {
 				],
 			},
 			PhotoData:{
-				stbHKDTHK: [
-					require('@/assets/stbHKD01.png'),
-					require('@/assets/stbHKD02.png'),
-					require('@/assets/stbHKD03.png'),
-					require('@/assets/stbHSK01.png'),
-					require('@/assets/stbHSK02.png'),
-					require('@/assets/stbHSK03.png'),
+				japanHKDTHK: [
+					require('@/assets/japanHKD01.png'),
+					require('@/assets/japanBEI01.png'),
+					require('@/assets/japanAKT01.png'),
+					require('@/assets/japanHSK01.png'),
+					require('@/assets/japanNGT01.png'),
 				],
-				stbKNT: [
-					require('@/assets/stbKWG01.png'),
-					require('@/assets/stbKWG02.png'),
-					require('@/assets/stbKWG03.png'),
-					require('@/assets/stbUEN01.png'),
-					require('@/assets/stbUEN02.png'),
-					require('@/assets/stbUEN03.png')
+				japanKNT: [
+					require('@/assets/japanSHN01.png'),
+					require('@/assets/japanTIB01.png'),
+					require('@/assets/japanIBG01.png'),
+					require('@/assets/japanTKOm.png'),
 				],
 				stbHSE: [
-					require('@/assets/stbTYM01.png'),
-					require('@/assets/stbTYM02.png'),
-					require('@/assets/stbTYM03.png'),
-					require('@/assets/stbFKI01.png'),
-					require('@/assets/stbFKI02.png'),
-					require('@/assets/stbFKI03.png')
+					require('@/assets/japanNGNm.png'),
+					require('@/assets/japanYMNm.png'),
+					require('@/assets/japanFKIm.png'),
 				],
 				stbTOK: [
-					require('@/assets/stbFOD01.png'),
+					require('@/assets/japanMIEm.png'),
 					require('@/assets/stbFOD02.png'),
 					require('@/assets/stbFOD03.png'),
 					require('@/assets/stbHMM01.png'),
@@ -229,13 +230,19 @@ export default {
 	},
 	mounted:{
 		ui(){
-			this.photo = this.PhotoData.stbHKDTHK[0]
+			this.photo = this.PhotoData.japanHKDTHK[0]
 		}
   },
 	methods:{
 		chi(isPart)
 		{
 			this.isShow = true
+			const posi = window.pageYOffset
+			let height = posi
+			this.height = height
+			window.scrollTo({
+				top: top
+			});
 			if(isPart == 0)
 			{
 				if(this.isNum == 0)
@@ -244,19 +251,20 @@ export default {
 					this.Body = this.CameraData.Body[0]
 					this.Renzu = this.CameraData.Renzu[1]
 					this.State = this.CameraData.State[0]
-					this.photo_l = this.PhotoData.stbHKDTHK[1]
-					this.photo_r = this.PhotoData.stbHKDTHK[2]
+					this.photo_l = this.PhotoData.japanHKDTHK[1]
+					this.photo_r = this.PhotoData.japanHKDTHK[2]
+					this.popphoto_m = this.popphoto
 					this.popphoto_l = this.photo_l
 					this.popphoto_r = this.photo_r
 				}
-				else if(this.isNum == 3)
+				else if(this.isNum == 1)
 				{
 					this.popphoto = this.photo
 					this.Body = this.CameraData.Body[1]
 					this.Renzu = this.CameraData.Renzu[1]
 					this.State = this.CameraData.State[0]
-					this.photo_l = this.PhotoData.stbHKDTHK[4]
-					this.photo_r = this.PhotoData.stbHKDTHK[5]
+					this.photo_l = this.PhotoData.japanHKDTHK[4]
+					this.photo_r = this.PhotoData.japanHKDTHK[5]
 					this.popphoto_m = this.popphoto
 					this.popphoto_l = this.photo_l
 					this.popphoto_r = this.photo_r
@@ -268,8 +276,8 @@ export default {
 				if(this.isNum == 0)
 				{
 					this.popphoto = this.photo01
-					this.photo_l = this.PhotoData.stbKNT[1]
-					this.photo_r = this.PhotoData.stbKNT[2]
+					this.photo_l = this.PhotoData.japanKNT[1]
+					this.photo_r = this.PhotoData.japanKNT[2]
 					this.popphoto_m = this.popphoto
 					this.popphoto_l = this.photo_l
 					this.popphoto_r = this.photo_r
@@ -277,8 +285,8 @@ export default {
 				else if(this.isNum == 3)
 				{
 					this.popphoto = this.photo01
-					this.photo_l = this.PhotoData.stbKNT[4]
-					this.photo_r = this.PhotoData.stbKNT[5]
+					this.photo_l = this.PhotoData.japanKNT[4]
+					this.photo_r = this.PhotoData.japanKNT[5]
 					this.popphoto_m = this.popphoto
 					this.popphoto_l = this.photo_l
 					this.popphoto_r = this.photo_r
@@ -406,46 +414,88 @@ export default {
 			{
 				if(this.isNum == 0)
 				{
-					this.isNum = 3
+					this.isNum = 1
 					this.check = this.isNum
 					this.Location = this.CameraData.Location[1]
-					this.photo = this.PhotoData.stbHKDTHK[this.isNum]
+					this.photo = this.PhotoData.japanHKDTHK[this.isNum]
+				}
+				else if(this.isNum == 1)
+				{
+					this.isNum = 2
+					this.check = this.isNum
+					this.Location = this.CameraData.Location[0]
+					this.photo = this.PhotoData.japanHKDTHK[this.isNum]
+				}
+				else if(this.isNum == 2)
+				{
+					this.isNum = 3
+					this.check = this.isNum
+					this.Location = this.CameraData.Location[0]
+					this.photo = this.PhotoData.japanHKDTHK[this.isNum]
 				}
 				else if(this.isNum == 3)
+				{
+					this.isNum = 4
+					this.check = this.isNum
+					this.Location = this.CameraData.Location[0]
+					this.photo = this.PhotoData.japanHKDTHK[this.isNum]
+				}
+				else if(this.isNum == 4)
 				{
 					this.isNum = 0
 					this.check = this.isNum
 					this.Location = this.CameraData.Location[0]
-					this.photo = this.PhotoData.stbHKDTHK[this.isNum]
+					this.photo = this.PhotoData.japanHKDTHK[this.isNum]
 				}
 			}
 			else if(isPart == 1)
 			{
 				if(this.isNum == 0)
 				{
-					this.isNum = 3
+					this.isNum = 1
 					this.check01 = this.isNum
 					this.Location01 = this.CameraData.Location[3]
-					this.photo01 = this.PhotoData.stbKNT[this.isNum]
+					this.photo01 = this.PhotoData.japanKNT[this.isNum]
+				}
+				else if(this.isNum == 1)
+				{
+					this.isNum = 2
+					this.check01 = this.isNum
+					this.Location01 = this.CameraData.Location[2]
+					this.photo01 = this.PhotoData.japanKNT[this.isNum]
+				}
+				else if(this.isNum == 2)
+				{
+					this.isNum = 3
+					this.check01 = this.isNum
+					this.Location01 = this.CameraData.Location[2]
+					this.photo01 = this.PhotoData.japanKNT[this.isNum]
 				}
 				else if(this.isNum == 3)
 				{
 					this.isNum = 0
 					this.check01 = this.isNum
 					this.Location01 = this.CameraData.Location[2]
-					this.photo01 = this.PhotoData.stbKNT[this.isNum]
+					this.photo01 = this.PhotoData.japanKNT[this.isNum]
 				}
 			}
 			else if(isPart == 2)
 			{
 				if(this.isNum == 0)
 				{
-					this.isNum = 3
+					this.isNum = 1
 					this.check02 = this.isNum
 					this.Location02 = this.CameraData.Location[5]
 					this.photo02 = this.PhotoData.stbHSE[this.isNum]
 				}
-				else if(this.isNum == 3)
+				else if(this.isNum == 1)
+				{
+					this.isNum = 2
+					this.check02 = this.isNum
+					this.Location02 = this.CameraData.Location[4]
+					this.photo02 = this.PhotoData.stbHSE[this.isNum]
+				}
+				else if(this.isNum == 2)
 				{
 					this.isNum = 0
 					this.check02 = this.isNum
@@ -535,17 +585,38 @@ export default {
 			{
 				if(this.isNum == 0)
 				{
+					this.isNum = 4
+					this.check = this.isNum
+					this.Location = this.CameraData.Location[1]
+					this.photo = this.PhotoData.japanHKDTHK[this.isNum]
+				}
+				else if(this.isNum == 4)
+				{
 					this.isNum = 3
 					this.check = this.isNum
 					this.Location = this.CameraData.Location[1]
-					this.photo = this.PhotoData.stbHKDTHK[this.isNum]
+					this.photo = this.PhotoData.japanHKDTHK[this.isNum]
 				}
 				else if(this.isNum == 3)
 				{
+					this.isNum = 2
+					this.check = this.isNum
+					this.Location = this.CameraData.Location[1]
+					this.photo = this.PhotoData.japanHKDTHK[this.isNum]
+				}
+				else if(this.isNum == 2)
+				{
+					this.isNum = 1
+					this.check = this.isNum
+					this.Location = this.CameraData.Location[1]
+					this.photo = this.PhotoData.japanHKDTHK[this.isNum]
+				}
+				else if(this.isNum == 1)
+				{
 					this.isNum = 0
 					this.check = this.isNum
-					this.Location = this.CameraData.Location[0]
-					this.photo = this.PhotoData.stbHKDTHK[this.isNum]
+					this.Location = this.CameraData.Location[1]
+					this.photo = this.PhotoData.japanHKDTHK[this.isNum]
 				}
 			}
 			else if(isPart == 1)
@@ -555,14 +626,14 @@ export default {
 					this.isNum = 3
 					this.check01 = this.isNum
 					this.Location01 = this.CameraData.Location[3]
-					this.photo01 = this.PhotoData.stbKNT[this.isNum]
+					this.photo01 = this.PhotoData.japanKNT[this.isNum]
 				}
 				else if(this.isNum == 3)
 				{
 					this.isNum = 0
 					this.check01 = this.isNum
 					this.Location01 = this.CameraData.Location[2]
-					this.photo01 = this.PhotoData.stbKNT[this.isNum]
+					this.photo01 = this.PhotoData.japanKNT[this.isNum]
 				}
 			}
 			else if(isPart == 2)
@@ -681,7 +752,10 @@ export default {
 			this.isShow = false
 			this.isNum = 0
 			this.popphoto =''
+			let popPosi = this.height
 			Object.assign(this.$data, this.$options.data.call(this));
+			window.scrollBy(0,popPosi);
+			console.log(popPosi)
 		}
 	}
 }
