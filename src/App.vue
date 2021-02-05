@@ -6,14 +6,16 @@
     <Header
       class="revise"
       v-on:change="ChangeMyProfile()"
-      v-on:change1="ChangePort()"
-      v-on:change02="ChangeStb()"
-      v-on:change03="ChangeJp()">
+      v-on:change01="ChangeMybest()"
+      v-on:change02="ChangePort()"
+      v-on:change03="ChangeStb()"
+      v-on:change04="ChangeJp()">
     </Header>
       <MyProfile v-if="tab==0"></MyProfile>
-      <Portraito v-if="tab==1"></Portraito>
-      <Starbacks v-if="tab==2"></Starbacks>
-      <Japan v-if="tab==3"></Japan>
+      <MyBests v-if="tab==1"></MyBests>
+      <Portraito v-if="tab==2"></Portraito>
+      <Starbacks v-if="tab==3"></Starbacks>
+      <Japan v-if="tab==4"></Japan>
   </div>
 </template>
 
@@ -24,6 +26,7 @@ import Portraito from './components/Portraito.vue'
 import Starbacks from './components/Starbacks.vue'
 import Japan from './components/Japan.vue'
 import MyProfile from './components/MyProfile.vue'
+import MyBests from './components/MyBests.vue'
 import 'normalize.css'
 
 export default {
@@ -40,7 +43,8 @@ export default {
     Portraito,
     Starbacks,
     Japan,
-    MyProfile
+    MyProfile,
+    MyBests
 	},
 	computed: {
 
@@ -49,17 +53,20 @@ export default {
     changepop() {
       this.isPop = false
     },
+    ChangeMybest(){
+      this.tab = 1
+    },
     ChangeMyProfile() {
       this.tab = 0
     },
     ChangePort() {
-      this.tab = 1
-    },
-    ChangeStb() {
       this.tab = 2
     },
-    ChangeJp() {
+    ChangeStb() {
       this.tab = 3
+    },
+    ChangeJp() {
+      this.tab = 4
     }
   }
 }

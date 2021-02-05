@@ -1,176 +1,19 @@
 <template>
-	<div class="ly">
-			<div class="bl_btn">
-				<p :class="[tabCheck== 0? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(0)">北海道・東北</p>
-				<p :class="[tabCheck== 1? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(1)">関東</p>
-				<p :class="[tabCheck== 2? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(2)">北信越</p>
-				<p :class="[tabCheck== 3? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(3)">東海</p>
-				<p :class="[tabCheck== 4? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(4)">関西</p>
-				<p :class="[tabCheck== 5? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(5)">中国・四国</p>
-				<p :class="[tabCheck== 6? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(6)">九州・沖縄</p>
-			</div>
-			<div v-if="tabState==0" >
-				<div class="page-l">
-					<div class="bl_pht01_l">
-						<img class="el_img" :src="photo01">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo02">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div v-if="tabState==1" >
-				<div class="page-l">
-					<div class="bl_pht02_l">
-						<img class="el_img" :src="photo03">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo04">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div v-if="tabState==2" >
-				<div class="page-l">
-					<div class="bl_pht02_l">
-						<img class="el_img" :src="photo03">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo04">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div v-if="tabState==3" >
-				<div class="page-l">
-					<div class="bl_pht02_l">
-						<img class="el_img" :src="photo03">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo04">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div v-if="tabState==4" >
-				<div class="page-l">
-					<div class="bl_pht02_l">
-						<img class="el_img" :src="photo03">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo04">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div v-if="tabState==5" >
-				<div class="page-l">
-					<div class="bl_pht02_l">
-						<img class="el_img" :src="photo03">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo04">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div v-if="tabState==1" >
-				<div class="page-l">
-					<div class="bl_pht02_l">
-						<img class="el_img" :src="photo03">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo04">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--  
+	<div class="bl">
 			<div class="bl_img">
-				<span class="el_img_ttl">Boy</span>
-				<img class="el_popImg" :src="photo02"><p class="el_img_ttl">{{Location02}}</p>
-				<div class="bl_circle">
-					<div :class="[check02 === 0? 'onCircle': 'circle']">1</div>
-				</div>
-				<div class="bl_imgBtn">
-					<p class="el_btn" @click="isBack(2)">Back</p><p class="el_Btn" type="p" @click="chi(2)">詳細へ</p><p @click="isNext(2)" class="el_btn">Next</p>
-				</div>
-			</div> 
-		-->
-	</div>
+				<img class="el_popImg" :src="photo">
+				<img class="el_popImg01" :src="photo">
+				<img class="el_popImg02" :src="photo">
+				<img class="el_popImg03" :src="photo">
+			</div>
+		</div>
 </template>
 
 <script>
 export default {
 	data() {
 		return {
-			tabCheck:0,
-			tabState:0,
-			isUp:false,
+			NumM:'',
 			Numl:'',
 			Numr:'',
 			secNum:0,
@@ -182,10 +25,13 @@ export default {
 			isNum:0,
 			isShow:false,
 			popphoto:'',
-			photo01:require('@/assets/stbHKD01.png'),
-			photo02:require('@/assets/stbHSK01.png'),
-			photo03:require('@/assets/stbKWG01.png'),
-			photo04:require('@/assets/stbUEN01.png'),
+			photo:require('@/assets/portWORKm.png'),
+			photo01:require('@/assets/portGIRLm.png'),
+			photo02:require('@/assets/portMENm.png'),
+			photo03:require('@/assets/stbFOD01.png'),
+			photo04:require('@/assets/stbKTN01.png'),
+			photo05:require('@/assets/stbDGO01.png'),
+			photo06:require('@/assets/stbOKW01.png'),
 			photo_l:require('@/assets/stbkobe02.png'),
 			photo_r:require('@/assets/stbOKW01.png'),
 			popphoto_l:'',
@@ -195,7 +41,7 @@ export default {
 			State:'F4',
 			Location:'函館ベイサイド店',
 			Location01:'鐘つき通り店',
-			Location02:'弘前公園店',
+			Location02:'冠水公園店',
 			Location03:'フライトオブドリーム店',
 			Location04:'北野異人館店',
 			Location05:'道後温泉駅店',
@@ -215,9 +61,8 @@ export default {
 				],
 			},
 			PhotoData:{
-				stbHKDTHK: [
-					require('@/assets/stbHKD01.png'),
-					require('@/assets/stbHSK01.png'),
+				portWORK: [
+					require('@/assets/portWORKm.png'),
 				],
 				stbGIRL: [
 					require('@/assets/portGIRLm.png'),
@@ -232,48 +77,8 @@ export default {
 		ui(){
 			this.photo = this.PhotoData.portWORK[0]
 		}
-	},
+  },
 	methods:{
-		karis(){
-			this.isUp =true
-		},
-		changeTab(tab)
-		{
-			if(tab == 0){
-				this.tabState = 0
-				this.tabCheck = 0
-			}
-			else if(tab == 1)
-			{
-				this.tabState = 1
-				this.tabCheck = 1
-			}
-			else if(tab == 2)
-			{
-				this.tabState = 2
-				this.tabCheck = 2
-			}
-			else if(tab == 3)
-			{
-				this.tabState =3
-				this.tabCheck =3
-			}
-			else if(tab == 4)
-			{
-				this.tabState = 4
-				this.tabCheck = 4
-			}
-			else if(tab == 5)
-			{
-				this.tabState = 5
-				this.tabCheck = 5
-			}
-			else if(tab == 6)
-			{
-				this.tabState = 6
-				this.tabCheck = 6
-			}
-		},
 		chi(isPart)
 		{
 			this.isShow = true
@@ -730,121 +535,76 @@ export default {
 
 <style lang="scss" scoped>
 .ly {
-	position: absolute;
-	width: 98%;
-	left: 1%;
-	top: 1%;
-	height: 98%;
-	background: rgba(236, 235, 235, 0.856);
-	border-left: rgb(206, 206, 221) 2px solid;
+	height: 100%;
 }
-p{
-	display: inline-block;
-	margin: 2px;
-}
-button{
-	border: none;
-	background: none;
-}
-.bl_btn{
-	position: absolute;
-	top: 0;
-	left: 0;
-
-}
-
-.page-l{
-	position: absolute;
-	top: 2%;
-	z-index: 1;
-	width: 50%;
-height: 98vh;
-}
-.page-r{
-	position: absolute;
-	top: 0%;
-	right: 0;
-	z-index: 1;
-	width: 50%;
-	height: 98vh;
-	border-left: 1px dotted rgb(110, 76, 25);
-}
-.el_btn{
-	display: inline-block;
-}
-.bl_pht01_l{
-	position: absolute;
-	left: 5%;
-	top: 15%;
-	width: 70%;
-	height: 40%;
-	z-index: 1;
-}
-.bl_pht01_r{
-	position: absolute;
-	left: 15%;
-	top: 35%;
-	width: 70%;
-	height: 40%;
-	z-index: 1;
-}
-.bl_pht02_l{
-	position: absolute;
-	left: 5%;
-	top: 45%;
-	width: 70%;
-	height: 40%;
-	z-index: 1;
-}
-.el_img{
+.bl {
 	position: absolute;
 	width: 100%;
-	left: 0%;
+	top: 10%;
 	height: 90%;
-	box-shadow:  0 2px 2px 0 rgba(0, 0, 0, 0.29);
-  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.795);
+	z-index: 1;
 }
-.bl_imgTxt{
-	position: absolute;
-	top:90%;
+.box {
+  width: 100px;
+  height: 100px;
+  background: #ffa500;
+  border-radius: 50%;
+}
+.bl_img{
+	position: relative;
+	background: rgba(104, 104, 104, 0.082);
 	width: 100%;
+	height: 90vh;
 }
-.el_img_posTxt{
-	padding: 5px;
-	color: rgb(182, 163, 112);
+.bl::after {
+    content: "";
+    display: block;
+    width: 30%;
+		margin: 1%;
 }
-.el_img_popTxt{
-	padding: 5px;
-	color: rgb(179, 169, 169);
+.bl_imgBtn{
+  margin:  0 auto;
 }
-.el_img_ttl{
-  display: inline-block;
-	border-radius: 2%;
-	border-bottom: blue solid 1px;
-	padding: 5px 5px;
-	margin: 0;
-	border-top: none;
-	border-bottom:none;
-	box-shadow:  none;
+.el_popImg{
+	position: absolute;
+	width: 95%;
+	height: 90%;
+	margin: 2.5% 2.5%;
+	box-shadow: 5px 5px 0px 0 rgba(26, 28, 29, 0.438)
 }
-.el_img_ttl_def{
-  display: inline-block;
-	border-radius: 2%;
-	padding: 5px 5px;
-	margin: 0;
-	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
+.el_popImg01{
+	position: absolute;
+	width: 45%;
+	height: 40%;
+	right: 0;
+	transform:rotate(-5deg); 
 
 }
-
-.el_img_txt{
-	text-align: start;
-  display: inline-block;
-	padding: 3px;
-	margin: 0;
+.el_popImg02{
+	position: absolute;
+	width: 45%;
+	height: 40%;
+	left: 25%;
+	transform:rotate(4deg); 
 }
-.el_img_detail{
-	display: inline;
-	text-align: right;
+.el_popImg03{
+	position: absolute;
+	width: 45%;
+	height: 40%;
+	left: 0%;
+	transform:rotate(5deg); 
+}
+.el_popImg_l{
+	position: absolute;
+	right: 60%;
+	width: 40%;
+	height: 40%;
+}
+.el_popImg_r{
+	position: absolute;
+	right: 10%;
+	width: 40%;
+	height: 40%;
 }
 .bl_pop {
 	position: absolute;
@@ -856,35 +616,81 @@ height: 98vh;
 	background: rgba(128, 128, 128, 0.925);
 	filter: blur(80%);
 }
-.defalt{
+.bl_img_ttl{
 	text-align: center;
-  display: inline-block;
-	background: rgba(179, 22, 22, 0.082);
-	border-radius: 2%;
-	border: solid rgba(104, 104, 104, 0.288) 1px;
-	top:0%;
-	left: 0%;
-}
-
-
-.el_img_ttl02{
-	text-align: center;
+	position: absolute;
   display: inline-block;
 	background: rgba(104, 104, 104, 0.082);
 	border-radius: 2%;
+	padding: 5px 0;
 	border: solid rgba(104, 104, 104, 0.288) 1px;
-	top:0%;
-	left: 4%;
+	width: 80%;
+	top: -10%;
+	left: 10%;
+	font-size: 2rem;
 }
 
-.el_img_ttl03{
+.el_img_ttl{
+	background: white;
+	bottom: 7%;
 	text-align: center;
-  display: inline-block;
-	background: rgba(104, 104, 104, 0.082);
-	border-radius: 2%;
-	border: solid rgba(104, 104, 104, 0.288) 1px;
-	top:-4%;
-	left: 4%;
+	padding: 2px 0;
+	width: 80%;
+	left: 0;
+  right: 0;
+  margin: auto;
 }
-
+.bl_imgBtn{
+	display: flex;
+	justify-content: center;
+}
+.el_btn{
+	display: block;
+	margin: 0 5px;
+}
+.imgf{
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding-right: 2.5%;
+	margin: 5% 2.5%;
+	z-index: 10;
+	width: 70%;
+	height: 700px;
+	border-right: 1px dotted black;
+}
+.r{
+	position: absolute;
+	text-align: center;
+	right: 0;
+	width: 25%;
+	margin: 5% 0;
+	
+}
+.bl_circle {
+		margin: auto;
+		text-align: center;
+}
+.circle {
+	display: inline-block;
+    width: 20px;
+    height: 20px; 
+    background-color:rgba(0, 0, 128, 0.082);
+    border-radius: 50%; 
+    text-align: center;/* ←文字を左右に中央揃え */
+    line-height: 20px;/* ←文字を上下に中央揃え */
+		margin: 5px 10px;
+		padding: 3px;
+}
+.onCircle {
+	display: inline-block;
+    width: 20px;
+    height: 20px; 
+    background-color:rgba(0, 0, 128, 0.486);
+    border-radius: 50%; 
+    text-align: center;/* ←文字を左右に中央揃え */
+    line-height: 20px;/* ←文字を上下に中央揃え */
+		margin: 5px 10px;
+		padding: 3px;
+}
 </style>
