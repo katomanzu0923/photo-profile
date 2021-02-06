@@ -12,10 +12,10 @@
       v-on:change04="ChangeJp()">
     </Header>
       <MyProfile v-if="tab==0"></MyProfile>
-      <MyBests v-if="tab==1"></MyBests>
-      <Portraito v-if="tab==2"></Portraito>
-      <Starbacks v-if="tab==3"></Starbacks>
-      <Japan v-if="tab==4"></Japan>
+      <Portraito v-if="tab==1"></Portraito>
+      <Starbacks v-if="tab==2"></Starbacks>
+      <Japan v-if="tab==3"></Japan>
+      <MyBests v-if="tab==4"></MyBests>
   </div>
 </template>
 

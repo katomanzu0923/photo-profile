@@ -2,10 +2,10 @@
 	<div class="ly_header">
 		<div class="bl_header bl_header_clr">
 			<p @click="change(0)" :class="[btnCheck==0? 'el_btn_is':'el_btn_def']">My Profile</p>
-			<p @click="change(1)" :class="[btnCheck==1? 'el_btn_is':'el_btn_def']">Contact</p>
-			<p @click="change(2)" :class="[btnCheck==2? 'el_btn_is':'el_btn_def']">Portraito</p>
-			<p @click="change(3)" :class="[btnCheck==3? 'el_btn_is':'el_btn_def']">Star Bucks</p>
-			<p @click="change(4)" :class="[btnCheck==4?'el_btn_is':'el_btn_def']">Japan</p>
+			<p @click="change(1)" :class="[btnCheck==1? 'el_btn_is':'el_btn_def']">Portraito</p>
+			<p @click="change(2)" :class="[btnCheck==2? 'el_btn_is':'el_btn_def']">Star Bucks</p>
+			<p @click="change(3)" :class="[btnCheck==3?'el_btn_is':'el_btn_def']">Japan</p>
+			<p @click="change(4)" :class="[btnCheck==4? 'el_btn_is':'el_btn_def']">Contact</p>
 		</div>
 	</div>
 </template>
@@ -71,13 +71,15 @@ p{
 	border-radius: 2%;
 	padding: 5px 5px;
 	margin: 0;
-	border-bottom: 1px solid blueviolet;
+	border-top: none;
+	box-shadow:  none;
 }
 .el_btn_def{
 	display: inline-block;
 	border-radius: 2%;
 	padding: 5px 5px;
 	margin: 0;
+	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
 }
 
 .bl_header_clr {
