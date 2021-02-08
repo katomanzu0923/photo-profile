@@ -123,24 +123,24 @@
 					</div>
 				</div>
 			</div>
-			<div v-if="tabState==2" >
+			<div v-if="tabState==3" >
 				<div class="page-l">
 					<div class="bl_pht03_m_l">
-						<img class="el_img" :src="mainPhoto05">
+						<img class="el_img" :src="mainPhoto_l">
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{Location05}}ー</p><br>
 							<button class="el_img_popTxt" @click="karis(3)">詳細をみる</button>
 						</div>
 					</div>
 					<div class="bl_pht03_sub01_l">
-						<img class="el_img" :src="subPhoto09">
+						<img class="el_img" :src="subPhoto01_l">
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{Location05}}ー</p><br>
 							<button class="el_img_popTxt" @click="karis(3)">詳細をみる</button>
 						</div>
 					</div>
 					<div class="bl_pht03_sub02_l">
-						<img class="el_img" :src="subPhoto010">
+						<img class="el_img" :src="subPhoto02_l">
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{Location05}}ー</p><br>
 							<button class="el_img_popTxt" @click="karis(3)">詳細をみる</button>
@@ -149,21 +149,21 @@
 				</div>
 				<div class="page-r">
 					<div class="bl_pht03_m_r">
-						<img class="el_img" :src="mainPhoto06">
+						<img class="el_img" :src="mainPhoto_r">
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{Location06}}ー</p><br>
 							<button class="el_img_popTxt" @click="karis(4)">詳細をみる</button>
 						</div>
 					</div>
 					<div class="bl_pht03_sub01_r">
-						<img class="el_img" :src="subPhoto011">
+						<img class="el_img" :src="subPhoto01_r">
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{Location06}}ー</p><br>
 							<button class="el_img_popTxt" @click="karis(4)">詳細をみる</button>
 						</div>
 					</div>
 					<div class="bl_pht03_sub02_r">
-						<img class="el_img" :src="subPhoto012">
+						<img class="el_img" :src="subPhoto02_r">
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{Location06}}ー</p><br>
 							<button class="el_img_popTxt" @click="karis(4)">詳細をみる</button>
@@ -171,24 +171,24 @@
 					</div>
 				</div>
 			</div>
-			<div v-if="tabState==3" >
+			<div v-if="tabState==4" >
 				<div class="page-l">
 					<div class="bl_pht04_m_l">
-						<img class="el_img" :src="mainPhoto07">
+						<img class="el_img" :src="mainPhoto_l">
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{Location07}}ー</p><br>
 							<button class="el_img_popTxt" @click="isUP_TOK(0)">詳細をみる</button>
 						</div>
 					</div>
 					<div class="bl_pht04_sub01_l">
-						<img class="el_img" :src="subPhoto013">
+						<img class="el_img" :src="subPhoto01_l">
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{Location07}}ー</p><br>
 							<button class="el_img_popTxt" @click="isUP_TOK(1)">詳細をみる</button>
 						</div>
 					</div>
 					<div class="bl_pht04_sub02_l">
-						<img class="el_img" :src="subPhoto014">
+						<img class="el_img" :src="subPhoto02_l">
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
 							<button class="el_img_popTxt" @click="isUP_TOK(2)">詳細をみる</button>
@@ -197,132 +197,168 @@
 				</div>
 				<div class="page-r">
 					<div class="bl_pht04_m_r">
-						<img class="el_img" :src="mainPhoto08">
+						<img class="el_img" :src="mainPhoto_r">
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
 							<button class="el_img_popTxt" @click="isUP_TOK(3)">詳細をみる</button>
 						</div>
 					</div>
 					<div class="bl_pht04_sub01_r">
-						<img class="el_img" :src="subPhoto015">
+						<img class="el_img" :src="subPhoto01_r">
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
 							<button class="el_img_popTxt" @click="isUP_TOK(4)">詳細をみる</button>
 						</div>
 					</div>
 					<div class="bl_pht04_sub02_r">
-						<img class="el_img" :src="subPhoto016">
+						<img class="el_img" :src="subPhoto02_r">
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
 							<button class="el_img_popTxt" @click="isUP_TOK(5)">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div v-if="tabState==4" >
-				<div class="page-l">
-					<div class="bl_pht05_m_l">
-						<img class="el_img" :src="mainPhoto09">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location09}}ー</p><br>
-							<button class="el_img_popTxt" @click="isUP_TOK(0)">詳細をみる</button>
-						</div>
-					</div>
-					<div class="bl_pht05_sub01_l">
-						<img class="el_img" :src="subPhoto017">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location09}}ー</p><br>
-							<button class="el_img_popTxt" @click="isUP_TOK(1)">詳細をみる</button>
-						</div>
-					</div>
-					<div class="bl_pht05_sub02_l">
-						<img class="el_img" :src="subPhoto018">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location09}}ー</p><br>
-							<button class="el_img_popTxt" @click="isUP_TOK(2)">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht05_m_r">
-						<img class="el_img" :src="mainPhoto010">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location010}}ー</p><br>
-							<button class="el_img_popTxt" @click="isUP_TOK(3)">詳細をみる</button>
-						</div>
-					</div>
-					<div class="bl_pht03_sub01_r">
-						<img class="el_img" :src="subPhoto015">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
-							<button class="el_img_popTxt" @click="isUP_TOK(4)">詳細をみる</button>
-						</div>
-					</div>
-					<div class="bl_pht03_sub02_r">
-						<img class="el_img" :src="subPhoto016">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
-							<button class="el_img_popTxt" @click="isUP_TOK(5)">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div v-if="tabState==4" >
-				<div class="page-l">
-					<div class="bl_pht02_m_l">
-						<img class="el_img" :src="mainPhoto09">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location09}}ー</p><br>
-							<button class="el_img_popTxt" @click="karis(8)">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_m_r">
-						<img class="el_img" :src="mainPhoto010">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location010}}ー</p><br>
-							<button class="el_img_popTxt" @click="karis(9)">詳細をみる</button>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div v-if="tabState==5" >
 				<div class="page-l">
-					<div class="bl_pht02_m_l">
-						<img class="el_img" :src="mainPhoto011">
+					<div class="bl_pht05_m_l">
+						<img class="el_img" :src="mainPhoto_l">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location11}}ー</p><br>
-							<button class="el_img_popTxt" @click="karis(10)">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{Location07}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht05_sub01_l">
+						<img class="el_img" :src="subPhoto01_l">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location07}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(1)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht05_sub02_l">
+						<img class="el_img" :src="subPhoto02_l">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(2)">詳細をみる</button>
 						</div>
 					</div>
 				</div>
 				<div class="page-r">
-					<div class="bl_pht01_m_r">
-						<img class="el_img" :src="mainPhoto012">
+					<div class="bl_pht05_m_r">
+						<img class="el_img" :src="mainPhoto_r">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location012}}ー</p><br>
-							<button class="el_img_popTxt" @click="karis(11)">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(3)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht05_sub01_r">
+						<img class="el_img" :src="subPhoto01_r">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(4)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht05_sub02_r">
+						<img class="el_img" :src="subPhoto02_r">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(5)">詳細をみる</button>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div v-if="tabState==6" >
 				<div class="page-l">
-					<div class="bl_pht02_m_l">
-						<img class="el_img" :src="mainPhoto013">
+					<div class="bl_pht06_m_l">
+						<img class="el_img" :src="mainPhoto_l">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location13}}ー</p><br>
-							<button class="el_img_popTxt" @click="karis(12)">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{Location07}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht06_sub01_l">
+						<img class="el_img" :src="subPhoto01_l">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location07}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(1)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht06_sub02_l">
+						<img class="el_img" :src="subPhoto02_l">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(2)">詳細をみる</button>
 						</div>
 					</div>
 				</div>
 				<div class="page-r">
-					<div class="bl_pht01_m_r">
-						<img class="el_img" :src="mainPhoto014">
+					<div class="bl_pht06_m_r">
+						<img class="el_img" :src="mainPhoto_r">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location014}}ー</p><br>
-							<button class="el_img_popTxt" @click="karis(13)">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(3)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht06_sub01_r">
+						<img class="el_img" :src="subPhoto01_r">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(4)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht06_sub02_r">
+						<img class="el_img" :src="subPhoto02_r">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(5)">詳細をみる</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div v-if="tabState==7" >
+				<div class="page-l">
+					<div class="bl_pht07_m_l">
+						<img class="el_img" :src="mainPhoto_l">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location07}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht07_sub01_l">
+						<img class="el_img" :src="subPhoto01_l">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location07}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(1)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht07_sub02_l">
+						<img class="el_img" :src="subPhoto02_l">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(2)">詳細をみる</button>
+						</div>
+					</div>
+				</div>
+				<div class="page-r">
+					<div class="bl_pht07_m_r">
+						<img class="el_img" :src="mainPhoto_r">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(3)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht07_sub01_r">
+						<img class="el_img" :src="subPhoto01_r">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(4)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht07_sub02_r">
+						<img class="el_img" :src="subPhoto02_r">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{Location08}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP_TOK(5)">詳細をみる</button>
 						</div>
 					</div>
 				</div>
