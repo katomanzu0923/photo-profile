@@ -728,12 +728,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.ly {
+.ly_port {
 	position: absolute;
 	width: 98%;
 	left: 1%;
-	top: 1%;
-	height: 98%;
+	top: 10%;
+	height: 85%;
 	background: rgba(236, 235, 235, 0.856);
 	border-left: rgb(206, 206, 221) 2px solid;
 }

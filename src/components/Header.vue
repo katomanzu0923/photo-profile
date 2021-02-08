@@ -53,34 +53,44 @@ export default {
 <style lang="scss" scoped>
 .ly_header {
 	position: absolute;
-	right: 1%;
-	top: 1%;
+	width: 100%;
+	left: 0%;
+	top: 0%;
 	z-index: 10;
+	height: 5%;
 }
 .bl_header {
 	box-sizing: border-box;
-	height: 10%;
+	display: flex;
+	justify-content: center;
+	width: 50%;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	margin:  auto;
+	background: rgba(236, 235, 235, 0.856);
+	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
 }
 p{
 	border: none;
 	outline: none;
-	margin: 0 5px;
 }
 .el_btn_is{
 	display: inline-block;
-	border-radius: 2%;
-	padding: 5px 5px;
-	margin: 0;
-	border-top: none;
-	box-shadow:  none;
+	margin: 0 2.5%;
+	padding: 2%;
+	font-weight: bold;
 }
 .el_btn_def{
 	display: inline-block;
 	border-radius: 2%;
-	padding: 5px 5px;
-	margin: 0;
-	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
+	margin: 0 2.5%;
+	padding: 2%;
+	color:rgba(0, 0, 0, 0.425);
+	font-weight: bold;
 }
+
 
 .bl_header_clr {
 }

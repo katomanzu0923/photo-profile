@@ -123,7 +123,7 @@
 					</div>
 				</div>
 			</div>
-			<div v-if="tabState==3" >
+			<div v-if="tabState==3">
 				<div class="page-l">
 					<div class="bl_pht03_m_l">
 						<img class="el_img" :src="mainPhoto_l">
@@ -363,18 +363,6 @@
 					</div>
 				</div>
 			</div>
-			<!--  
-			<div class="bl_img">
-				<span class="el_img_ttl">Boy</span>
-				<img class="el_popImg" :src="mainPhoto02"><p class="el_img_ttl">{{Location02}}</p>
-				<div class="bl_circle">
-					<div :class="[check02 === 0? 'onCircle': 'circle']">1</div>
-				</div>
-				<div class="bl_imgBtn">
-					<p class="el_btn" @click="isBack(2)">Back</p><p class="el_Btn" type="p" @click="chi(2)">詳細へ</p><p @click="isNext(2)" class="el_btn">Next</p>
-				</div>
-			</div> 
-		-->
 	</div>
 </template>
 
@@ -643,8 +631,8 @@ export default {
 	position: absolute;
 	width: 98%;
 	left: 1%;
-	top: 1%;
-	height: 98%;
+	top: 10%;
+	height: 85%;
 	background: rgba(236, 235, 235, 0.856);
 	border-left: rgb(206, 206, 221) 2px solid;
 }
@@ -663,13 +651,17 @@ button{
 	left: 0;
 
 }
-
+.bl_mainCont{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
 .page-l{
 	position: absolute;
 	top: 2%;
 	z-index: 1;
 	width: 50%;
-height: 98vh;
+height: 100%;
 }
 .page-r{
 	position: absolute;
@@ -677,7 +669,7 @@ height: 98vh;
 	right: 0;
 	z-index: 1;
 	width: 50%;
-	height: 98vh;
+	height: 100%;
 	border-left: 1px dotted rgb(110, 76, 25);
 }
 .el_btn{
@@ -756,6 +748,277 @@ height: 98vh;
 	z-index: 1;
 }
 
+.bl_pht02_m_r{
+	position: absolute;
+	left: 15%;
+	top: 55%;
+	width: 50%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht02_sub01_r{
+	position: absolute;
+	left: 55%;
+	top: 10%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht02_sub02_r{
+	position: absolute;
+	left: 10%;
+	top: 20%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht03_m_l{
+	position: absolute;
+	left: 10%;
+	top: 5%;
+	width: 80%;
+	height: 45%;
+	z-index: 1;
+}
+.bl_pht03_sub01_l{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht03_sub02_l{
+	position: absolute;
+	left: 10%;
+	top: 60%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+.bl_pht03_m_r{
+	position: absolute;
+	left: 15%;
+	top: 55%;
+	width: 50%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht03_sub01_r{
+	position: absolute;
+	left: 55%;
+	top: 10%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht03_sub02_r{
+	position: absolute;
+	left: 10%;
+	top: 20%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht04_m_l{
+	position: absolute;
+	left: 10%;
+	top: 5%;
+	width: 80%;
+	height: 45%;
+	z-index: 1;
+}
+.bl_pht04_sub01_l{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht04_sub02_l{
+	position: absolute;
+	left: 10%;
+	top: 60%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+.bl_pht04_m_r{
+	position: absolute;
+	left: 15%;
+	top: 55%;
+	width: 50%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht04_sub01_r{
+	position: absolute;
+	left: 55%;
+	top: 10%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht04_sub02_r{
+	position: absolute;
+	left: 10%;
+	top: 20%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht05_m_l{
+	position: absolute;
+	left: 10%;
+	top: 5%;
+	width: 80%;
+	height: 45%;
+	z-index: 1;
+}
+.bl_pht05_sub01_l{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht05_sub02_l{
+	position: absolute;
+	left: 10%;
+	top: 60%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+.bl_pht05_m_r{
+	position: absolute;
+	left: 15%;
+	top: 55%;
+	width: 50%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht05_sub01_r{
+	position: absolute;
+	left: 55%;
+	top: 10%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht05_sub02_r{
+	position: absolute;
+	left: 10%;
+	top: 20%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht06_m_l{
+	position: absolute;
+	left: 10%;
+	top: 5%;
+	width: 80%;
+	height: 45%;
+	z-index: 1;
+}
+.bl_pht06_sub01_l{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht06_sub02_l{
+	position: absolute;
+	left: 10%;
+	top: 60%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+.bl_pht06_m_r{
+	position: absolute;
+	left: 15%;
+	top: 55%;
+	width: 50%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht06_sub01_r{
+	position: absolute;
+	left: 55%;
+	top: 10%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht06_sub02_r{
+	position: absolute;
+	left: 10%;
+	top: 20%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht07_m_l{
+	position: absolute;
+	left: 10%;
+	top: 5%;
+	width: 80%;
+	height: 45%;
+	z-index: 1;
+}
+.bl_pht07_sub01_l{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht07_sub02_l{
+	position: absolute;
+	left: 10%;
+	top: 60%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+.bl_pht07_m_r{
+	position: absolute;
+	left: 15%;
+	top: 55%;
+	width: 50%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht07_sub01_r{
+	position: absolute;
+	left: 55%;
+	top: 10%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht07_sub02_r{
+	position: absolute;
+	left: 10%;
+	top: 20%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+
+
 .el_img{
 	position: absolute;
 	width: 100%;
@@ -792,6 +1055,7 @@ height: 98vh;
 	border-radius: 2%;
 	padding: 5px 5px;
 	margin: 0;
+	color:rgba(0, 0, 0, 0.425);
 	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
 
 }
