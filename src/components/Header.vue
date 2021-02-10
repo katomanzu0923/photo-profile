@@ -4,7 +4,7 @@
 			<p @click="change(0)" :class="[btnCheck==0? 'el_btn_is':'el_btn_def']">My Profile</p>
 			<p @click="change(1)" :class="[btnCheck==1? 'el_btn_is':'el_btn_def']">Portraito</p>
 			<p @click="change(2)" :class="[btnCheck==2? 'el_btn_is':'el_btn_def']">Star Bucks</p>
-			<p @click="change(3)" :class="[btnCheck==3?'el_btn_is':'el_btn_def']">Japan</p>
+			<p @click="change(3)" :class="[btnCheck==3?'el_btn_is':'el_btn_def']">Japan Trip</p>
 			<p @click="change(4)" :class="[btnCheck==4? 'el_btn_is':'el_btn_def']">Contact</p>
 		</div>
 	</div>

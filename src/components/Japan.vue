@@ -1,166 +1,639 @@
 <template>
 	<div class="ly">
-			<div class="bl_btn">
-				<p :class="[tabCheck== 0? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(0)">北海道・東北</p>
-				<p :class="[tabCheck== 1? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(1)">関東</p>
-				<p :class="[tabCheck== 2? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(2)">北信越</p>
-				<p :class="[tabCheck== 3? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(3)">東海</p>
-				<p :class="[tabCheck== 4? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(4)">関西</p>
-				<p :class="[tabCheck== 5? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(5)">中国・四国</p>
-				<p :class="[tabCheck== 6? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(6)">九州・沖縄</p>
+		<div class="bl_pop" v-if="isUp">
+			<button @click="offf()" class="el_pop_btn">✖︎</button>
+			<div class="bl_pop_l">
+				<img :src="popmainPhoto" class="el_popImg">
 			</div>
-			<div v-if="tabState==0" >
-				<div class="page-l">
-					<div class="bl_pht01_l">
-						<img class="el_img" :src="photo01">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo02">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
+			<div class="bl_pop_r">
+				<div class="bl_pop_r_cont">
+					<h2>撮影機種</h2>
+					{{Body}}
+					<h2>使用レンズ</h2>
+					{{Renzu}}
+					<h2>状態</h2>
+					{{State}}
+					<h2>撮影場所</h2>
+					{{Location}}
 				</div>
 			</div>
-			<div v-if="tabState==1" >
-				<div class="page-l">
-					<div class="bl_pht02_l">
-						<img class="el_img" :src="photo03">
+		</div>
+		<div class="bl_btn">
+			<p :class="[tabCheck== 1? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(1)">北海道</p>
+			<p :class="[tabCheck== 2? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(2)">東北</p>
+			<p :class="[tabCheck== 3? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(3)">関東</p>
+			<p :class="[tabCheck== 4? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(4)">甲信越</p>
+			<p :class="[tabCheck== 5? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(5)">北陸</p>
+			<p :class="[tabCheck== 6? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(6)">東海</p>
+			<p :class="[tabCheck== 7? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(7)">関西</p>
+			<p :class="[tabCheck== 8? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(8)">中国</p>
+			<p :class="[tabCheck== 9? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(9)">四国</p>
+			<p :class="[tabCheck== 10? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(10)">九州</p>
+			<p :class="[tabCheck== 11? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(11)">沖縄</p>
+		</div>
+		<div v-if="tabState==1" >
+			<div class="bl_page_cont" v-if="pageNum == 1">
+					<div class="bl_pht01_p01_m01">
+						<img class="el_img_ver" :src="mainPhoto">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
 						</div>
 					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo04">
+					<div class="bl_pht01_p01_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
 						</div>
 					</div>
-				</div>
+					<div class="bl_pht01_p01_sub02">
+						<img class="el_img_hor" :src="subPhoto02">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(2)">詳細をみる</button>
+						</div>
+					</div>
 			</div>
-			<div v-if="tabState==2" >
-				<div class="page-l">
-					<div class="bl_pht02_l">
-						<img class="el_img" :src="photo03">
+			<div class="bl_page_cont" v-if="pageNum == 2">
+					<div class="bl_pht01_p02_m">
+						<img class="el_img_hor" :src="mainPhoto">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
 						</div>
 					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo04">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
 			</div>
-			<div v-if="tabState==3" >
-				<div class="page-l">
-					<div class="bl_pht02_l">
-						<img class="el_img" :src="photo03">
+			<div class="bl_page_cont" v-if="pageNum == 3">
+					<div class="bl_pht01_p03_m">
+						<img class="el_img_hor" :src="mainPhoto">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
 						</div>
 					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo04">
+					<div class="bl_pht01_p03_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
 						</div>
 					</div>
-				</div>
 			</div>
-			<div v-if="tabState==4" >
-				<div class="page-l">
-					<div class="bl_pht02_l">
-						<img class="el_img" :src="photo03">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo04">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
-						</div>
-					</div>
-				</div>
+			<div class="bl_btnNum">
+					<div @click="back(1)" :class="[pageNum !== 1? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="backBtn">前のページへ</div>
+					<div :class="[pageNum == 1? 'onCircle': 'circle']">1</div>
+					<div :class="[pageNum == 2? 'onCircle': 'circle']">2</div>
+					<div :class="[pageNum == 3? 'onCircle': 'circle']" >3</div>
+					<div @click="next(1)" :class="[pageNum !== 3? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
-			<div v-if="tabState==5" >
-				<div class="page-l">
-					<div class="bl_pht02_l">
-						<img class="el_img" :src="photo03">
+		</div>
+		<div v-if="tabState==2" >
+			<div class="bl_page_cont" v-if="pageNum == 1">
+					<div class="bl_pht02_p01_m">
+						<img class="el_img_hor" :src="mainPhoto">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
 						</div>
 					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo04">
+					<div class="bl_pht02_p01_sub01">
+						<img class="el_img_ver" :src="subPhoto01">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
 						</div>
 					</div>
-				</div>
 			</div>
-			<div v-if="tabState==1" >
-				<div class="page-l">
-					<div class="bl_pht02_l">
-						<img class="el_img" :src="photo03">
+			<div class="bl_page_cont" v-if="pageNum == 2">
+					<div class="bl_pht02_p02_m">
+						<img class="el_img_hor" :src="mainPhoto">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
 						</div>
 					</div>
-				</div>
-				<div class="page-r">
-					<div class="bl_pht01_r">
-						<img class="el_img" :src="photo04">
+					<div class="bl_pht02_p02_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{Location02}}ー</p><br>
-							<button class="el_img_popTxt" type="button" @click="karis()">詳細をみる</button>
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
 						</div>
 					</div>
-				</div>
 			</div>
-			<!--  
-			<div class="bl_img">
-				<span class="el_img_ttl">Boy</span>
-				<img class="el_popImg" :src="photo02"><p class="el_img_ttl">{{Location02}}</p>
-				<div class="bl_circle">
-					<div :class="[check02 === 0? 'onCircle': 'circle']">1</div>
-				</div>
-				<div class="bl_imgBtn">
-					<p class="el_btn" @click="isBack(2)">Back</p><p class="el_Btn" type="p" @click="chi(2)">詳細へ</p><p @click="isNext(2)" class="el_btn">Next</p>
-				</div>
-			</div> 
-		-->
+			<div class="bl_page_cont" v-if="pageNum == 3">
+					<div class="bl_pht01_p03_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
+						</div>
+					</div>
+					<div class="bl_pht01_p03_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_btnNum">
+					<div @click="back(2)" :class="[pageNum !== 1? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="backBtn">前のページへ</div>
+					<div :class="[pageNum == 1? 'onCircle': 'circle']">1</div>
+					<div :class="[pageNum == 2? 'onCircle': 'circle']">2</div>
+					<div :class="[pageNum == 3? 'onCircle': 'circle']" >3</div>
+					<div @click="next(2)" :class="[pageNum !== 3? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
+			</div>
+		</div>
+		<div v-if="tabState==3" >
+			<div class="bl_page_cont" v-if="pageNum == 1">
+					<div class="bl_pht03_p01_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht03_p01_sub01">
+						<img class="el_img_ver" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht03_p01_sub02">
+						<img class="el_img_ver" :src="subPhoto02">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 2">
+					<div class="bl_pht03_p02_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
+						</div>
+					</div>
+					<div class="bl_pht03_p02_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht03_p02_sub01">
+						<img class="el_img_hor" :src="subPhoto02">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 3">
+					<div class="bl_pht03_p03_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
+						</div>
+					</div>
+					<div class="bl_pht03_p03_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 4">
+					<div class="bl_pht03_p04_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
+						</div>
+					</div>
+					<div class="bl_pht03_p04_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_btnNum">
+					<div @click="back(3)" :class="[pageNum !== 1? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="backBtn">前のページへ</div>
+					<div :class="[pageNum == 1? 'onCircle': 'circle']">1</div>
+					<div :class="[pageNum == 2? 'onCircle': 'circle']">2</div>
+					<div :class="[pageNum == 3? 'onCircle': 'circle']">3</div>
+					<div :class="[pageNum == 4? 'onCircle': 'circle']" >4</div>
+					<div @click="next(3)" :class="[pageNum !== 4? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
+			</div>
+		</div>
+		<div v-if="tabState== 4" >
+			<div class="bl_page_cont" v-if="pageNum == 1">
+					<div class="bl_pht04_p01_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht04_p01_sub01">
+						<img class="el_img_ver" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 2">
+					<div class="bl_pht04_p02_m">
+						<img class="el_img_ver" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
+						</div>
+					</div>
+					<div class="bl_pht04_p02_sub01">
+						<img class="el_img_ver" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 3">
+					<div class="bl_pht04_p03_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
+						</div>
+					</div>
+					<div class="bl_pht04_p03_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht04_p03_sub02">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_btnNum">
+					<div @click="back(4)" :class="[pageNum !== 1? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="backBtn">前のページへ</div>
+					<div :class="[pageNum == 1? 'onCircle': 'circle']">1</div>
+					<div :class="[pageNum == 2? 'onCircle': 'circle']">2</div>
+					<div :class="[pageNum == 3? 'onCircle': 'circle']" >3</div>
+					<div @click="next(4)" :class="[pageNum !== 3? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
+			</div>
+		</div>
+		<div v-if="tabState== 5" >
+			<div class="bl_page_cont" v-if="pageNum == 1">
+					<div class="bl_pht05_p01_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht05_p01_sub01">
+						<img class="el_img_ver" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 2">
+					<div class="bl_pht05_p02_m">
+						<img class="el_img_ver" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
+						</div>
+					</div>
+					<div class="bl_pht05_p02_sub01">
+						<img class="el_img_ver" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_btnNum">
+					<div @click="back(5)" :class="[pageNum !== 1? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="backBtn">前のページへ</div>
+					<div :class="[pageNum == 1? 'onCircle': 'circle']">1</div>
+					<div :class="[pageNum == 2? 'onCircle': 'circle']">2</div>
+					<div @click="next(5)" :class="[pageNum !== 2? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
+			</div>
+		</div>
+		<div v-if="tabState== 6" >
+			<div class="bl_page_cont" v-if="pageNum == 1">
+					<div class="bl_pht06_p01_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht06_p01_sub01">
+						<img class="el_img_ver" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 2">
+					<div class="bl_pht06_p02_m">
+						<img class="el_img_ver" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
+						</div>
+					</div>
+					<div class="bl_pht06_p02_sub01">
+						<img class="el_img_ver" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_btnNum">
+					<div @click="back(6)" :class="[pageNum !== 1? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="backBtn">前のページへ</div>
+					<div :class="[pageNum == 1? 'onCircle': 'circle']">1</div>
+					<div :class="[pageNum == 2? 'onCircle': 'circle']">2</div>
+					<div @click="next(6)" :class="[pageNum !== 2? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
+			</div>
+		</div>
+		<div v-if="tabState== 7" >
+			<div class="bl_page_cont" v-if="pageNum == 1">
+					<div class="bl_pht07_p01_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht07_p01_sub01">
+						<img class="el_img_ver" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 2">
+					<div class="bl_pht07_p02_m">
+						<img class="el_img_ver" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
+						</div>
+					</div>
+					<div class="bl_pht07_p02_sub01">
+						<img class="el_img_ver" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht0_p02_sub02">
+						<img class="el_img_hor" :src="subPhoto02">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 3">
+					<div class="bl_pht07_p03_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht07_p03_sub01">
+						<img class="el_img_ver" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_btnNum">
+					<div @click="back(7)" :class="[pageNum !== 1? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="backBtn">前のページへ</div>
+					<div :class="[pageNum == 1? 'onCircle': 'circle']">1</div>
+					<div :class="[pageNum == 2? 'onCircle': 'circle']">2</div>
+					<div :class="[pageNum == 3? 'onCircle': 'circle']">3</div>
+					<div @click="next(7)" :class="[pageNum !== 3? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
+			</div>
+		</div>
+		<div v-if="tabState== 8" >
+			<div class="bl_page_cont" v-if="pageNum == 1">
+					<div class="bl_pht08_p01_m">
+						<img class="el_img_ver" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht08_p01_sub01">
+						<img class="el_img_hor" :src="subPhoto02">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(2)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 2">
+					<div class="bl_pht08_p02_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
+						</div>
+					</div>
+					<div class="bl_pht08_p01_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 3">
+					<div class="bl_pht08_p03_m">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">みる</button>
+						</div>
+					</div>
+					<div class="bl_pht08_p03_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_btnNum">
+					<div @click="back(8)" :class="[pageNum !== 1? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="backBtn">前のページへ</div>
+					<div :class="[pageNum == 1? 'onCircle': 'circle']">1</div>
+					<div :class="[pageNum == 2? 'onCircle': 'circle']">2</div>
+					<div :class="[pageNum == 3? 'onCircle': 'circle']" >3</div>
+					<div @click="next(8)" :class="[pageNum !== 3? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
+			</div>
+		</div>
+		<div v-if="tabState== 9" >
+			<div class="bl_page_cont" v-if="pageNum == 1">
+					<div class="bl_pht09_p01_m">
+						<img class="el_img_ver" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht09_p01_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht09_p01_sub02">
+						<img class="el_img_hor" :src="subPhoto02">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(2)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 2">
+					<div class="bl_pht09_p02_m">
+						<img class="el_img_ver" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht09_p02_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht09_p02_sub02">
+						<img class="el_img_hor" :src="subPhoto02">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(2)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_btnNum">
+					<div @click="back(9)" :class="[pageNum !== 1? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="backBtn">前のページへ</div>
+					<div :class="[pageNum == 1? 'onCircle': 'circle']">1</div>
+					<div :class="[pageNum == 2? 'onCircle': 'circle']">2</div>
+					<div @click="next(9)" :class="[pageNum !== 2? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
+			</div>
+		</div>
+		<div v-if="tabState== 10" >
+			<div class="bl_page_cont" v-if="pageNum == 1">
+					<div class="bl_pht010_p01_m01">
+						<img class="el_img_hor" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht010_p01_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location01}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 2">
+					<div class="bl_pht010_p02_m">
+						<img class="el_img_ver" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht010_p02_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_page_cont" v-if="pageNum == 3">
+					<div class="bl_pht010_p03_m">
+						<img class="el_img_ver" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht010_p03_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location02}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht010_p03_sub02">
+						<img class="el_img_hor" :src="subPhoto02">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location03}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(2)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+			<div class="bl_btnNum">
+					<div @click="back(10)" :class="[pageNum !== 1? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="backBtn">前のページへ</div>
+					<div :class="[pageNum == 1? 'onCircle': 'circle']">1</div>
+					<div :class="[pageNum == 2? 'onCircle': 'circle']">2</div>
+					<div :class="[pageNum == 3? 'onCircle': 'circle']">3</div>
+					<div @click="next(10)" :class="[pageNum !== 3? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
+			</div>
+		</div>
+		<div v-if="tabState== 11" >
+			<div class="bl_page_cont" v-if="pageNum == 1">
+					<div class="bl_pht011_p01_m">
+						<img class="el_img_ver" :src="mainPhoto">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(0)">詳細をみる</button>
+						</div>
+					</div>
+					<div class="bl_pht011_p01_sub01">
+						<img class="el_img_hor" :src="subPhoto01">
+						<div class="bl_imgTxt">
+							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<button class="el_img_popTxt" @click="isUP(1)">詳細をみる</button>
+						</div>
+					</div>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -168,560 +641,704 @@
 export default {
 	data() {
 		return {
-			tabCheck:0,
-			tabState:0,
 			isUp:false,
+			tabCheck:1,
+			tabState:1,
+			NumM:'',
 			Numl:'',
 			Numr:'',
-			secNum:0,
-			check:0,
+			pageNum:1,
+			pageState:1,
+			backBtn:true,
+			nextBtn:false,
 			check01:0,
 			check02:0,
 			check03:0,
 			isPart:0,
 			isNum:0,
 			isShow:false,
-			popphoto:'',
-			photo01:require('@/assets/stbHKD01.png'),
-			photo02:require('@/assets/stbHSK01.png'),
-			photo03:require('@/assets/stbKWG01.png'),
-			photo04:require('@/assets/stbUEN01.png'),
-			photo_l:require('@/assets/stbkobe02.png'),
-			photo_r:require('@/assets/stbOKW01.png'),
-			popphoto_l:'',
-			popphoto_r:'',
+			popmainPhoto:'',
+			mainPhoto:require('@/assets/japanHKD_SOYm.png'),
+			subPhoto01:require('@/assets/japanHKD_SOY01.png'),
+			subPhoto02:require('@/assets/japanHKD_SOY02.png'),
+			popmainPhoto_l:'',
+			popmainPhoto_r:'',
 			Body:'x-t2',
 			Renzu:'10-24',
 			State:'F4',
-			Location:'函館ベイサイド店',
-			Location01:'鐘つき通り店',
-			Location02:'弘前公園店',
-			Location03:'フライトオブドリーム店',
-			Location04:'北野異人館店',
-			Location05:'道後温泉駅店',
-			Location06:'沖縄本町店',
+			location:'宗谷岬',
 			CameraData:{
 				Body:['x-t2','x-Pro2'],
 				Renzu:['10-24','16-80'],
 				State:['F4'],
-				Location:[
-				'函館ベイサイド店','弘前公園前店',
-				'鐘つき通り店','上野公園店',
-				'冠水公園店','武生中央公園',
-				'フライトオブドリーム店','浜松城公園店',
-				'二寧坂店','メリケンパーク店','北野異人館店',
-				'道後温泉駅店','出雲大社店',
-				'沖縄本町店','鹿児島店',
-				],
 			},
 			PhotoData:{
-				stbHKDTHK: [
-					require('@/assets/stbHKD01.png'),
-					require('@/assets/stbHSK01.png'),
+				japanHKD: [
+					require('@/assets/japanHKD_SOYm.png'),
+					require('@/assets/japanHKD_SOY01.png'),
+					require('@/assets/japanHKD_SOY02.png'),
+					require('@/assets/japanBEI01.png'),
+					require('@/assets/japanHKD01.png'),
+					require('@/assets/japanHKD_HKD01.png'),
 				],
-				stbGIRL: [
-					require('@/assets/portGIRLm.png'),
+				japanTHK:[
+					require('@/assets/japanTHK_HRSm.png'),
+					require('@/assets/japanTHK_HRS02.png'),
+					require('@/assets/japanTHK_IWTm.png'),
+					require('@/assets/japanTHK_IWT01.png'),
+					require('@/assets/japanTHK_NGTm.png'),
+					require('@/assets/japanTHK_NGT01.png'),
+					require('@/assets/japanTHK_NGT02.png'),
 				],
-				portMEN: [
-					require('@/assets/portMENm.png')
+				japanKNT:[
+					require('@/assets/japanKNT_IBGm.png'),
+					require('@/assets/japanKNT_IBG01.png'),
+					require('@/assets/japanKNT_IBG02.png'),
+					require('@/assets/japanKNT_TTGm.png'),
+					require('@/assets/japanKNT_TTG01.png'),
+					require('@/assets/japanKNT_TTG02.png'),
+					require('@/assets/japanKNT_STM01.png'),
+					require('@/assets/japanKNT_STM02.png'),
+					require('@/assets/japanKNT_KNWm.png'),
+					require('@/assets/japanKNT_KNW01.png'),
+				],
+				japanKSE:[
+					require('@/assets/japanKSE_NGNm.png'),
+					require('@/assets/japanKSE_NGN01.png'),
+					require('@/assets/japanKSE_YMNm.png'),
+					require('@/assets/japanKSE_YMN01.png'),
+					require('@/assets/japanTHK_NGTm.png'),
+					require('@/assets/japanTHK_NGT01.png'),
+					require('@/assets/japanTHK_NGT02.png'),
+				],
+				japanHKR:[
+					require('@/assets/japanHKR_FKIm.png'),
+					require('@/assets/japanHKR_FKI01.png'),
+					require('@/assets/japanHKR_KNZm.png'),
+					require('@/assets/japanHKR_KNZ01.png'),
+				],
+				japanTKI:[
+					require('@/assets/japanTKI_MIEm.png'),
+					require('@/assets/japanTKI_MIE01.png'),
+					require('@/assets/japanTKI_GIFm.png'),
+					require('@/assets/japanTKI_GIF01.png'),
+				],
+				japanKNK:[
+					require('@/assets/japanKNK_NARm.png'),
+					require('@/assets/japanKNK_NAR01.png'),
+					require('@/assets/japanKNK_KYOm.png'),
+					require('@/assets/japanKNK_KYO01.png'),
+					require('@/assets/japanKNK_KYO02.png'),
+					require('@/assets/japanKNK_OSKm.png'),
+					require('@/assets/japanKNK_OSK01.png'),
+				],
+				japanCGK:[
+					require('@/assets/japanCGK_HRMm.png'),
+					require('@/assets/japanCGK_HRM01.png'),
+					require('@/assets/japanCGK_HRM02.png'),
+					require('@/assets/japanCGK_TTRm.png'),
+					require('@/assets/japanCGK_TTR01.png'),
+					require('@/assets/japanCGK_SMNm.png'),
+					require('@/assets/japanCGK_SMN01.png'),
+				],
+				japanSKK:[
+					require('@/assets/japanSKK_EHMm.png'),
+					require('@/assets/japanSKK_EHM01.png'),
+					require('@/assets/japanSKK_EHM02.png'),
+					require('@/assets/japanSKK_KGWm.png'),
+					require('@/assets/japanSKK_KGW01.png'),
+					require('@/assets/japanSKK_KGW02.png'),
+				],
+				japanKSY:[
+					require('@/assets/japanKSY_KGMm.png'),
+					require('@/assets/japanKSY_KMMm.png'),
+					require('@/assets/japanKSY_BPPm.png'),
+					require('@/assets/japanKSY_BPP01.png'),
+					require('@/assets/japanKSY_BPP02.png'),
+					require('@/assets/japanKSY_SAGm.png'),
+					require('@/assets/japanKSY_NGSm.png'),
+					require('@/assets/japanKSY_FKOm.png'),
+				],
+				japanOKW:[
+					require('@/assets/japanOKW_OKW02.png'),
+					require('@/assets/japanOKW_OKW01.png'),
 				],
 			},
+			LocationData:{
+				japanHKD:[
+					'宗谷岬','美瑛町','函館山'
+				],
+				japanTHK:[
+					'弘前城','陸前高田','清津峡'
+				],
+				japanKNT:[
+					'日立駅','日光東照宮','川越市','江ノ島'
+				],
+				japanKSE:[
+					'妻籠宿','河口湖','清津峡'
+				],
+				japanHKR:[
+					'東尋坊','茶屋町'
+				],
+				japanTKI:[
+					'伊勢神宮','白川郷'
+				],
+				japanKNK:[
+					'奈良公園','二寧坂','通天閣'
+				],
+				japanCGK:[
+					'原爆ドーム','宮島','鳥取砂丘','出雲大社'
+				],
+				japanSKK:[
+					'下灘駅','高屋神社',
+				],
+				japanKSY:[
+					'城山展望所','熊本城','別府温泉','大魚神社','稲佐山','門司港駅'
+				],
+				japanOKW:[
+					'美ら海水族館'
+				]
+			}
 		}
 	},
 	mounted:{
 		ui(){
-			this.photo = this.PhotoData.portWORK[0]
+			this.mainPhoto = this.mainPhotoData.japanHKD[0]
 		}
 	},
 	methods:{
-		karis(){
-			this.isUp =true
+		offf(){
+			this.isUp =false
+		},
+		isUP(upNum)
+		{
+			this.isUp = true
+			if(this.tabState == 1)
+			{
+				if(upNum == 0)
+				{
+					this.popmainPhoto = this.mainPhoto_l
+				}
+				else if(upNum == 1)
+				{
+					this.popmainPhoto = this.subPhoto01_l
+				}
+				else if(upNum == 2)
+				{
+					this.popmainPhoto = this.subPhoto02_l
+				}
+				else if(upNum == 3)
+				{
+					this.popmainPhoto = this.mainPhoto_r
+				}
+				else if(upNum == 4)
+				{
+					this.popmainPhoto = this.subPhoto01_r
+				}
+				else if(upNum == 5)
+				{
+					this.popmainPhoto = this.subPhoto02_r
+				}
+			}
 		},
 		changeTab(tab)
 		{
-			if(tab == 0){
-				this.tabState = 0
-				this.tabCheck = 0
-			}
-			else if(tab == 1)
-			{
+			if(tab == 1){
 				this.tabState = 1
 				this.tabCheck = 1
+				this.pageNum = 1
+				this.mainPhoto= this.PhotoData.japanHKD[0]
+				this.subPhoto01 = this.PhotoData.japanHKD[1]
+				this.subPhoto02 = this.PhotoData.japanHKD[2]
+				this.location = this.LocationData.japanLocation[0]
 			}
 			else if(tab == 2)
 			{
 				this.tabState = 2
 				this.tabCheck = 2
+				this.pageNum = 1
+				this.mainPhoto= this.PhotoData.japanTHK[0]
+				this.subPhoto01 = this.PhotoData.japanTHK[1]
+				this.location = this.LocationData.japanLocation[0]
 			}
 			else if(tab == 3)
 			{
-				this.tabState =3
-				this.tabCheck =3
+				this.tabState = 3
+				this.tabCheck = 3
+				this.pageNum = 1
+				this.mainPhoto= this.PhotoData.japanKNT[0]
+				this.subPhoto01 = this.PhotoData.japanKNT[1]
+				this.subPhoto02 = this.PhotoData.japanKNT[2]
+				this.location = this.LocationData.japanKNT[0]
 			}
 			else if(tab == 4)
 			{
-				this.tabState = 4
-				this.tabCheck = 4
+				this.tabState =4
+				this.tabCheck =4
+				this.pageNum = 1
+				this.mainPhoto= this.PhotoData.japanKSE[0]
+				this.subPhoto01 = this.PhotoData.japanKSE[1]
+				this.location = this.LocationData.japanKSE[0]
 			}
 			else if(tab == 5)
 			{
 				this.tabState = 5
 				this.tabCheck = 5
+				this.pageNum = 1
+				this.mainPhoto= this.PhotoData.japanHKR[0]
+				this.subPhoto01 = this.PhotoData.japanHKR[1]
+				this.location = this.LocationData.japanHKR[0]
 			}
 			else if(tab == 6)
 			{
 				this.tabState = 6
 				this.tabCheck = 6
+				this.pageNum = 1
+				this.mainPhoto= this.PhotoData.japanTKI[0]
+				this.subPhoto01 = this.PhotoData.japanTKI[1]
+				this.location = this.LocationData.japanTKI[0]
+			}
+			else if(tab == 7)
+			{
+				this.tabState = 7
+				this.tabCheck = 7
+				this.pageNum = 1
+				this.mainPhoto= this.PhotoData.japanKNK[0]
+				this.subPhoto01 = this.PhotoData.japanKNK[1]
+				this.location = this.LocationData.japanKNK[0]
+			}
+			else if(tab == 8)
+			{
+				this.tabState = 8
+				this.tabCheck = 8
+				this.pageNum = 1
+				this.mainPhoto= this.PhotoData.japanCGK[0]
+				this.subPhoto01 = this.PhotoData.japanCGK[1]
+				this.subPhoto02 = this.PhotoData.japanCGK[2]
+				this.location = this.LocationData.japanCGK[0]
+				this.location1 = this.LocationData.japanCGK[1]
+			}
+			else if(tab == 9)
+			{
+				this.tabState = 9
+				this.tabCheck = 9
+				this.pageNum = 1
+				this.mainPhoto= this.PhotoData.japanSKK[0]
+				this.subPhoto01 = this.PhotoData.japanSKK[1]
+				this.subPhoto01 = this.PhotoData.japanSKK[2]
+				this.location = this.LocationData.japanSKK[0]
+			}
+			else if(tab == 10)
+			{
+				this.tabState = 10
+				this.tabCheck = 10
+				this.pageNum = 1
+				this.mainPhoto= this.PhotoData.japanKSY[0]
+				this.subPhoto01 = this.PhotoData.japanKSY[1]
+				this.location = this.LocationData.japanKSY[0]
+				this.location01 = this.LocationData.japanKSY[1]
+			}
+			else if(tab == 11)
+			{
+				this.tabState = 11
+				this.tabCheck = 11
+				this.pageNum = 1
+				this.mainPhoto= this.PhotoData.japanOKW[0]
+				this.subPhoto01 = this.PhotoData.japanOKW[1]
+				this.location = this.LocationData.japanOKW[0]
 			}
 		},
-		chi(isPart)
-		{
-			this.isShow = true
-			if(isPart == 0)
+		back(tab){
+			if(tab == 1)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 2)
 				{
-					this.popphoto = this.photo
-					this.Body = this.CameraData.Body[0]
-					this.Renzu = this.CameraData.Renzu[1]
-					this.State = this.CameraData.State[0]
-					this.photo_l = this.PhotoData.portWORK[1]
-					this.photo_r = this.PhotoData.portWORK[2]
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
+					this.backBtn = false
+					this.nextBtn = true
+					this.mainPhoto = this.PhotoData.japanHKD[0]
+					this.location = this.LocationData.japanHKD[0]
+					this.subPhoto01 = this.PhotoData.japanHKD[1]
+					this.subPhoto02 = this.PhotoData.japanHKD[2]
+					this.pageNum -=1
+					this.backBtn = true
 				}
-				else if(this.isNum == 3)
+				else if(this.pageNum == 3)
 				{
-					this.popphoto = this.photo
-					this.Body = this.CameraData.Body[1]
-					this.Renzu = this.CameraData.Renzu[1]
-					this.State = this.CameraData.State[0]
-					this.photo_l = this.PhotoData.portWORK[4]
-					this.photo_r = this.PhotoData.portWORK[5]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
-					
+					this.pageNum -=1
+					this.mainPhoto = this.PhotoData.japanHKD[3]
+					this.location = this.LocationData.japanHKD[1]
+					this.nextBtn = true
+				}
+			}else if(tab == 2)
+			{
+				if(this.pageNum == 2)
+				{
+					this.backBtn = false
+					this.nextBtn = true
+					this.mainPhoto = this.PhotoData.japanTHK[0]
+					this.location = this.LocationData.japanTHK[0]
+					this.subPhoto01 = this.PhotoData.japanTHK[1]
+					this.pageNum -=1
+					this.backBtn = true
+				}
+				else if(this.pageNum == 3)
+				{
+					this.pageNum -=1
+					this.mainPhoto = this.PhotoData.japanTHK[2]
+					this.subPhoto01 = this.PhotoData.japanTHK[3]
+					this.location = this.LocationData.japanTHK[1]
+					this.nextBtn = true
+				}
+			}else if(tab == 3)
+			{
+				if(this.pageNum == 2)
+				{
+					this.mainPhoto = this.PhotoData.japanKNT[0]
+					this.subPhoto01 = this.PhotoData.japanKNT[1]
+					this.subPhoto02 = this.PhotoData.japanKNT[2]
+					this.location = this.LocationData.japanKNT[0]
+					this.pageNum -=1
+					this.backBtn = true
+				}
+				else if(this.pageNum == 3)
+				{
+					this.pageNum -=1
+					this.mainPhoto = this.PhotoData.japanKNT[3]
+					this.subPhoto01 = this.PhotoData.japanKNT[4]
+					this.subPhoto02 = this.PhotoData.japanKNT[5]
+					this.location = this.LocationData.japanKNT[1]
+				}
+				else if(this.pageNum == 4)
+				{
+					this.pageNum -=1
+					this.mainPhoto = this.PhotoData.japanKNT[6]
+					this.subPhoto01 = this.PhotoData.japanKNT[7]
+					this.location = this.LocationData.japanKNT[1]
+					this.nextBtn = false
+				}
+			}else if(tab == 4)
+			{
+				if(this.pageNum == 2)
+				{
+					this.nextBtn = true
+					this.mainPhoto = this.PhotoData.japanKSE[0]
+					this.subPhoto01 = this.PhotoData.japanKSE[1]
+					this.subPhoto02 = this.PhotoData.japanKSE[2]
+					this.location = this.LocationData.japanKSE[0]
+					this.pageNum -=1
+					this.backBtn = true
+				}
+				else if(this.pageNum == 3)
+				{
+					this.pageNum -=1
+					this.mainPhoto = this.PhotoData.japanKSE[2]
+					this.subPhoto01 = this.PhotoData.japanKSE[3]
+					this.location = this.LocationData.japanKSE[1]
+					this.nextBtn = true
 				}
 			}
-			else if(isPart == 1)
+			else if(tab == 5)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 2)
 				{
-					this.popphoto = this.photo01
-					this.photo_l = this.PhotoData.stbGIRL[1]
-					this.photo_r = this.PhotoData.stbGIRL[2]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
-				}
-				else if(this.isNum == 3)
-				{
-					this.popphoto = this.photo01
-					this.photo_l = this.PhotoData.stbGIRL[4]
-					this.photo_r = this.PhotoData.stbGIRL[5]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
+					this.mainPhoto = this.PhotoData.japanHKR[0]
+					this.subPhoto01 = this.PhotoData.japanHKR[1]
+					this.location = this.LocationData.japanHKR[0]
+					this.nextBtn = false
+					this.backBtn = true
+					this.pageNum -=1
 				}
 			}
-			else if(isPart == 2)
+			else if(tab == 6)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 2)
 				{
-					this.popphoto = this.photo02
-					this.photo_l = this.PhotoData.portMEN[1]
-					this.photo_r = this.PhotoData.portMEN[2]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
-				}
-				else if(this.isNum == 3)
-				{
-					this.popphoto = this.photo02
-					this.photo_l = this.PhotoData.portMEN[4]
-					this.photo_r = this.PhotoData.portMEN[5]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
+					this.mainPhoto = this.PhotoData.japanTKI[0]
+					this.subPhoto01 = this.PhotoData.japanTKI[1]
+					this.location = this.LocationData.japanTKI[0]
+					this.nextBtn = false
+					this.backBtn = true
+					this.pageNum -=1
 				}
 			}
-			else if(isPart == 3)
+			else if(tab == 7)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 2)
 				{
-					this.popphoto = this.photo03
-					this.photo_l = this.PhotoData.stbTOK[1]
-					this.photo_r = this.PhotoData.stbTOK[2]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
-				}
-				else if(this.isNum == 3)
+					this.mainPhoto = this.PhotoData.japanKNK[0]
+					this.subPhoto01 = this.PhotoData.japanKNK[1]
+					this.location = this.LocationData.japanKNK[0]
+					this.backBtn = true
+					this.pageNum -=1
+				}else if(this.pageNum == 3)
 				{
-					this.popphoto = this.photo03
-					this.photo_l = this.PhotoData.stbTOK[4]
-					this.photo_r = this.PhotoData.stbTOK[5]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
+					this.mainPhoto = this.PhotoData.japanKNK[2]
+					this.subPhoto01 = this.PhotoData.japanKNK[3]
+					this.subPhoto02 = this.PhotoData.japanKNK[4]
+					this.location = this.LocationData.japanKNK[1]
+					this.nextBtn = false
+					this.pageNum -=1
 				}
 			}
-			else if(isPart == 4)
+			else if(tab == 8)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 2)
 				{
-					this.popphoto = this.photo04
-					this.photo_l = this.PhotoData.stbKNK[1]
-					this.photo_r = this.PhotoData.stbKNK[2]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
-				}
-				else if(this.isNum == 4)
+					this.mainPhoto = this.PhotoData.japanCGK[0]
+					this.subPhoto01 = this.PhotoData.japanCGK[1]
+					this.subPhoto01 = this.PhotoData.japanCGK[2]
+					this.location = this.LocationData.japanCGK[0]
+					this.location1 = this.LocationData.japanCGK[1]
+					this.backBtn = true
+					this.pageNum -=1
+				}else if(this.pageNum == 3)
 				{
-					this.popphoto = this.photo04
-					this.photo_l = this.PhotoData.stbKNK[4]
-					this.photo_r = this.PhotoData.stbKNK[5]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
-					console.log(this.isNum)
-				}
-				else if(this.isNum == 7)
-				{
-					this.popphoto = this.photo04
-					this.photo_l = this.PhotoData.stbKNK[8]
-					this.photo_r = this.PhotoData.stbKNK[9]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
+					this.mainPhoto = this.PhotoData.japanCGK[3]
+					this.subPhoto01 = this.PhotoData.japanCGK[4]
+					this.location = this.LocationData.japanCGK[2]
+					this.nextBtn = false
+					this.pageNum -=1
 				}
 			}
-			else if(isPart == 5)
+			else if(tab == 9)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 2)
 				{
-					this.popphoto = this.photo05
-					this.photo_l = this.PhotoData.stbCSK[1]
-					this.photo_r = this.PhotoData.stbCSK[2]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
-				}
-				else if(this.isNum == 3)
-				{
-					this.popphoto = this.photo05
-					this.photo_l = this.PhotoData.stbCSK[4]
-					this.photo_r = this.PhotoData.stbCSK[5]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
+					this.mainPhoto = this.PhotoData.japanSKK[0]
+					this.subPhoto01 = this.PhotoData.japanSKK[1]
+					this.subPhoto02 = this.PhotoData.japanSKK[2]
+					this.location = this.LocationData.japanSKK[0]
+					this.nextBtn = false
+					this.backBtn = true
+					this.pageNum -=1
 				}
 			}
-			else if(isPart == 6)
+			else if(tab == 10)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 2)
 				{
-					this.popphoto = this.photo06
-					this.photo_l = this.PhotoData.stbKOK[1]
-					this.photo_r = this.PhotoData.stbKOK[2]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
-				}
-				else if(this.isNum == 3)
+					this.mainPhoto = this.PhotoData.japanKSY[0]
+					this.subPhoto01 = this.PhotoData.japanKSY[1]
+					this.location = this.LocationData.japanKSY[0]
+					this.location01 = this.LocationData.japanKSY[1]
+					this.backBtn = true
+					this.pageNum -=1
+				}else if(this.pageNum == 3)
 				{
-					this.popphoto = this.photo06
-					this.photo_l = this.PhotoData.stbKOK[4]
-					this.photo_r = this.PhotoData.stbKOK[5]
-					this.popphoto_m = this.popphoto
-					this.popphoto_l = this.photo_l
-					this.popphoto_r = this.photo_r
-				}
-			}
-		},
-		isNext(isPart)
-		{
-			if(isPart == 0)
-			{
-				if(this.isNum == 0)
-				{
-					this.isNum = 3
-					this.check = this.isNum
-					this.Location = this.CameraData.Location[1]
-					this.photo = this.PhotoData.portWORK[this.isNum]
-				}
-				else if(this.isNum == 3)
-				{
-					this.isNum = 0
-					this.check = this.isNum
-					this.Location = this.CameraData.Location[0]
-					this.photo = this.PhotoData.portWORK[this.isNum]
-				}
-			}
-			else if(isPart == 1)
-			{
-				if(this.isNum == 0)
-				{
-					this.isNum = 3
-					this.check01 = this.isNum
-					this.Location01 = this.CameraData.Location[3]
-					this.photo01 = this.PhotoData.stbGIRL[this.isNum]
-				}
-				else if(this.isNum == 3)
-				{
-					this.isNum = 0
-					this.check01 = this.isNum
-					this.Location01 = this.CameraData.Location[2]
-					this.photo01 = this.PhotoData.stbGIRL[this.isNum]
-				}
-			}
-			else if(isPart == 2)
-			{
-				if(this.isNum == 0)
-				{
-					this.isNum = 3
-					this.check02 = this.isNum
-					this.Location02 = this.CameraData.Location[5]
-					this.photo02 = this.PhotoData.portMEN[this.isNum]
-				}
-				else if(this.isNum == 3)
-				{
-					this.isNum = 0
-					this.check02 = this.isNum
-					this.Location02 = this.CameraData.Location[4]
-					this.photo02 = this.PhotoData.portMEN[this.isNum]
-				}
-			}
-			else if(isPart == 3)
-			{
-				if(this.isNum == 0)
-				{
-					this.isNum = 3
-					this.check03 = this.isNum
-					this.Location03 = this.CameraData.Location[7]
-					this.photo03 = this.PhotoData.stbTOK[this.isNum]
-				}
-				else if(this.isNum == 3)
-				{
-					this.isNum = 0
-					this.check03 = this.isNum
-					this.Location03 = this.CameraData.Location[6]
-					this.photo03 = this.PhotoData.stbTOK[this.isNum]
-				}
-			}
-			else if(isPart == 4)
-			{
-				if(this.isNum == 0)
-				{
-					this.isNum = 4
-					this.check04 = this.isNum
-					this.Location04 = this.CameraData.Location[9]
-					this.photo04 = this.PhotoData.stbKNK[this.isNum]
-				}
-				else if(this.isNum == 4)
-				{
-					this.isNum = 7
-					this.check04 = this.isNum
-					this.Location04 = this.CameraData.Location[8]
-					this.photo04 = this.PhotoData.stbKNK[this.isNum]
-				}
-				else if(this.isNum == 7)
-				{
-					this.isNum = 0
-					this.check04 = this.isNum
-					this.Location04 = this.CameraData.Location[10]
-					this.photo04 = this.PhotoData.stbKNK[this.isNum]
-				}
-			}
-			else if(isPart == 5)
-			{
-				if(this.isNum == 0)
-				{
-					this.isNum = 3
-					this.check05 = this.isNum
-					this.Location05 = this.CameraData.Location[12]
-					this.photo05 = this.PhotoData.stbCSK[this.isNum]
-				}
-				else if(this.isNum == 3)
-				{
-					this.isNum = 0
-					this.check05 = this.isNum
-					this.Location05 = this.CameraData.Location[11]
-					this.photo05 = this.PhotoData.stbCSK[this.isNum]
-				}
-			}
-			else if(isPart == 6)
-			{
-					if(this.isNum == 0)
-					{
-					this.isNum = 3
-					this.check06 = this.isNum
-					this.Location06 = this.CameraData.Location[14]
-					this.photo06 = this.PhotoData.stbKOK[this.isNum]
-				}
-				else if(this.isNum == 3)
-				{
-					this.isNum = 0
-					this.check06 = this.isNum
-					this.Location06 = this.CameraData.Location[13]
-					this.photo06 = this.PhotoData.stbKOK[this.isNum]
+					this.mainPhoto = this.PhotoData.japanKSY[2]
+					this.subPhoto01 = this.PhotoData.japanKSY[3]
+					this.subPhoto02 = this.PhotoData.japanKSY[4]
+					this.location = this.LocationData.japanKSY[2]
+					this.nextBtn = false
+					this.pageNum -=1
 				}
 			}
 		},
-		isBack(isPart)
-		{
-			if(isPart == 0)
+		next(tab){
+			if(tab == 1)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 1)
 				{
-					this.isNum = 3
-					this.check = this.isNum
-					this.Location = this.CameraData.Location[1]
-					this.photo = this.PhotoData.portWORK[this.isNum]
+					this.backBtn = true
+					this.mainPhoto = this.PhotoData.japanHKD[3]
+					this.location = this.LocationData.japanHKD[1]
+					this.pageNum +=1
 				}
-				else if(this.isNum == 3)
+				else if(this.pageNum == 2)
 				{
-					this.isNum = 0
-					this.check = this.isNum
-					this.Location = this.CameraData.Location[0]
-					this.photo = this.PhotoData.portWORK[this.isNum]
+					this.pageNum +=1
+					this.nextBtn = false
+					this.mainPhoto = this.PhotoData.japanHKD[4]
+					this.subPhoto01 = this.PhotoData.japanHKD[5]
+					this.location = this.LocationData.japanHKD[2]
 				}
 			}
-			else if(isPart == 1)
+			else if(tab == 2)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 1)
 				{
-					this.isNum = 3
-					this.check01 = this.isNum
-					this.Location01 = this.CameraData.Location[3]
-					this.photo01 = this.PhotoData.stbGIRL[this.isNum]
+					this.pageNum +=1
+					this.backBtn = true
+					this.ablBtn = false
+					this.mainPhoto = this.PhotoData.japanKNT[3]
+					this.subPhoto01 = this.PhotoData.japanKNT[4]
+					this.subPhoto02 = this.PhotoData.japanKNT[5]
+					this.location = this.LocationData.japanKNT[1]
 				}
-				else if(this.isNum == 3)
+				else if(this.pageNum == 2)
 				{
-					this.isNum = 0
-					this.check01 = this.isNum
-					this.Location01 = this.CameraData.Location[2]
-					this.photo01 = this.PhotoData.stbGIRL[this.isNum]
+					this.pageNum +=1
+					this.mainPhoto = this.PhotoData.japanKNT[4]
+					this.subPhoto01 = this.PhotoData.japanKNT[5]
+					this.location = this.LocationData.japanKNT[2]
+				}
+				else if(this.pageNum == 3)
+				{
+					this.pageNum +=1
+					this.mainPhoto = this.PhotoData.japanKNT[6]
+					this.subPhoto01 = this.PhotoData.japanKNT[7]
+					this.location = this.LocationData.japanKNT[2]
+				}
+				else if(this.pageNum == 4)
+				{
+					this.pageNum +=1
+					this.nextBtn = true
+					this.mainPhoto = this.PhotoData.japanKNT[8]
+					this.subPhoto01 = this.PhotoData.japanKNT[9]
+					this.location = this.LocationData.japanKNT[2]
 				}
 			}
-			else if(isPart == 2)
+			else if(tab == 3)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 1)
 				{
-					this.isNum = 3
-					this.check02 = this.isNum
-					this.Location02 = this.CameraData.Location[5]
-					this.photo02 = this.PhotoData.portMEN[this.isNum]
+					this.pageNum +=1
+					this.backBtn = true
+					this.ablBtn = false
+					this.mainPhoto = this.PhotoData.japanKNT[2]
+					this.subPhoto01 = this.PhotoData.japanKNT[3]
+					this.location = this.LocationData.japanKNT[1]
 				}
-				else if(this.isNum == 3)
+				else if(this.pageNum == 2)
 				{
-					this.isNum = 0
-					this.check02 = this.isNum
-					this.Location02 = this.CameraData.Location[4]
-					this.photo02 = this.PhotoData.portMEN[this.isNum]
+					this.pageNum +=1
+					this.mainPhoto = this.PhotoData.japanKNT[6]
+					this.subPhoto01 = this.PhotoData.japanKNT[7]
+					this.location = this.LocationData.japanKNT[2]
+				}
+				else if(this.pageNum == 3)
+				{
+					this.pageNum +=1
+					this.mainPhoto = this.PhotoData.japanKNT[8]
+					this.subPhoto01 = this.PhotoData.japanKNT[9]
+					this.location = this.LocationData.japanKNT[3]
+					this.nextBtn = true
 				}
 			}
-			else if(isPart == 3)
+			else if(tab == 4)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 1)
 				{
-					this.isNum = 3
-					this.check03 = this.isNum
-					this.Location03 = this.CameraData.Location[7]
-					this.photo03 = this.PhotoData.stbTOK[this.isNum]
+					this.pageNum +=1
+					this.backBtn = true
+					this.ablBtn = false
+					this.mainPhoto = this.PhotoData.japanKSE[2]
+					this.subPhoto01 = this.PhotoData.japanKSE[3]
+					this.location = this.LocationData.japanKSE[1]
 				}
-				else if(this.isNum == 3)
+				else if(this.pageNum == 2)
 				{
-					this.isNum = 0
-					this.check03 = this.isNum
-					this.Location03 = this.CameraData.Location[6]
-					this.photo03 = this.PhotoData.stbTOK[this.isNum]
+					this.pageNum +=1
+					this.nextBtn = true
+					this.mainPhoto = this.PhotoData.japanKSE[4]
+					this.subPhoto01 = this.PhotoData.japanKSE[5]
+					this.subPhoto01 = this.PhotoData.japanKSE[6]
+					this.location = this.LocationData.japanKSE[2]
 				}
 			}
-			else if(isPart == 4)
+			else if(tab == 5)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 1)
 				{
-					this.isNum = 7
-					this.check04 = this.isNum 
-					this.Location04 = this.CameraData.Location[8]
-					this.photo04 = this.PhotoData.stbKNK[this.isNum]
-				}
-				else if(this.isNum == 7)
-				{
-					this.isNum = 3
-					this.check04 = this.isNum
-					this.Location04 = this.CameraData.Location[9]
-					this.photo04 = this.PhotoData.stbKNK[this.isNum]
-				}
-				else if(this.isNum == 3)
-				{
-					this.isNum = 0
-					this.check04 = this.isNum
-					this.Location04 = this.CameraData.Location[10]
-					this.photo04 = this.PhotoData.stbKNK[this.isNum]
+					this.pageNum +=1
+					this.backBtn = false
+					this.nextBtn = true
+					this.mainPhoto = this.PhotoData.japanHKR[2]
+					this.subPhoto01 = this.PhotoData.japanHKR[3]
+					this.location = this.LocationData.japanHKR[1]
 				}
 			}
-			else if(isPart == 5)
+			else if(tab == 6)
 			{
-				if(this.isNum == 0)
+				if(this.pageNum == 1)
 				{
-					this.isNum = 3
-					this.check05 = this.isNum
-					this.Location05 = this.CameraData.Location[12]
-					this.photo05 = this.PhotoData.stbCSK[this.isNum]
-				}else if(this.isNum == 3)
-				{
-					this.isNum = 0
-					this.check05 = this.isNum
-					this.Location05 = this.CameraData.Location[11]
-					this.photo05 = this.PhotoData.stbCSK[this.isNum]
+					this.pageNum +=1
+					this.backBtn = false
+					this.nextBtn = true
+					this.mainPhoto = this.PhotoData.japanTKI[2]
+					this.subPhoto01 = this.PhotoData.japanTKI[3]
+					this.location = this.LocationData.japanTKI[1]
 				}
 			}
-			else if(isPart == 6){
-				if(this.isNum == 0)
-				{
-					this.isNum = 3
-					this.check06 = this.isNum
-					this.Location06 = this.CameraData.Location[14]
-					this.photo06 = this.PhotoData.stbKOK[this.isNum]
-				}
-				else if(this.isNum == 3)
-				{
-					this.isNum = 0
-					this.check06 = this.isNum
-					this.Location06 = this.CameraData.Location[13]
-					this.photo06 = this.PhotoData.stbKOK[this.isNum]
-				}
-			}
-		},
-		cha_l(){
-			this.secNum = this.secNum+1
-			if(this.secNum == 1){
-				this.popphoto_m = this.photo_l
-				this.popphoto_l = this.photo_r
-				this.popphoto_r = this.popphoto
-			}
-			else if(this.secNum == 2)
+			else if(tab == 7)
 			{
-				this.popphoto_m = this.photo_r
-				this.popphoto_l = this.popphoto
-				this.popphoto_r = this.photo_l
+				if(this.pageNum == 1)
+				{
+					this.pageNum +=1
+					this.backBtn = false
+					this.nextBtn = true
+					this.mainPhoto = this.PhotoData.japanKNK[2]
+					this.subPhoto01 = this.PhotoData.japanKNK[3]
+					this.subPhoto02 = this.PhotoData.japanKNK[4]
+					this.location = this.LocationData.japanKNK[1]
+				}else if(this.pageNum == 2)
+				{
+					this.pageNum +=1
+					this.nextBtn = true
+					this.mainPhoto = this.PhotoData.japanKNK[5]
+					this.subPhoto01 = this.PhotoData.japanKNK[6]
+					this.location = this.LocationData.japanKNK[2]
+				}
 			}
-			else if(this.secNum == 3)
+			else if(tab == 8)
 			{
-				this.popphoto_m = this.popphoto
-				this.popphoto_l =this.photo_l
-				this.popphoto_r = this.photo_r
-				this.secNum = this.secNum-3
+				if(this.pageNum == 1)
+				{
+					this.pageNum +=1
+					this.backBtn = false
+					this.nextBtn = true
+					this.mainPhoto = this.PhotoData.japanCGK[3]
+					this.subPhoto01 = this.PhotoData.japanCGK[4]
+					this.location = this.LocationData.japanCGK[2]
+				}else if(this.pageNum == 2)
+				{
+					this.pageNum +=1
+					this.nextBtn = true
+					this.mainPhoto = this.PhotoData.japanCGK[5]
+					this.subPhoto01 = this.PhotoData.japanCGK[6]
+					this.location = this.LocationData.japanCGK[3]
+				}
+			}
+			else if(tab == 9)
+			{
+				if(this.pageNum == 1)
+				{
+					this.pageNum +=1
+					this.backBtn = false
+					this.nextBtn = true
+					this.mainPhoto = this.PhotoData.japanSKK[3]
+					this.subPhoto01 = this.PhotoData.japanSKK[4]
+					this.subPhoto02 = this.PhotoData.japanSKK[5]
+					this.location = this.LocationData.japanSKK[1]
+				}
+			}
+			else if(tab == 10)
+			{
+				if(this.pageNum == 1)
+				{
+					this.mainPhoto = this.PhotoData.japanKSY[2]
+					this.subPhoto01 = this.PhotoData.japanKSY[3]
+					this.subPhoto02 = this.PhotoData.japanKSY[4]
+					this.location = this.LocationData.japanKSY[2]
+					this.backBtn = false
+					this.pageNum +=1
+				}else if(this.pageNum == 2)
+				{
+					this.mainPhoto = this.PhotoData.japanKSY[5]
+					this.subPhoto01 = this.PhotoData.japanKSY[6]
+					this.subPhoto02 = this.PhotoData.japanKSY[7]
+					this.location = this.LocationData.japanKSY[3]
+					this.location02 = this.LocationData.japanKSY[4]
+					this.location03 = this.LocationData.japanKSY[5]
+					this.nextBtn = true
+					this.pageNum +=1
+				}
 			}
 		},
 		of(){
 			this.isShow = false
 			this.isNum = 0
-			this.popphoto =''
+			this.popmainPhoto =''
 			Object.assign(this.$data, this.$options.data.call(this));
 		}
 	}
@@ -745,6 +1362,47 @@ p{
 button{
 	border: none;
 	background: none;
+	outline: none;
+}
+.bl_btnNum{
+	position: absolute;
+	bottom: 1%;
+	width: 100%;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+}
+.el_imgNum_txt_js{
+	margin: 0 1%;
+  text-align: center;
+	padding: 3px;
+	color: rgba(0, 0, 128, 0.486);
+}
+.el_imgNum_txt_def{
+	margin: 0 1%;
+  text-align: center;
+	padding: 3px;
+	color: rgba(0, 0, 128, 0.137);
+}
+.onCircle {
+  width: 20px;
+	margin: 0 1%;
+  background-color:rgba(0, 0, 128, 0.712);
+  background-color:rgba(0, 0, 128, 0.486);
+  border-radius: 50%; 
+  text-align: center;
+  line-height: 20px;
+	padding: 3px;
+}
+.circle {
+  width: 20px;
+	margin: 0 1%;
+  background-color:rgba(0, 0, 128, 0.712);
+  background-color:rgba(0, 0, 128, 0.11);
+  border-radius: 50%; 
+  text-align: center;
+  line-height: 20px;
+	padding: 3px;
 }
 .bl_btn{
 	position: absolute;
@@ -752,55 +1410,586 @@ button{
 	left: 0;
 
 }
+.bl_mainCont{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
 
-.page-l{
-	position: absolute;
-	top: 2%;
-	z-index: 1;
-	width: 50%;
-height: 98vh;
-}
-.page-r{
-	position: absolute;
-	top: 0%;
-	right: 0;
-	z-index: 1;
-	width: 50%;
-	height: 98vh;
-	border-left: 1px dotted rgb(110, 76, 25);
-}
 .el_btn{
 	display: inline-block;
 }
-.bl_pht01_l{
+.bl_pht01_p01_m01{
 	position: absolute;
 	left: 5%;
-	top: 15%;
+	top: 10%;
+	width: 60%;
+	height: 75%;
+	z-index: 1;
+}
+.bl_pht01_p01_sub01{
+	position: absolute;
+	left: 45%;
+	top: 10%;
+	width: 30%;
+	height: 30%;
+	z-index: 1;
+}
+.bl_pht01_p01_sub02{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 30%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht01_p02_m{
+	position: absolute;
+	left: 20%;
+	top: 10%;
 	width: 70%;
+	height: 75%;
+	z-index: 1;
+}
+
+.bl_pht01_p03_m{
+	position: absolute;
+	left: 5%;
+	top: 10%;
+	width: 40%;
+	height: 55%;
+	z-index: 1;
+}
+.bl_pht01_p03_sub01{
+	position: absolute;
+	left: 55%;
+	top: 30%;
+	width: 40%;
+	height: 55%;
+	z-index: 1;
+}
+
+.bl_pht02_p01_m{
+	position: absolute;
+	left: 5%;
+	top: 10%;
+	width: 50%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht02_p01_sub01{
+	position: absolute;
+	left: 70%;
+	top: 30%;
+	width: 40%;
+	height: 55%;
+	z-index: 1;
+}
+
+.bl_pht02_p01_m{
+	position: absolute;
+	left: 5%;
+	top: 10%;
+	width: 50%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht02_p01_sub01{
+	position: absolute;
+	left: 70%;
+	top: 30%;
+	width: 40%;
 	height: 40%;
 	z-index: 1;
 }
-.bl_pht01_r{
+
+.bl_pht02_p02_m{
+	position: absolute;
+	left: 5%;
+	top: 10%;
+	width: 50%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht02_p02_sub01{
+	position: absolute;
+	left: 60%;
+	top: 40%;
+	width: 30%;
+	height: 40%;
+	z-index: 1;
+}
+
+.bl_pht03_p01_m{
+	position: absolute;
+	left: 5%;
+	top: 10%;
+	width: 50%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht03_p01_sub01{
+	position: absolute;
+	left: 60%;
+	top: 40%;
+	width: 30%;
+	height: 40%;
+	z-index: 1;
+}
+
+.bl_pht03_p01_sub02{
+	position: absolute;
+	left: 60%;
+	top: 40%;
+	width: 30%;
+	height: 40%;
+	z-index: 1;
+}
+
+.bl_pht03_p02_sub01{
+	position: absolute;
+	left: 60%;
+	top: 40%;
+	width: 30%;
+	height: 40%;
+	z-index: 1;
+}
+
+.bl_pht03_p02_m{
+	position: absolute;
+	left: 5%;
+	top: 10%;
+	width: 50%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht03_p02_sub01{
+	position: absolute;
+	left: 60%;
+	top: 40%;
+	width: 30%;
+	height: 40%;
+	z-index: 1;
+}
+
+.bl_pht03_p03_m{
+	position: absolute;
+	left: 5%;
+	top: 10%;
+	width: 50%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht03_p03_sub01{
+	position: absolute;
+	left: 60%;
+	top: 40%;
+	width: 30%;
+	height: 40%;
+	z-index: 1;
+}
+
+.bl_pht04_p01_m{
+	position: absolute;
+	left: 5%;
+	top: 10%;
+	width: 50%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht04_p01_sub01{
+	position: absolute;
+	left: 60%;
+	top: 40%;
+	width: 30%;
+	height: 40%;
+	z-index: 1;
+}
+
+.bl_pht04_p02_m{
+	position: absolute;
+	left: 5%;
+	top: 10%;
+	width: 50%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht04_p02_sub01{
+	position: absolute;
+	left: 60%;
+	top: 40%;
+	width: 30%;
+	height: 40%;
+	z-index: 1;
+}
+
+.bl_pht04_p03_m{
+	position: absolute;
+	left: 5%;
+	top: 10%;
+	width: 50%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht04_p03_sub01{
+	position: absolute;
+	left: 60%;
+	top: 40%;
+	width: 30%;
+	height: 40%;
+	z-index: 1;
+}
+
+.bl_pht04_p03_sub02{
+	position: absolute;
+	left: 60%;
+	top: 40%;
+	width: 30%;
+	height: 40%;
+	z-index: 1;
+}
+
+.bl_pht05_p01_m{
+	position: absolute;
+	left: 10%;
+	top: 5%;
+	width: 80%;
+	height: 45%;
+	z-index: 1;
+}
+.bl_pht05_p01_sub01{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht05_p02_m{
+	position: absolute;
+	left: 10%;
+	top: 60%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht05_p02_sub01{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+
+
+.bl_pht06_p01_m{
+	position: absolute;
+	left: 10%;
+	top: 5%;
+	width: 80%;
+	height: 45%;
+	z-index: 1;
+}
+.bl_pht06_p01_sub01{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht06_p02_m{
+	position: absolute;
+	left: 10%;
+	top: 60%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht06_p02_sub01{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+
+.bl_pht07_p01_m{
+	position: absolute;
+	left: 10%;
+	top: 5%;
+	width: 80%;
+	height: 45%;
+	z-index: 1;
+}
+.bl_pht07_p01_sub01{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+.bl_pht07_p02_m{
+	position: absolute;
+	left: 10%;
+	top: 60%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht07_p02_sub01{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+
+.bl_pht07_p02_sub02{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+
+
+.bl_pht07_p03_m{
+	position: absolute;
+	left: 10%;
+	top: 60%;
+	width: 40%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht07_p03_sub01{
+	position: absolute;
+	left: 55%;
+	top: 50%;
+	width: 35%;
+	height: 40%;
+	z-index: 1;
+}
+
+
+.bl_pht08_p01_m{
 	position: absolute;
 	left: 15%;
-	top: 35%;
-	width: 70%;
-	height: 40%;
+	top: 20%;
+	width: 50%;
+	height: 60%;
 	z-index: 1;
 }
-.bl_pht02_l{
+
+.bl_pht08_p01_sub01{
 	position: absolute;
-	left: 5%;
-	top: 45%;
-	width: 70%;
+	right: 20%;
+	top: 15%;
+	width: 30%;
 	height: 40%;
 	z-index: 1;
 }
-.el_img{
+
+.bl_pht08_p01_sub02{
+	position: absolute;
+	right: 20%;
+	top: 55%;
+	width: 30%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht08_p02_sub01{
+	position: absolute;
+	right: 20%;
+	top: 15%;
+	width: 30%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht08_p02_sub02{
+	position: absolute;
+	right: 20%;
+	top: 55%;
+	width: 30%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht09_p01_m{
+	position: absolute;
+	left: 15%;
+	top: 20%;
+	width: 50%;
+	height: 60%;
+	z-index: 1;
+}
+
+
+
+.bl_pht09_p01_sub01{
+	position: absolute;
+	right: 20%;
+	top: 15%;
+	width: 30%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht09_p01_sub02{
+	position: absolute;
+	right: 20%;
+	top: 55%;
+	width: 30%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht09_p02_m{
+	position: absolute;
+	left: 15%;
+	top: 20%;
+	width: 50%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht09_p02_sub01{
+	position: absolute;
+	right: 20%;
+	top: 15%;
+	width: 30%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht09_p02_sub02{
+	position: absolute;
+	right: 20%;
+	top: 55%;
+	width: 30%;
+	height: 30%;
+	z-index: 1;
+}
+
+.bl_pht010_p01_m01{
+	position: absolute;
+	left: 15%;
+	top: 20%;
+	width: 40%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht010_p01_sub01{
+	position: absolute;
+	background: blue;
+	right: 10%;
+	top: 20%;
+	width: 20%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht010_p02_m{
+	position: absolute;
+	left: 15%;
+	top: 20%;
+	width: 40%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht010_p02_sub01{
+	position: absolute;
+	left: 40%;
+	top: 20%;
+	width: 40%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht010_p03_m{
+	position: absolute;
+	left: 45%;
+	top: 15%;
+	width: 40%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht010_p03_sub01{
+	position: absolute;
+	left: 2%;
+	top: 30%;
+	width: 40%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht010_p03_sub02{
+	position: absolute;
+	left: 70%;
+	top: 10%;
+	width: 25%;
+	height: 60%;
+	z-index: 1;
+}
+
+
+.bl_pht011_p01_m{
+	position: absolute;
+	left: 75%;
+	top: 10%;
+	width: 40%;
+	height: 60%;
+	z-index: 1;
+}
+
+.bl_pht011_p01_sub01{
+	position: absolute;
+	left: 10%;
+	top: 15%;
+	width: 55%;
+	height: 60%;
+	z-index: 1;
+}
+
+
+
+.el_img_hor{
 	position: absolute;
 	width: 100%;
 	left: 0%;
 	height: 90%;
+	box-shadow:  0 2px 2px 0 rgba(0, 0, 0, 0.29);
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.795);
+}
+.el_img_ver{
+	position: absolute;
+	width: 50%;
+	left: 0%;
+	height: 100%;
 	box-shadow:  0 2px 2px 0 rgba(0, 0, 0, 0.29);
   box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.795);
 }
@@ -832,6 +2021,7 @@ height: 98vh;
 	border-radius: 2%;
 	padding: 5px 5px;
 	margin: 0;
+	color:rgba(0, 0, 0, 0.425);
 	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
 
 }
@@ -887,4 +2077,37 @@ height: 98vh;
 	left: 4%;
 }
 
+.bl_pop{
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	display: flex;
+	background: rgba(233, 231, 231, 0.856);
+	filter: blur(30%);
+	justify-content: space-around;
+}
+.el_popImg{
+	margin: 5%;
+	width: 90%;
+	height: 90%;
+}
+.el_pop_btn{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.bl_pop_l{
+	width: 70%;
+}
+.bl_pop_r{
+	text-align: center;
+	width: 30%;
+}
+.bl_pop_r_cont{
+	width: 80%;
+	margin-top: 20%;
+	text-align: center;
+}
 </style>
