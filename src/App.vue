@@ -46,9 +46,6 @@ export default {
     MyProfile,
     MyBests
 	},
-	computed: {
-
-	},
   methods: {
     changepop() {
       this.isPop = false
