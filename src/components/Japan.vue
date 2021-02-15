@@ -7,8 +7,14 @@
 			</div>
 			<div class="bl_pop_r">
 				<div class="bl_pop_r_cont">
-					<h2>構図</h2>
-					<p></p>
+					<h1 class="el_pop_bodyTtl">撮影機材</h1>
+					<p class="el_pop_bodyTtl_cont"><span class="el_pop_bodyTtl_cont_txt">本体:</span>{{Body}}</p><br><p class="el_pop_bodyTtl_cont"><span class="el_pop_bodyTtl_cont_txt">レンズ:</span>{{Renzu}}</p>
+					<h1 class="el_pop_stateTtl">撮影状態</h1>
+					<p class="el_pop_stateTtl_cont"><span class="el_pop_stateTtl_cont_txt">F値:</span>{{State}}</p>
+					<h1 class="el_pop_lcnTtl">撮影場所</h1>
+					<p class="el_pop_lcnTtl_cont"><span class="el_pop_stateTtl_cont_txt">場所:</span>{{location}}</p>
+					<h2 class="el_pop_pointTtl">ポイント</h2>
+					<p class="el_pop_pointTtl_cont">{{point}}</p>
 				</div>
 			</div>
 		</div>
@@ -28,21 +34,21 @@
 		<div v-if="tabState==1" >
 			<div class="bl_page_cont" v-if="pageNum == 1">
 					<div class="bl_pht01_p01_m01">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0,false)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0,false),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p>
 						</div>
 					</div>
 					<div class="bl_pht01_p01_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(1,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht01_p01_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(1,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -51,7 +57,7 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 2">
 					<div class="bl_pht01_p02_m">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(1,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -60,14 +66,14 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 3">
 					<div class="bl_pht01_p03_m">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(1,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht01_p03_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(1,3,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -85,14 +91,14 @@
 		<div v-if="tabState==2" >
 			<div class="bl_page_cont" v-if="pageNum == 1">
 					<div class="bl_pht02_p01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht02_p01_sub01">
-						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false),emitData(2,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -101,14 +107,14 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 2">
 					<div class="bl_pht02_p02_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht02_p02_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(2,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -117,21 +123,21 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 3">
 					<div class="bl_pht02_p03_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht02_p03_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(2,3,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht02_p03_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(2,3,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -149,21 +155,21 @@
 		<div v-if="tabState==3" >
 			<div class="bl_page_cont" v-if="pageNum == 1">
 					<div class="bl_pht03_p01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(3,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p01_sub01">
-						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1),emitData(3,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p01_sub02">
-						<img :class="[photoState_02? 'el_img_ver_js': 'el_img_ver']" @click="isUP(2)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<img :class="[photoState_02? 'el_img_ver_js': 'el_img_ver']" @click="isUP(2),emitData(3,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -172,21 +178,21 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 2">
 					<div class="bl_pht03_p02_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(3,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p02_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false),emitData(3,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p02_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2,false)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2,false),emitData(3,2,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -195,21 +201,21 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 3">
 					<div class="bl_pht03_p03_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(3,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p03_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false),emitData(3,3,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p03_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(3,3,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -218,14 +224,14 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 4">
 					<div class="bl_pht03_p04_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(3,4,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p04_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false),emitData(3,4,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -244,14 +250,14 @@
 		<div v-if="tabState== 4" >
 			<div class="bl_page_cont" v-if="pageNum == 1">
 					<div class="bl_pht04_p01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(4,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht04_p01_sub01">
-						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1),emitData(4,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -260,21 +266,21 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 2">
 					<div class="bl_pht04_p02_m">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0,false)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0,false),emitData(4,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht04_p02_sub01">
-						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1),emitData(4,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht04_p02_sub02">
-						<img :class="[photoState_02? 'el_img_ver_js': 'el_img_ver']" @click="isUP(2,false)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<img :class="[photoState_02? 'el_img_ver_js': 'el_img_ver']" @click="isUP(2,false),emitData(4,2,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -291,14 +297,14 @@
 		<div v-if="tabState== 5" >
 			<div class="bl_page_cont" v-if="pageNum == 1">
 					<div class="bl_pht05_p01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(5,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht05_p01_sub01">
-						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1),emitData(5,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -307,14 +313,14 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 2">
 					<div class="bl_pht05_p02_m">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(5,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht05_p02_sub01">
-						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false),emitData(5,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -331,14 +337,14 @@
 		<div v-if="tabState== 6" >
 			<div class="bl_page_cont" v-if="pageNum == 1">
 					<div class="bl_pht06_p01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(6,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht06_p01_sub01">
-						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1),emitData(6,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -347,14 +353,14 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 2">
 					<div class="bl_pht06_p02_m">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(6,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht06_p02_sub01">
-						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1),emitData(6,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -371,14 +377,14 @@
 		<div v-if="tabState== 7" >
 			<div class="bl_page_cont" v-if="pageNum == 1">
 					<div class="bl_pht07_p01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(7,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht07_p01_sub01">
-						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false),emitData(7,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -387,21 +393,21 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 2">
 					<div class="bl_pht07_p02_m">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(7,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht07_p02_sub01">
-						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false),emitData(7,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht07_p02_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(7,2,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -411,14 +417,14 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 3">
 					<div class="bl_pht07_p03_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(7,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht07_p03_sub01">
-						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false),emitData(7,3,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -436,14 +442,14 @@
 		<div v-if="tabState== 8" >
 			<div class="bl_page_cont" v-if="pageNum == 1">
 					<div class="bl_pht08_p01_m">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(8,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht08_p01_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(8,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -452,14 +458,14 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 2">
 					<div class="bl_pht08_p02_m">
-						<img :class="[photoState_? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(8,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht08_p02_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(8,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -468,14 +474,14 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 3">
 					<div class="bl_pht08_p03_m">
-						<img :class="[photoState_? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(8,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht08_p03_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(8,3,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -493,21 +499,21 @@
 		<div v-if="tabState== 9" >
 			<div class="bl_page_cont" v-if="pageNum == 1">
 					<div class="bl_pht09_p01_m">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(9,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht09_p01_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(9,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht09_p01_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(9,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -516,21 +522,21 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 2">
 					<div class="bl_pht09_p02_m">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(9,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht09_p02_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(9,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht09_p02_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(9,2,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -548,14 +554,14 @@
 		<div v-if="tabState== 10" >
 			<div class="bl_page_cont" v-if="pageNum == 1">
 					<div class="bl_pht010_p01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(10,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht010_p01_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false),emitData(10,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location01}}ー</p><br>
@@ -564,14 +570,14 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 2">
 					<div class="bl_pht010_p02_m">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(10,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht010_p02_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(10,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -580,21 +586,21 @@
 			</div>
 			<div class="bl_page_cont" v-if="pageNum == 3">
 					<div class="bl_pht010_p03_m">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0,false)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0,false),emitData(10,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht010_p03_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(10,3,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location02}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht010_p03_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(10,3,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location03}}ー</p><br>
@@ -612,14 +618,14 @@
 		<div v-if="tabState== 11" >
 			<div class="bl_page_cont" v-if="pageNum == 1">
 					<div class="bl_pht011_p01_m">
-						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(11,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht011_p01_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(11,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -661,11 +667,11 @@ export default {
 			Body:'x-t2',
 			Renzu:'10-24',
 			State:'F4',
+			Ref:'',
 			location:'宗谷岬',
 			CameraData:{
-				Body:['x-t2','x-Pro2'],
-				Renzu:['10-24','16-80'],
-				State:['F4'],
+				Body:['x-t2','x-Pro2','iPhone'],
+				Renzu:['10-24m F4','16-80m F4','35m F1.4'],
 			},
 			PhotoData:{
 				japanHKD: [
@@ -794,6 +800,96 @@ export default {
 				japanOKW:[
 					'美ら海水族館'
 				]
+			},
+			mind:'f',
+			PointData:{
+				japanHKD:[
+					'日の丸構図を意識してモニュメンを主役に。最果て感を出すために海をいれるべきだった。',
+					'余白を意識して看板を主役に。白と赤のコントラスがポイント',
+					'銅像を主役に斜めから。視線の先にサブのモニュメンを設置',
+					'全体の７割の雪の夜空を主役に。あえてライトアップ部分はサブに設置',
+					'全体の７割の雪の夜空を主役に。雪の量が多すぎたのが反省点',
+					'全体の７割の雪の夜空を主役に。人を入れて夜景の主役を際立たせるべきだった'
+				],
+				japanTHK:[
+					'中心の川を主役に。雪の量が多すぎたのが反省点',
+					'古い時計と雪の夜空を主役に。建物全体の情報量が少なすぎたのが反省点',
+					'松の木を人の視線を活かして主役に。画角を広げて人の写っている割合が少ないのが反省点',
+					'津波の発生源である地平線を主役に。モニュメントの割合が高すぎたので空と海の割合を増やすべきだった',
+					'日の丸構図でトンネルを主役に。白飛びが起きていたので光量の調整が足りないのが反省点',
+					'日の丸構図でトンネルを主役に',
+					'トンネルの奥行きを主役に。焦点を手前に'
+				],
+				japanKNT:[
+					'手間の柱を入れて奥いきを出して建築物を主役に。余白をいれることによって主役をより際立たせることが出来た',
+					'光量を調整して雑多の人々を主役に。SSを落として人の動きをいれるべきだった',
+					'朝日に当たるピアノを主役に。逆光の中で主役の黒いものに光量が足りなさすぎた',
+					'視線を用いて建築物を主役に。人の」割合が高すぎて主役のが際立ちさが足りない',
+					'低コントラスト階段に高コントラスのアクセントのカラーを持つ人を主役に',
+					'縦構図で家紋を主役に',
+					'乗り物を手前に入れて主役に。全体に焦点が当たっているため主役がわかりにくい',
+					'建築物に対する視線を主役に。光量が足りずブレやノイズが増えてしまった',
+					'文字を活かして人を主役に。',
+					'江ノ島と人を主役に。白飛びが激しいので光量の調整不足',
+					'あえて逆光で人を主役に。',
+				],
+				japanKSE:[
+					'光の向きをずらし人を主役に。火から出る煙の量の調整不足',
+					'斜めからの光の当たる先を主役に。',
+					'日の丸構図で鳥居を主役に。画角を広げて空間を広げるべきだった',
+					'視線を活かして犬を主役に。画角が狭くなり富士山を入れきれなかった',
+					'富士山を背景に働く人を主役に。室内のため光量が足りなくなってしまった',
+				],
+				japanHKR:[
+					'地平線と波を主役に。撮影位置が低くして海と空の割合が増やすべきだった',
+					'地平線への視線を活かして崖を主役に。',
+					'古い建築物の中の高コントラストの人を主役に。余計な人がいないタイミングでの撮影が必要だった',
+					'手前に柱を入れて窓際の席を主役に。',
+				],
+				japanTKI:[
+					'逆光を活かして鳥居を主役に。太陽の位置と人の位置の調整不足',
+					'人を活かして手前の食べ物を主役に。箸をオボンの手前においてオボンの情報量を減らすべきだった',
+					'人形を活かして建築物を主役に。画角が広げて人形を全ていれるべきだった',
+					'建物内の光を活かして夜の建築物を主役に。窓からの人の影をいれることが出来たら完璧だった',
+				],
+				japanKNK:[
+					'日の丸構図で人と動物を主役に。人の視線と動物の視線を要検討',
+					'縦構図で手前をぼかし奥の鹿を主役に。右端から光もよかった',
+					'建築物と人を対象において主役に。長時間露光でによる光量調整が不十分',
+					'建築物を活かしてのれんを主役に。のれんが折れ曲がるなどアクセントが足りない',
+					'低コントラストの街並みや人通りの高コントラスの人を主役に。人の数が多すぎて主役の引き立てが不十分に',
+					'三分割でコントラスを揃え手前の人を主役に。撮影位置をもう少し下げて建物の全景を入れるべきだった',
+					'視線と背景を活かして手前の人を主役に。主役以外の人が多い方が主役の人がより引き立てられるはずだ',
+				],
+				japanCGK:[
+					'手前の運転席を活かして車内からの景色を主役に。手前の運転席をボケすぎた。もう少し絞るべきだった',
+					'建築物を活かして鉄道を主役に。',
+					'砂漠の割合を９割にして人を主役に。',
+					'人を活かして坂を主役に。青空のコントラスがあればよかった',
+					'日の丸構図を人を主役に。主役と背景が短調であり他の要素を入れるべきだった',
+					'建築物を切り取り人を歩く人を主役に。',
+				],
+				japanSKK:[
+					'影と日光を活かして駅舎を主役に。駅の画角をもう少し広げるべき',
+					'運転者の視線を活かして車両を主役に。視線の余白が足りない',
+					'広角レンズを活かして手前を主役に。',
+					'夕日を活かして鳥居を主役に。人のアクセントが欲しい',
+					'青空を活かして鳥居を主役に。人のアクセントが足りない',
+					'鳥居と視線を活かした人を主役に。階段の高さを活かしたアクセントが欲しい',
+				],
+				japanKSY:[
+					'日の丸構図と視線で人を主役に。日の丸構図でなく高さを上げて人の割合を下げるべきだった',
+					'建築物を切り取り人を歩く人を主役に。',
+					'湯気と地名を活かして温泉を主役に。広角を広げ岩の面積を下げるべきだった',
+					'人を設置して湯気を主役に。',
+					'視線と看板を活かして人を主役に。同系統の鉄道が停車していたら完璧だった',
+					'石の道を活かして歩く人を主役に。',
+					'人を活かして夜景を主役に。人の割合が広すぎた',
+				],
+				japanOKW:[
+					'人とスマホを活かして動物を主役に。',
+					'周辺光量を」落として真ん中の魚を主役に。別系統の魚の大群であればよりよかった'
+				]
 			}
 		}
 	},
@@ -859,6 +955,521 @@ export default {
 				}
 			}
 		},
+		emitData(tabNum,pageNum,photoNum){
+			if(tabNum == 1)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanHKD[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanHKD[1]
+					}
+					else if(photoNum == 3)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanHKD[2]
+					}
+				}
+				else if(pageNum == 2)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanHKD[3]
+					}
+				}
+				else if(pageNum == 3)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanHKD[4]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanHKD[5]
+					}
+				}
+			}
+			else if(tabNum == 2)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanTHK[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanTHK[1]
+					}
+				}
+				else if(pageNum == 2)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanTHK[2]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanTHK[3]
+					}
+				}
+				else if(pageNum == 3)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanTHK[4]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanTHK[5]
+					}
+					else if(photoNum == 3)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanTHK[6]
+					}
+				}
+			}
+			else if(tabNum == 3)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNT[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNT[1]
+					}
+					else if(photoNum == 3)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNT[2]
+					}
+				}
+				else if(pageNum == 2)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNT[3]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNT[4]
+					}
+					else if(photoNum == 3)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNT[5]
+					}
+				}
+				else if(pageNum == 3)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNT[6]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNT[7]
+					}
+					else if(photoNum == 3)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNT[8]
+					}
+				}
+				else if(pageNum == 4)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNT[9]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNT[10]
+					}
+				}
+			}
+			else if(tabNum == 4)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKSE[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKSE[1]
+					}
+				}
+				else if(pageNum == 2)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKSE[2]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKSE[3]
+					}
+					else if(photoNum == 3)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanHKD[4]
+					}
+				}
+			}
+			else if(tabNum == 5)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanHKR[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanHKR[1]
+					}
+				}
+				else if(pageNum == 2)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanHKR[2]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanHKR[3]
+					}
+				}
+			}
+			else if(tabNum == 6)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanTKI[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanTKI[1]
+					}
+				}
+				else if(pageNum == 2)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanTKI[2]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanTKI[3]
+					}
+				}
+			}
+			else if(tabNum == 7)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNK[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNK[1]
+					}
+				}
+				else if(pageNum == 2)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNK[2]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNK[3]
+					}
+					else if(photoNum == 3)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNK[4]
+					}
+				}
+				else if(pageNum == 3)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNK[5]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKNK[6]
+					}
+				}
+			}
+			else if(tabNum == 8)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanCGK[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanCGK[1]
+					}
+				}
+				else if(pageNum == 2)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanCGK[2]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanCGK[3]
+					}
+				}
+				else if(pageNum == 3)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanCGK[4]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanCGK[5]
+					}
+				}
+			}
+			else if(tabNum == 9)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanSKK[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanSKK[1]
+					}
+					else if(photoNum == 3)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanSKK[2]
+					}
+				}
+				else if(pageNum == 2)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanSKK[3]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanSKK[4]
+					}
+					else if(photoNum == 3)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanSKK[5]
+					}
+				}
+			}
+			else if(tabNum == 10)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKSY[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKSY[1]
+					}
+				}
+				else if(pageNum == 2)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKYU[2]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKSY[3]
+					}
+				}
+				else if(pageNum == 3)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKSY[4]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKSY[5]
+					}
+					else if(photoNum == 3)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanKSY[6]
+					}
+				}
+			}
+			else if(tabNum == 11)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanOKW[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanOKW[1]
+					}
+					else if(photoNum == 3)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.point = this.PointData.japanHKD[1]
+					}
+				}
+			}
+		},
 		changeTab(tab)
 		{
 			if(tab == 1){
@@ -869,6 +1480,8 @@ export default {
 				this.subPhoto01 = this.PhotoData.japanHKD[1]
 				this.subPhoto02 = this.PhotoData.japanHKD[2]
 				this.location = this.LocationData.japanHKD[0]
+				this.Body = this.CameraData.Body[0]
+				this.Renzu = this.CameraData.Renzu[0]
 			}
 			else if(tab == 2)
 			{
@@ -1334,7 +1947,6 @@ export default {
 			this.isShow = false
 			this.isNum = 0
 			this.popmainPhoto =''
-			Object.assign(this.$data, this.$options.data.call(this));
 		}
 	}
 }
@@ -2186,10 +2798,54 @@ button{
 	height: 80%;
 	width: 40%;
 	margin: 5% 5%;
-	background: grey;
+	background: rgba(128, 128, 128, 0.521);
 }
 .bl_pop_r_cont{
-	margin-top: 20%;
+	margin-top: 10%;
 	text-align: center;
 }
+.el_pop_bodyTtl_cont{
+	width: 80%;
+	padding: 1% 1%;
+	background: white;
+	text-align: start;
+	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
+}
+
+.el_pop_bodyTtl_cont_txt{
+	font-weight:bold;
+}
+
+.el_pop_stateTtl_cont{
+	width: 80%;
+	padding: 1% 1%;
+	background: white;
+	text-align: start;
+	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
+}
+
+.el_pop_stateTtl_cont_txt{
+	font-weight:bold;
+}
+
+.el_pop_lcnTtl_cont{
+	width: 80%;
+	padding: 1% 1%;
+	background: white;
+	text-align: start;
+	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
+}
+
+.el_pop_lcnTtl_cont_txt{
+	font-weight:bold;
+}
+
+.el_pop_pointTtl_cont{
+	width: 80%;
+	padding: 1% 1%;
+	background: white;
+	text-align: start;
+	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
+}
+
 </style>
