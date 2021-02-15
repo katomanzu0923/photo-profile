@@ -15,7 +15,7 @@
       <Portraito v-if="tab==1"></Portraito>
       <Starbacks v-if="tab==2"></Starbacks>
       <Japan v-if="tab==3"></Japan>
-      <MyBests v-if="tab==4"></MyBests>
+      <Contact v-if="tab==4"></Contact>
   </div>
 </template>
 
@@ -26,7 +26,7 @@ import Portraito from './components/Portraito.vue'
 import Starbacks from './components/Starbacks.vue'
 import Japan from './components/Japan.vue'
 import MyProfile from './components/MyProfile.vue'
-import MyBests from './components/MyBests.vue'
+import Contact from './components/Contact.vue'
 import 'normalize.css'
 
 export default {
@@ -44,7 +44,7 @@ export default {
     Starbacks,
     Japan,
     MyProfile,
-    MyBests
+    Contact
 	},
   methods: {
     changepop() {

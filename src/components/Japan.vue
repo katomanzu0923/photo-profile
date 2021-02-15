@@ -2015,7 +2015,6 @@ button{
 	position: absolute;
 	top: 0;
 	left: 0;
-
 }
 
 .el_btn{

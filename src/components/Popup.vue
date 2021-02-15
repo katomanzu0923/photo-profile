@@ -1,6 +1,5 @@
 <template>
   <div class="ly_popup">
-		<button @click="kari()">kari</button>
 				<div v-if="num==3" class="bl_part_l"> 
 					{{num}}
 					<div class="bl_pop_img_l">
@@ -36,7 +35,6 @@
 		<transition name="fade">
 			<div v-if="num==0" class="bl_port">
 				<img  class="a" :src="mainImg01">
-				<button @click="isup()">up</button>
 			</div>
 		</transition>
 	</div>
@@ -158,6 +156,7 @@ h2:hover{
 	height: 100vh;
 	width: 100vw;
 	background: rgba(255, 255, 255, 0.986);
+	z-index: 100;
 }
 
 
