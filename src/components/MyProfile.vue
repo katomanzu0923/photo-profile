@@ -21,7 +21,6 @@ export default {
 	data() {
 		return {
 			imgPath: require('@/assets/main01.png'),
-			photo:require('@/assets/portWORKm.png'),
 		}
 	},
 	methods:{

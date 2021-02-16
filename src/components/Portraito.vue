@@ -1,27 +1,26 @@
 <template>
 	<div class="ly_port">
-		<div class="bl_pop" v-if="isUp">
+		<div class="bl_pop" v-if="isPop">
 			<button @click="offf()" class="el_pop_btn">✖︎</button>
-			<div class="bl_pop_l">
-				<img :src="popmainPhoto" class="el_popImg">
+			<div class="'bl_pop_l'" >
+				<img :src="popmainPhoto" :class="[popState? 'el_popImg': 'el_popImg_ver']">
 			</div>
 			<div class="bl_pop_r">
 				<div class="bl_pop_r_cont">
-					<h2>撮影機種</h2>
-					{{Body}}
-					<h2>使用レンズ</h2>
-					{{Renzu}}
-					<h2>状態</h2>
-					{{State}}
-					<h2>撮影場所</h2>
-					{{Location}}
+					<h1 class="el_pop_bodyTtl">撮影機材</h1>
+					<p class="el_pop_bodyTtl_cont"><span class="el_pop_bodyTtl_cont_txt">本体:</span>{{Body}}</p><br><p class="el_pop_bodyTtl_cont"><span class="el_pop_bodyTtl_cont_txt">レンズ:</span>{{Renzu}}</p>
+					<h1 class="el_pop_stateTtl">撮影状態</h1>
+					<p class="el_pop_stateTtl_cont"><span class="el_pop_stateTtl_cont_txt">F値:</span>{{State}}</p>
+					<h1 class="el_pop_lcnTtl">撮影場所</h1>
+					<p class="el_pop_lcnTtl_cont"><span class="el_pop_stateTtl_cont_txt">場所:</span>{{location}}</p>
+					<h2 class="el_pop_pointTtl">ポイント</h2>
+					<p class="el_pop_pointTtl_cont">{{point}}</p>
 				</div>
 			</div>
 		</div>
 		<div class="bl_btn">
-			<p :class="[tabCheck== 1? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(1)">PortRaito</p>
-			<p :class="[tabCheck== 2? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(2)">Girl</p>
-			<p :class="[tabCheck== 3? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(3)">Boy</p>
+			<p :class="[tabCheck== 1? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(1)">Girls</p>
+			<p :class="[tabCheck== 2? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(2)">Boys</p>
 		</div>
 		<div v-if="tabState==1" >
 				<div v-if="pageNum == 1">
@@ -39,29 +38,25 @@
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
-					<div class="bl_pht01_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(1,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
-						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
-						</div>
-					</div>
 				</div>
 				<div v-if="pageNum == 2">
 					<div class="bl_pht01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ーっf{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht01_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(1,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht01_sub02">
 						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(1,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
@@ -90,29 +85,18 @@
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
-					<div class="bl_pht02_p01_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(1,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
-						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
-						</div>
-					</div>
 				</div>
 				<div v-if="pageNum == 2">
 					<div class="bl_pht02_p01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ーっf{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht02_p01_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(1,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
-						</div>
-					</div>
-					<div class="bl_pht02_p01_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(1,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
@@ -123,57 +107,6 @@
 					<div :class="[pageNum == 1? 'onCircle': 'circle']">1</div>
 					<div :class="[pageNum == 2? 'onCircle': 'circle']">2</div>
 					<div @click="pageNext(2)" :class="[pageNum !== 2? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
-			</div>
-			</div>
-			<div v-if="tabState==3" >
-				<div v-if="pageNum == 1">
-					<div class="bl_pht03_p01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
-						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
-						</div>
-					</div>
-					<div class="bl_pht03_p01_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(1,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
-						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
-						</div>
-					</div>
-					<div class="bl_pht03_p01_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(1,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
-						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
-						</div>
-					</div>
-				</div>
-				<div v-if="pageNum == 2">
-					<div class="bl_pht03_p01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ーっf{{location}}ー</p><br>
-						</div>
-					</div>
-					<div class="bl_pht03_p01_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(1,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
-						</div>
-					</div>
-					<div class="bl_pht03_p01_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(1,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
-						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
-						</div>
-					</div>
-				</div>
-				<div class="bl_btnNum">
-					<div @click="pageBack(3)" :class="[pageNum !== 1? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="backBtn">前のページへ</div>
-					<div :class="[pageNum == 1? 'onCircle': 'circle']">1</div>
-					<div :class="[pageNum == 2? 'onCircle': 'circle']">2</div>
-					<div @click="pageNext(3)" :class="[pageNum !== 2? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
 			</div>
 	</div>
@@ -187,7 +120,6 @@ export default {
 			pageState:1,
 			backBtn:false,
 			nextBtn:true,
-			isUp:false,
 			tabCheck:1,
 			tabState:1,
 			NumM:'',
@@ -199,11 +131,12 @@ export default {
 			check03:0,
 			isPart:0,
 			isNum:0,
+			isPop:false,
 			isShow:false,
 			popmainPhoto:'',
-			mainPhoto:require('@/assets/stbHKD01.png'),
-			subPhoto01:require('@/assets/stbHKD02.png'),
-			subPhoto02:require('@/assets/stbHKD03.png'),
+			mainPhoto:require('@/assets/portGirl01.png'),
+			subPhoto01:require('@/assets/portGirl02.png'),
+			subPhoto02:require('@/assets/portGirl03.png'),
 			imgTxt_m:false,
 			imgTxt_01:false,
 			imgTxt_02:false,
@@ -213,53 +146,39 @@ export default {
 			Body:'x-t2',
 			Renzu:'10-24',
 			State:'F4',
-			Location:'函館ベイサイド店',
+			location:'鮎壺の滝',
 			CameraData:{
 				Body:['x-t2','x-Pro2'],
 				Renzu:['10-24','16-80'],
 				State:['F4'],
-				Location:[
-				'函館ベイサイド店','弘前公園前店',
-				'鐘つき通り店','上野公園店',
-				'冠水公園店','武生中央公園',
-				'フライトオブドリーム店','浜松城公園店',
-				'二寧坂店','メリケンパーク店','北野異人館店',
-				'道後温泉駅店','出雲大社店',
-				'沖縄本町店','鹿児島店',
-				],
+			},
+			LocationData:{
+				portLocation:[
+					'鮎壺の滝','東京家政大学','江ノ島','東京駅'
+				]
 			},
 			PhotoData:{
-				stbHKD: [
-					require('@/assets/stbHKD01.png'),
-					require('@/assets/stbHKD02.png'),
-					require('@/assets/stbHKD03.png'),
+				portGirls:[
+					require('@/assets/portGirl01.png'),
+					require('@/assets/portGirl02.png'),
+					require('@/assets/portGirl03.png'),
+					require('@/assets/portGirl04.png'),
+					require('@/assets/portGirl05.png'),
+					require('@/assets/portGirl06.png'),
+					require('@/assets/portGirl07.png'),
 				],
-				stbHSK: [
-					require('@/assets/stbHSK01.png'),
-					require('@/assets/stbHSK02.png'),
-					require('@/assets/stbHSK03.png'),
-				],
-				stbKWG:[
-					require('@/assets/stbKWG01.png'),
-					require('@/assets/stbKWG02.png'),
-					require('@/assets/stbKWG03.png'),
-				],
-				stbUEN:[
-					require('@/assets/stbUEN01.png'),
-					require('@/assets/stbUEN02.png'),
-					require('@/assets/stbUEN03.png'),
-				],
-				stbTYM:[
-					require('@/assets/stbTYM01.png'),
-					require('@/assets/stbTYM02.png'),
-					require('@/assets/stbTYM03.png'),
-				],
-				stbTYS:[
-					require('@/assets/stbSNPm.png'),
-					require('@/assets/stbSNP01.png'),
-					require('@/assets/stbSNP02.png'),
-				],
+				portBoys:[
+					require('@/assets/portMen02.png'),
+					require('@/assets/portMen03.png'),
+					require('@/assets/portMen04.png'),
+					require('@/assets/portMen05.png'),
+				]
 			},
+			pointData:{
+				point:[
+					'a'
+				]
+			}
 		}
 	},
 	mounted:{
@@ -268,9 +187,101 @@ export default {
 		}
 	},
 	methods:{
-
+		emitData(tabNum,pageNum,photoNum){
+			if(tabNum == 1)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.Point = this.pointData.point[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.Point = this.pointData.point[0]
+					}
+				}
+				else if(pageNum == 2)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.Point = this.pointData.point[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.Point = this.pointData.point[0]
+					}
+				}
+			}
+			else if(tabNum == 2)
+			{
+				if(pageNum == 1)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.Point = this.pointData.point[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.Point = this.pointData.point[0]
+					}
+				}
+				else if(pageNum == 2)
+				{
+					if(photoNum == 1)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.Point = this.pointData.point[0]
+					}
+					else if(photoNum == 2)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.Point = this.pointData.point[0]
+					}
+				}
+			}
+		},
+		isUP(upNum,state)
+		{
+			this.isPop = true
+			if(upNum == 0)
+			{
+				this.popmainPhoto = this.mainPhoto
+				if(state == false){
+					this.popState = state
+				}
+			}
+			else if(upNum == 1)
+			{
+				this.popmainPhoto = this.subPhoto01
+				if(state == false){
+					this.popState = state
+				}
+			}
+			else if(upNum == 2)
+			{
+				this.popmainPhoto = this.subPhoto02
+				if(state == false){
+					this.popState = false
+				}
+			}
+		},
 		offf(){
-			this.isUp =false
+			this.isPop =false
 		},
 		u(imgNum){
 			if(imgNum == 0){
@@ -312,30 +323,18 @@ export default {
 					this.backBtn = true
 					this.nextBtn = false
 					this.pageNum -=1
-					this.mainPhoto = this.PhotoData.stbHKD[0]
-					this.subPhoto01 = this.PhotoData.stbHKD[1]
-					this.subPhoto02 = this.PhotoData.stbHKD[2]
-					this.location = this.LocationData.stbLocation[0]
+					this.mainPhoto = this.PhotoData.portGirls[0]
+					this.subPhoto01 = this.PhotoData.portGirls[1]
+					this.location = this.LocationData.portLocation[0]
 				}
 			}else if(tab == 2)
 			{
 				this.backBtn = true
 				this.nextBtn = false
 				this.pageNum -=1
-				this.mainPhoto = this.PhotoData.stbKWG[0]
-				this.subPhoto01 = this.PhotoData.stbKWG[1]
-				this.subPhoto02 = this.PhotoData.stbKWG[2]
-				this.location = this.LocationData.stbLocation[2]
-			}
-			else if(tab == 3)
-			{
-				this.backBtn = true
-				this.nextBtn = false
-				this.pageNum -=1
-				this.mainPhoto = this.PhotoData.stbTYM[0]
-				this.subPhoto01 = this.PhotoData.stbTYM[1]
-				this.subPhoto02 = this.PhotoData.stbTYM[2]
-				this.location = this.LocationData.stbLocation[4]
+				this.mainPhoto = this.PhotoData.portBoys[0]
+					this.subPhoto01 = this.PhotoData.portBoys[1]
+				this.location = this.LocationData.portLocation[2]
 			}
 		},
 		pageNext(tab){
@@ -346,10 +345,11 @@ export default {
 					this.backBtn = false
 					this.nextBtn = true
 					this.pageNum +=1
-					this.mainPhoto = this.PhotoData.stbHSK[0]
-					this.subPhoto01 = this.PhotoData.stbHSK[1]
-					this.subPhoto02 = this.PhotoData.stbHSK[2]
-					this.location = this.LocationData.stbLocation[1]
+					this.mainPhoto = this.PhotoData.portGirls[2]
+					this.subPhoto01 = this.PhotoData.portGirls[3]
+					this.subPhoto02 = this.PhotoData.portGirls[4]
+					this.location = this.LocationData.portLocation[1]
+					console.log(this.location)
 				}
 			}
 			else if(tab == 2)
@@ -359,23 +359,9 @@ export default {
 					this.backBtn = false
 					this.nextBtn = true
 					this.pageNum +=1
-					this.mainPhoto = this.PhotoData.stbUEN[0]
-					this.subPhoto01 = this.PhotoData.stbUEN[1]
-					this.subPhoto02 = this.PhotoData.stbUEN[2]
-					this.location = this.LocationData.stbLocation[3]
-				}
-			}
-			else if(tab == 3)
-			{
-				if(this.pageNum == 1)
-				{
-					this.backBtn = false
-					this.nextBtn = true
-					this.pageNum +=1
-					this.mainPhoto = this.PhotoData.stbTYS[0]
-					this.subPhoto01 = this.PhotoData.stbTYS[1]
-					this.subPhoto02 = this.PhotoData.stbTYS[2]
-					this.location = this.LocationData.stbLocation[5]
+					this.mainPhoto = this.PhotoData.portBoys[2]
+					this.subPhoto01 = this.PhotoData.portBoys[3]
+					this.location = this.LocationData.portLocation[3]
 				}
 			}
 		},
@@ -385,20 +371,19 @@ export default {
 				this.tabState = 1
 				this.tabCheck = 1
 				this.pageNum = 1
-				this.mainPhoto = this.PhotoData.stbHKD[0]
-				this.subPhoto01 = this.PhotoData.stbHKD[1]
-				this.subPhoto02 = this.PhotoData.stbHKD[2]
-				this.location = this.LocationData.stbLocation[0]
+				this.mainPhoto = this.PhotoData.portGirls[0]
+				this.subPhoto01 = this.PhotoData.portGirls[1]
+				this.location = this.LocationData.portLocation[0]
 			}
 			else if(tab == 2)
 			{
 				this.tabState = 2
 				this.tabCheck = 2
 				this.pageNum = 1
-				this.mainPhoto = this.PhotoData.stbKWG[0]
-				this.subPhoto01 = this.PhotoData.stbKWG[1]
-				this.subPhoto02 = this.PhotoData.stbKWG[2]
-				this.location = this.LocationData.stbLocation[2]
+				this.mainPhoto = this.PhotoData.portBoys[0]
+				this.subPhoto01 = this.PhotoData.portBoys[1]
+				this.subPhoto02 = this.PhotoData.portBoys[2]
+				this.location = this.LocationData.portLocation[2]
 			}
 			else if(tab == 3)
 			{
@@ -686,5 +671,109 @@ height: 98vh;
 	filter: blur(2px) opacity(30%);
 	box-shadow:  0 2px 2px 0 rgba(0, 0, 0, 0.29);
   box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.795);
+}
+
+.bl_pop{
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	display: flex;
+	background: rgba(233, 231, 231, 0.856);
+	filter: blur(30%);
+	justify-content: space-around;
+}
+
+
+.bl_pop_ver{
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	display: flex;
+	background: rgba(233, 231, 231, 0.856);
+	filter: blur(30%);
+	justify-content: space-around;
+}
+
+.el_popImg{
+	margin: 2.5% 5%;
+	width: 90%;
+	height: 94%;
+}
+
+.el_popImg_ver{
+	margin: 5% 25%;
+	width: 50%;
+	height: 88%;
+}
+
+.el_pop_btn{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.bl_pop_l{
+}
+
+.bl_pop_ver{
+	width: 40%;
+}
+
+.bl_pop_r{
+	text-align: center;
+	height: 80%;
+	width: 40%;
+	margin: 5% 5%;
+	background: rgba(128, 128, 128, 0.521);
+}
+.bl_pop_r_cont{
+	margin-top: 10%;
+	text-align: center;
+}
+.el_pop_bodyTtl_cont{
+	width: 80%;
+	padding: 1% 1%;
+	background: white;
+	text-align: start;
+	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
+}
+
+.el_pop_bodyTtl_cont_txt{
+	font-weight:bold;
+}
+
+.el_pop_stateTtl_cont{
+	width: 80%;
+	padding: 1% 1%;
+	background: white;
+	text-align: start;
+	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
+}
+
+.el_pop_stateTtl_cont_txt{
+	font-weight:bold;
+}
+
+.el_pop_lcnTtl_cont{
+	width: 80%;
+	padding: 1% 1%;
+	background: white;
+	text-align: start;
+	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
+}
+
+.el_pop_lcnTtl_cont_txt{
+	font-weight:bold;
+}
+
+.el_pop_pointTtl_cont{
+	width: 80%;
+	padding: 1% 1%;
+	background: white;
+	text-align: start;
+	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
 }
 </style>
