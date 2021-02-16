@@ -14,7 +14,7 @@
 					<h1 class="el_pop_lcnTtl">撮影場所</h1>
 					<p class="el_pop_lcnTtl_cont"><span class="el_pop_stateTtl_cont_txt">場所:</span>{{location}}</p>
 					<h2 class="el_pop_pointTtl">ポイント</h2>
-					<p class="el_pop_pointTtl_cont">{{point}}</p>
+					<p class="el_pop_pointTtl_cont">{{Point}}</p>
 				</div>
 			</div>
 		</div>
@@ -25,7 +25,7 @@
 		<div v-if="tabState==1" >
 				<div v-if="pageNum == 1">
 					<div class="bl_pht01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -41,21 +41,21 @@
 				</div>
 				<div v-if="pageNum == 2">
 					<div class="bl_pht01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(1,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ーっf{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht01_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(1,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false),emitData(1,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht01_sub02">
-						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(1,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
+						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(1,2,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -72,14 +72,14 @@
 			<div v-if="tabState==2" >
 				<div v-if="pageNum == 1">
 					<div class="bl_pht02_p01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht02_p01_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(1,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(2,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -88,14 +88,14 @@
 				</div>
 				<div v-if="pageNum == 2">
 					<div class="bl_pht02_p01_m">
-						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
+						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ーっf{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht02_p01_sub01">
-						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(1,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
+						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(2,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
@@ -116,15 +116,13 @@
 export default {
 	data() {
 		return {
+			popState:true,
 			pageNum:1,
 			pageState:1,
 			backBtn:false,
 			nextBtn:true,
 			tabCheck:1,
 			tabState:1,
-			NumM:'',
-			Numl:'',
-			Numr:'',
 			check:0,
 			check01:0,
 			check02:0,
@@ -175,8 +173,18 @@ export default {
 				]
 			},
 			pointData:{
-				point:[
-					'a'
+				girlsPoint:[
+					'視線と余白を活かして女性の寂しさを主役に。',
+					'視線と余白を活かして女性の喜びを主役に。左端から太陽光を入れれば完璧だった',
+					'ポージング方向の余白を活かしてモデルの女性を主役に。',
+					'対象の女性を並べて主役に。WBの調整不足が露呈',
+					'画角、余白のバランスを活かして女性を主役に。'
+				],
+				boysPoint:[
+					'光の入れ具合、視線、上半身の割合を活かして男性を主役に。',
+					'視線と上半身の割合、島の切れ目を活かして男性を主役に。右端から太陽光を入れれば完璧だった',
+					'東京駅と人のコントラスを活かして人を主役に。',
+					'スマートフォンに焦点をあてあえて人を副題に。'
 				]
 			}
 		}
@@ -196,13 +204,14 @@ export default {
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
-						this.Point = this.pointData.point[0]
+						this.Point = this.pointData.girlsPoint[0]
+						console.log(this.pointData.girlsPoint[0])
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
-						this.Point = this.pointData.point[0]
+						this.Point = this.pointData.girlsPoint[1]
 					}
 				}
 				else if(pageNum == 2)
@@ -211,13 +220,19 @@ export default {
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
-						this.Point = this.pointData.point[0]
+						this.Point = this.pointData.girlsPoint[2]
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
-						this.Point = this.pointData.point[0]
+						this.Point = this.pointData.girlsPoint[3]
+					}
+					else if(photoNum == 3)
+					{
+						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
+						this.Point = this.pointData.girlsPoint[4]
 					}
 				}
 			}
@@ -229,13 +244,13 @@ export default {
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
-						this.Point = this.pointData.point[0]
+						this.Point = this.pointData.boysPoint[0]
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
-						this.Point = this.pointData.point[0]
+						this.Point = this.pointData.boysPoint[1]
 					}
 				}
 				else if(pageNum == 2)
@@ -244,13 +259,13 @@ export default {
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
-						this.Point = this.pointData.point[0]
+						this.Point = this.pointData.boysPoint[2]
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
-						this.Point = this.pointData.point[0]
+						this.Point = this.pointData.boysPoint[3]
 					}
 				}
 			}
@@ -396,12 +411,6 @@ export default {
 				this.location = this.LocationData.stbLocation[4]
 			}
 		},
-		of(){
-			this.isShow = false
-			this.isNum = 0
-			this.popphoto =''
-			Object.assign(this.$data, this.$options.data.call(this));
-		}
 	}
 }
 </script>
@@ -673,6 +682,48 @@ height: 98vh;
   box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.795);
 }
 
+.bl_pop{
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	display: flex;
+	background: rgba(233, 231, 231, 0.856);
+	filter: blur(30%);
+	justify-content: space-around;
+}
+
+
+.bl_pop_ver{
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	display: flex;
+	background: rgba(233, 231, 231, 0.856);
+	filter: blur(30%);
+	justify-content: space-around;
+}
+
+.el_popImg{
+	margin: 2.5% 5%;
+	width: 90%;
+	height: 94%;
+}
+
+.el_popImg_ver{
+	margin: 5% 25%;
+	width: 50%;
+	height: 88%;
+}
+
+.el_pop_btn{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
 .bl_pop{
 	position: absolute;
 	height: 100%;

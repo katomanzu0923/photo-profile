@@ -2,7 +2,7 @@
 	<div class="ly">
 		<div class="bl_pop" v-if="isPop">
 			<button @click="popOff()" class="el_pop_btn">✖︎</button>
-			<div class="'bl_pop_l'" >
+			<div class="bl_pop_l" >
 				<img :src="popmainPhoto" :class="[popState? 'el_popImg': 'el_popImg_ver']">
 			</div>
 			<div class="bl_pop_r">
