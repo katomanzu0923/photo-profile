@@ -24,14 +24,14 @@
 		</div>
 		<div v-if="tabState==1" >
 				<div v-if="pageNum == 1">
-					<div class="bl_pht01_m">
+					<div class="bl_pht01_p01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
-					<div class="bl_pht01_sub01">
+					<div class="bl_pht01_p01_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(1,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
@@ -40,21 +40,21 @@
 					</div>
 				</div>
 				<div v-if="pageNum == 2">
-					<div class="bl_pht01_m">
+					<div class="bl_pht01_p02_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(1,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ーっf{{location}}ー</p><br>
+							<p class="el_img_posTxt">{{location}}ー</p><br>
 						</div>
 					</div>
-					<div class="bl_pht01_sub01">
+					<div class="bl_pht01_p02_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false),emitData(1,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
 							<p class="el_img_posTxt">ー{{location}}ー</p><br>
 						</div>
 					</div>
-					<div class="bl_pht01_sub02">
+					<div class="bl_pht01_p02_sub02">
 						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(1,2,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
@@ -91,7 +91,7 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ーっf{{location}}ー</p><br>
+							<p class="el_img_posTxt">{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht02_p01_sub01">
@@ -470,6 +470,8 @@ height: 98vh;
 }
 .bl_imgTxt{
 	position: absolute;
+	display: flex;
+	justify-content: center;
 	top:90%;
 	width: 100%;
 }
@@ -532,7 +534,7 @@ height: 98vh;
 
 
 
-.bl_pht01_m{
+.bl_pht01_p01_m{
 	position: absolute;
 	left: 10%;
 	top: 20%;
@@ -540,22 +542,40 @@ height: 98vh;
 	height: 45%;
 	z-index: 1;
 }
-.bl_pht01_sub01{
+.bl_pht01_p01_sub01{
 	position: absolute;
 	left: 55%;
-	top: 30%;
+	top: 50%;
 	width: 30%;
 	height: 30%;
 	z-index: 1;
 }
-.bl_pht01_sub02{
+
+.bl_pht01_p02_m{
+	position: absolute;
+	left: 10%;
+	top: 20%;
+	width: 40%;
+	height: 60%;
+	z-index: 1;
+}
+.bl_pht01_p02_sub01{
 	position: absolute;
 	left: 60%;
-	top: 60%;
-	width: 30%;
-	height: 30%;
+	top: 10%;
+	width: 20%;
+	height: 40%;
 	z-index: 1;
 }
+.bl_pht01_p02_sub02{
+	position: absolute;
+	left: 70%;
+	top: 50%;
+	width: 20%;
+	height: 40%;
+	z-index: 1;
+}
+
 
 
 .bl_pht02_p01_m{
@@ -563,48 +583,15 @@ height: 98vh;
 	left: 10%;
 	top: 20%;
 	width: 40%;
-	height: 15%;
+	height: 45%;
 	z-index: 1;
 }
 .bl_pht02_p01_sub01{
 	position: absolute;
 	left: 55%;
-	top: 30%;
+	top: 50%;
 	width: 30%;
-	height: 10%;
-	z-index: 1;
-}
-.bl_pht02_p01_sub02{
-	position: absolute;
-	left: 60%;
-	top: 60%;
-	width: 30%;
-	height: 10%;
-	z-index: 1;
-}
-
-.bl_pht03_p01_m{
-	position: absolute;
-	left: 10%;
-	top: 20%;
-	width: 40%;
-	height: 45%;
-	z-index: 1;
-}
-.bl_pht03_p01_sub01{
-	position: absolute;
-	left: 55%;
-	top: 30%;
-	width: 30%;
-	height: 30%;
-	z-index: 1;
-}
-.bl_pht03_p01_sub02{
-	position: absolute;
-	left: 60%;
-	top: 60%;
-	width: 30%;
-	height: 30%;
+	height: 40%;
 	z-index: 1;
 }
 

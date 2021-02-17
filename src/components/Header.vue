@@ -63,12 +63,11 @@ export default {
 	box-sizing: border-box;
 	display: flex;
 	justify-content: center;
-	width: 50%;
+	width: 100%;
 	top: 0;
 	left: 0;
 	right: 0;
 	height: 100%;
-	margin:  auto;
 	background: rgba(236, 235, 235, 0.856);
 	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
 }
@@ -78,15 +77,13 @@ p{
 }
 .el_btn_is{
 	display: inline-block;
-	margin: 0 2.5%;
-	padding: 2%;
+	margin:  1% 2.5%;
 	font-weight: bold;
 }
 .el_btn_def{
 	display: inline-block;
 	border-radius: 2%;
-	margin: 0 2.5%;
-	padding: 2%;
+	margin:  1% 2.5%;
 	color:rgba(0, 0, 0, 0.425);
 	font-weight: bold;
 }
