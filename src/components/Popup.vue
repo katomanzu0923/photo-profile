@@ -1,5 +1,9 @@
 <template>
   <div class="ly_popup">
+		<div class="ly_pop_load" v-if="num >=4"> 
+      <h3 class="el_load_txt">読み込み中</h3>
+      <vue-loading type="spiningDubbles" color="rgba(29, 29, 29, 0.904)"  class="el_load_icn">読み込み中</vue-loading>
+    </div>
 				<div v-if="num==3" class="bl_part_l"> 
 					{{num}}
 					<div class="bl_pop_img_l">
@@ -41,12 +45,14 @@
 </template>
 
 <script>
+import { VueLoading } from 'vue-loading-template'
+
 export default {
   data() {
 		return {
 			up:0,
 			up02:false,
-			num:4,
+			num:8,
 			number:false,
 			popImg01: require('@/assets/portraiot01.png'),
 			stbImg01: require('@/assets/stbHSK01.png'),
@@ -55,6 +61,9 @@ export default {
 
 		}
 	},
+	components: {
+      VueLoading
+    },
 	mounted() {
 		setInterval(() => this.countdown(), 1500);
 	},
@@ -108,7 +117,7 @@ h2{
 h2:hover{
 	color: whitesmoke;
 	border: 0.5px solid rgba(0, 0, 0, 0.26);
-	background: rgba(0, 0, 0, 0.26);
+	background: rgba(49, 49, 49, 0.137);
 	cursor: pointer;
 }
 .first-enter-active,.first-leave-active {
@@ -159,6 +168,30 @@ h2:hover{
 	width: 100vw;
 	background: rgba(255, 255, 255, 0.986);
 	z-index: 100;
+}
+
+.ly_pop_load{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.986);
+}
+
+
+.el_load_txt{
+	position: absolute;
+	top       : 50%;
+	left      : 50%;
+	font-size: 1.5rem;
+	transform : translate(-50%, -50%);
+	color: rgba(10, 10, 10, 0.904);
+}
+
+.el_load_icn{
+	position: absolute;
+	top       : 45%;
+	left      : 50%;
+	transform : translate(-50%, -50%);
 }
 
 
