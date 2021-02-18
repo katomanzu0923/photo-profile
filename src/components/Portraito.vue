@@ -607,34 +607,36 @@ height: 98vh;
 	margin: 0 1%;
   text-align: center;
 	padding: 3px;
-	color: rgba(0, 0, 128, 0.486);
+	color: rgba(0, 0, 0, 0.719);
 }
 .el_imgNum_txt_def{
 	margin: 0 1%;
   text-align: center;
 	padding: 3px;
-	color: rgba(0, 0, 128, 0.137);
+	color: rgba(59, 59, 59, 0.226);
 }
 .onCircle {
   width: 20px;
 	margin: 0 1%;
-  background-color:rgba(0, 0, 128, 0.712);
-  background-color:rgba(0, 0, 128, 0.486);
+	background-color:rgba(0, 0, 0, 0.719);
   border-radius: 50%; 
   text-align: center;
   line-height: 20px;
 	padding: 3px;
+	color: rgba(255, 255, 255, 0.959);
 }
 .circle {
   width: 20px;
 	margin: 0 1%;
-  background-color:rgba(0, 0, 128, 0.712);
-  background-color:rgba(0, 0, 128, 0.11);
+  background-color:rgba(59, 59, 59, 0.226);
+	color: rgba(255, 255, 255, 0.959);
   border-radius: 50%; 
   text-align: center;
   line-height: 20px;
 	padding: 3px;
 }
+
+
 .bl_btn{
 	position: absolute;
 	top: 0;

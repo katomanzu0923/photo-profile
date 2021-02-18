@@ -23,14 +23,14 @@
 						<img  class="el_popImg01" :src="jpImg01">
 					</div>
 					<div class="bl_pop_txt_r">
-						<h1>--  Japan  --</h1>
+						<h1>--  Japan  Trip --</h1>
 					</div>
 				</div>
 				<transition name="first">
 					<h2 v-if="up==1">Photo Gyaraly</h2>
 				</transition>
 				<transition name="first">
-					<h2 v-if="up==2" type="button" @click="isOff()">Start</h2>
+					<h2 v-if="up==2" type="button" @click="isOff()" class="el_pop_txt">Start</h2>
 				</transition>
 		<transition name="fade">
 			<div v-if="num==0" class="bl_port">
@@ -106,7 +106,9 @@ h2{
 	margin:auto;
 }
 h2:hover{
-	color: rgba(0, 0, 0, 0.26);
+	color: whitesmoke;
+	border: 0.5px solid rgba(0, 0, 0, 0.26);
+	background: rgba(0, 0, 0, 0.26);
 	cursor: pointer;
 }
 .first-enter-active,.first-leave-active {
@@ -219,6 +221,11 @@ h2:hover{
 }
 .bl_port {
 	height: 100vh;
+}
+.el_pop_txt{
+	color: rgba(0, 0, 0, 0.555);
+	border: 0.5px solid rgba(0, 0, 0, 0.26);
+	width: 15%;
 }
 .a{
 	height: 100vh;
