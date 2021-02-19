@@ -37,21 +37,21 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0,false),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p>
 						</div>
 					</div>
 					<div class="bl_pht01_p01_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(1,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht01_p01_sub02">
 						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(1,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_02?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -60,7 +60,7 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(1,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -69,14 +69,14 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(1,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht01_p03_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(1,3,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -94,14 +94,14 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht02_p01_sub01">
 						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false),emitData(2,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -110,14 +110,14 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht02_p02_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(2,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -126,21 +126,21 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht02_p03_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(2,3,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht02_p03_sub02">
 						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(2,3,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -158,21 +158,21 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(3,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p01_sub01">
 						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1),emitData(3,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p01_sub02">
 						<img :class="[photoState_02? 'el_img_ver_js': 'el_img_ver']" @click="isUP(2),emitData(3,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_02?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -181,21 +181,21 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(3,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p02_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false),emitData(3,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p02_sub02">
 						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2,false),emitData(3,2,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_02?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -204,21 +204,21 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(3,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p03_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false),emitData(3,3,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p03_sub02">
 						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(3,3,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_02?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -227,14 +227,14 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(3,4,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht03_p04_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false),emitData(3,4,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -253,14 +253,14 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(4,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht04_p01_sub01">
 						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1),emitData(4,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -269,21 +269,21 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0,false),emitData(4,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht04_p02_sub01">
 						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1),emitData(4,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht04_p02_sub02">
 						<img :class="[photoState_02? 'el_img_ver_js': 'el_img_ver']" @click="isUP(2,false),emitData(4,2,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_02?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -300,14 +300,14 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(5,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht05_p01_sub01">
 						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1),emitData(5,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -316,14 +316,14 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(5,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht05_p02_sub01">
 						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false),emitData(5,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -340,14 +340,14 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(6,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht06_p01_sub01">
 						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1),emitData(6,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -356,14 +356,14 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(6,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht06_p02_sub01">
 						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1),emitData(6,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -380,14 +380,14 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(7,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht07_p01_sub01">
 						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false),emitData(7,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -396,21 +396,21 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(7,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht07_p02_sub01">
 						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false),emitData(7,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht07_p02_sub02">
 						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(7,2,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_02?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 							<button class="el_img_popTxt" @click="isUP(3)">詳細をみる</button>
 						</div>
 					</div>
@@ -420,14 +420,14 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(7,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht07_p03_sub01">
 						<img :class="[photoState_01? 'el_img_ver_js': 'el_img_ver']" @click="isUP(1,false),emitData(7,3,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -445,14 +445,14 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(8,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht08_p01_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(8,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -461,14 +461,14 @@
 						<img :class="[photoState_? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(8,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht08_p02_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(8,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -477,14 +477,14 @@
 						<img :class="[photoState_? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(8,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht08_p03_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(8,3,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -502,21 +502,21 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(9,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht09_p01_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(9,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht09_p01_sub02">
 						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(9,1,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_02?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -525,21 +525,21 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(9,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht09_p02_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(9,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht09_p02_sub02">
 						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(9,2,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_02?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 							<button class="el_img_popTxt" @click="isUP(3)">詳細をみる</button>
 						</div>
 					</div>
@@ -557,14 +557,14 @@
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(10,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht010_p01_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1,false),emitData(10,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location01}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location01}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -573,14 +573,14 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(10,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht010_p02_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(10,2,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -589,21 +589,21 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0,false),emitData(10,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht010_p03_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(10,3,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location02}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location02}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht010_p03_sub02">
 						<img :class="[photoState_02? 'el_img_hor_js': 'el_img_hor']" @click="isUP(2),emitData(10,3,3)" v-on:mouseover="u(2)" v-on:mouseleave="out(2)" :src="subPhoto02">
 						<p class="el_pht_txt" v-show="imgTxt_02">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location03}}ー</p><br>
+							<p :class="[photoState_02?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location03}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -621,14 +621,14 @@
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(11,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_m?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 					<div class="bl_pht011_p01_sub01">
 						<img :class="[photoState_01? 'el_img_hor_js': 'el_img_hor']" @click="isUP(1),emitData(11,1,2)" v-on:mouseover="u(1)" v-on:mouseleave="out(1)" :src="subPhoto01">
 						<p class="el_pht_txt" v-show="imgTxt_01">詳細をみる</p>
 						<div class="bl_imgTxt">
-							<p class="el_img_posTxt">ー{{location}}ー</p><br>
+							<p :class="[photoState_01?  'el_img_posTxt_def':'el_img_posTxt_js']">ー{{location}}ー</p><br>
 						</div>
 					</div>
 			</div>
@@ -2661,9 +2661,13 @@ button{
 	width: 100%;
 }
 
-.el_img_posTxt{
+.el_img_posTxt_def{
 	padding: 5px;
-	color: rgb(182, 163, 112);
+	color: rgba(0, 0, 0, 0.425);
+}
+
+.el_img_posTxt_js{
+	padding: 5px;
 }
 
 .el_img_popTxt{
