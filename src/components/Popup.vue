@@ -1,43 +1,41 @@
 <template>
   <div class="ly_popup">
-		<div class="ly_pop_load" v-if="num >=4"> 
+		<div class="ly_pop_load" v-show="num >=4"> 
       <h3 class="el_load_txt">読み込み中</h3>
       <vue-loading type="spiningDubbles" color="rgba(29, 29, 29, 0.904)"  class="el_load_icn">読み込み中</vue-loading>
     </div>
-				<div v-if="num==3" class="bl_part_l"> 
-					{{num}}
-					<div class="bl_pop_img_l">
-						<img  class="el_popImg01" :src="popImg01">
-					</div>
-					<div class="bl_pop_txt_r">
-						<h1>--  PortRait --</h1>
-					</div>
-				</div>
-				<div v-if="num==2" class="bl_part_r"> 
-					<div class="bl_pop_txt_r">
-						<h1>--  Star  Bucks --</h1>
-					</div>
-					<div class="bl_pop_img_l">
-						<img  class="el_popImg01" :src="stbImg01">
-					</div>
-				</div>
-				<div v-if="num==1" class="bl_part_c"> 
-					{{num}}
-					<div class="bl_pop_img_l">
-						<img  class="el_popImg01" :src="jpImg01">
-					</div>
-					<div class="bl_pop_txt_r">
-						<h1>--  Japan  Trip --</h1>
-					</div>
-				</div>
-				<transition name="first">
-					<h2 v-if="up==1">Photo Gyaraly</h2>
-				</transition>
-				<transition name="first">
-					<h2 v-if="up==2" type="button" @click="isOff()" class="el_pop_txt">Start</h2>
-				</transition>
+		<div v-show="num==3" class="bl_part_l">
+			<div class="bl_pop_img_l">
+				<img  class="el_popImg01" :src="popImg01">
+			</div>
+			<div class="bl_pop_txt_r">
+				<h1>--  PortRait --</h1>
+			</div>
+		</div>
+		<div v-show="num==2" class="bl_part_r"> 
+			<div class="bl_pop_txt_r">
+				<h1>--  Star  Bucks --</h1>
+			</div>
+			<div class="bl_pop_img_l">
+				<img  class="el_popImg01" :src="stbImg01">
+			</div>
+		</div>
+		<div v-show="num==1" class="bl_part_c"> 
+			<div class="bl_pop_img_l">
+				<img  class="el_popImg01" :src="jpImg01">
+			</div>
+			<div class="bl_pop_txt_r">
+				<h1>--  Japan  Trip --</h1>
+			</div>
+		</div>
+		<transition name="first">
+			<h2 v-show="up==1">Photo Gyaraly</h2>
+		</transition>
+		<transition name="first">
+			<h2 v-show="up==2" type="button" @click="isOff()" class="el_pop_txt">Start</h2>
+		</transition>
 		<transition name="fade">
-			<div v-if="num==0" class="bl_port">
+			<div v-show="num==0" class="bl_port">
 				<img  class="a" :src="mainImg01">
 			</div>
 		</transition>
@@ -114,7 +112,7 @@ h2{
 	font-size: 2rem;
 	margin:auto;
 }
-h2:hover{
+.el_pop_txt:hover{
 	color: whitesmoke;
 	border: 0.5px solid rgba(0, 0, 0, 0.26);
 	background: rgba(49, 49, 49, 0.137);
@@ -196,17 +194,16 @@ h2:hover{
 
 
 .bl_part_l {
-	display: flex;
 	position: absolute;
 	align-items: center;
 	left: 0;
-	margin: 15%;
-	margin-top: 2%;
-	width: 70%;
+	width: 100%;
+	height: 50%;
 }
 .el_popImg01{
-	width: 500px;
-	height:500px;
+	position: absolute;
+	width: 100%;
+	height:100%;
 }
 .bl_pop_img_l{
 	margin: 2%;

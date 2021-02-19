@@ -1,6 +1,6 @@
 <template>
 	<div class="ly">
-		<div class="bl_pop" v-if="isPop">
+		<div class="bl_pop" v-show="isPop">
 			<button @click="popOff()" class="el_pop_btn">✖︎</button>
 			<div class="bl_pop_l" >
 				<img :src="popmainPhoto" :class="[popState? 'el_popImg': 'el_popImg_ver']">
@@ -31,8 +31,8 @@
 			<p :class="[tabCheck== 10? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(10)">九州</p>
 			<p :class="[tabCheck== 11? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(11)">沖縄</p>
 		</div>
-		<div v-if="tabState==1" >
-			<div class="bl_page_cont" v-if="pageNum == 1">
+		<div v-show="tabState==1" >
+			<div class="bl_page_cont" v-show="pageNum == 1">
 					<div class="bl_pht01_p01_m01">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0,false),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -55,7 +55,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 2">
+			<div class="bl_page_cont" v-show="pageNum == 2">
 					<div class="bl_pht01_p02_m">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(1,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -64,7 +64,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 3">
+			<div class="bl_page_cont" v-show="pageNum == 3">
 					<div class="bl_pht01_p03_m">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(1,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -88,8 +88,8 @@
 					<div @click="next(1)" :class="[pageNum !== 3? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
 		</div>
-		<div v-if="tabState==2" >
-			<div class="bl_page_cont" v-if="pageNum == 1">
+		<div v-show="tabState==2" >
+			<div class="bl_page_cont" v-show="pageNum == 1">
 					<div class="bl_pht02_p01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -105,7 +105,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 2">
+			<div class="bl_page_cont" v-show="pageNum == 2">
 					<div class="bl_pht02_p02_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -121,7 +121,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 3">
+			<div class="bl_page_cont" v-show="pageNum == 3">
 					<div class="bl_pht02_p03_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -152,8 +152,8 @@
 					<div @click="next(2)" :class="[pageNum !== 3? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
 		</div>
-		<div v-if="tabState==3" >
-			<div class="bl_page_cont" v-if="pageNum == 1">
+		<div v-show="tabState==3" >
+			<div class="bl_page_cont" v-show="pageNum == 1">
 					<div class="bl_pht03_p01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(3,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -176,7 +176,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 2">
+			<div class="bl_page_cont" v-show="pageNum == 2">
 					<div class="bl_pht03_p02_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(3,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -199,7 +199,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 3">
+			<div class="bl_page_cont" v-show="pageNum == 3">
 					<div class="bl_pht03_p03_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(3,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -222,7 +222,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 4">
+			<div class="bl_page_cont" v-show="pageNum == 4">
 					<div class="bl_pht03_p04_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(3,4,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -247,8 +247,8 @@
 					<div @click="next(3)" :class="[pageNum !== 4? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
 		</div>
-		<div v-if="tabState== 4" >
-			<div class="bl_page_cont" v-if="pageNum == 1">
+		<div v-show="tabState== 4" >
+			<div class="bl_page_cont" v-show="pageNum == 1">
 					<div class="bl_pht04_p01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(4,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -264,7 +264,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 2">
+			<div class="bl_page_cont" v-show="pageNum == 2">
 					<div class="bl_pht04_p02_m">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0,false),emitData(4,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -294,8 +294,8 @@
 					<div @click="next(4)" :class="[pageNum !== 2? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
 		</div>
-		<div v-if="tabState== 5" >
-			<div class="bl_page_cont" v-if="pageNum == 1">
+		<div v-show="tabState== 5" >
+			<div class="bl_page_cont" v-show="pageNum == 1">
 					<div class="bl_pht05_p01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(5,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -311,7 +311,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 2">
+			<div class="bl_page_cont" v-show="pageNum == 2">
 					<div class="bl_pht05_p02_m">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(5,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -334,8 +334,8 @@
 					<div @click="next(5)" :class="[pageNum !== 2? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
 		</div>
-		<div v-if="tabState== 6" >
-			<div class="bl_page_cont" v-if="pageNum == 1">
+		<div v-show="tabState== 6" >
+			<div class="bl_page_cont" v-show="pageNum == 1">
 					<div class="bl_pht06_p01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(6,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -351,7 +351,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 2">
+			<div class="bl_page_cont" v-show="pageNum == 2">
 					<div class="bl_pht06_p02_m">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(6,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -374,8 +374,8 @@
 					<div @click="next(6)" :class="[pageNum !== 2? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
 		</div>
-		<div v-if="tabState== 7" >
-			<div class="bl_page_cont" v-if="pageNum == 1">
+		<div v-show="tabState== 7" >
+			<div class="bl_page_cont" v-show="pageNum == 1">
 					<div class="bl_pht07_p01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(7,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -391,7 +391,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 2">
+			<div class="bl_page_cont" v-show="pageNum == 2">
 					<div class="bl_pht07_p02_m">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(7,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -415,7 +415,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 3">
+			<div class="bl_page_cont" v-show="pageNum == 3">
 					<div class="bl_pht07_p03_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0,false),emitData(7,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -439,8 +439,8 @@
 					<div @click="next(7)" :class="[pageNum !== 3? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
 		</div>
-		<div v-if="tabState== 8" >
-			<div class="bl_page_cont" v-if="pageNum == 1">
+		<div v-show="tabState== 8" >
+			<div class="bl_page_cont" v-show="pageNum == 1">
 					<div class="bl_pht08_p01_m">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(8,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -456,7 +456,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 2">
+			<div class="bl_page_cont" v-show="pageNum == 2">
 					<div class="bl_pht08_p02_m">
 						<img :class="[photoState_? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(8,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -472,7 +472,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 3">
+			<div class="bl_page_cont" v-show="pageNum == 3">
 					<div class="bl_pht08_p03_m">
 						<img :class="[photoState_? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(8,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -496,8 +496,8 @@
 					<div @click="next(8)" :class="[pageNum !== 3? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
 		</div>
-		<div v-if="tabState== 9" >
-			<div class="bl_page_cont" v-if="pageNum == 1">
+		<div v-show="tabState== 9" >
+			<div class="bl_page_cont" v-show="pageNum == 1">
 					<div class="bl_pht09_p01_m">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(9,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -520,7 +520,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 2">
+			<div class="bl_page_cont" v-show="pageNum == 2">
 					<div class="bl_pht09_p02_m">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(9,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -551,8 +551,8 @@
 					<div @click="next(9)" :class="[pageNum !== 2? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
 		</div>
-		<div v-if="tabState== 10" >
-			<div class="bl_page_cont" v-if="pageNum == 1">
+		<div v-show="tabState== 10" >
+			<div class="bl_page_cont" v-show="pageNum == 1">
 					<div class="bl_pht010_p01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(10,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -568,7 +568,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 2">
+			<div class="bl_page_cont" v-show="pageNum == 2">
 					<div class="bl_pht010_p02_m">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(10,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -584,7 +584,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="bl_page_cont" v-if="pageNum == 3">
+			<div class="bl_page_cont" v-show="pageNum == 3">
 					<div class="bl_pht010_p03_m">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0,false),emitData(10,3,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -615,8 +615,8 @@
 					<div @click="next(10)" :class="[pageNum !== 3? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
 		</div>
-		<div v-if="tabState== 11" >
-			<div class="bl_page_cont" v-if="pageNum == 1">
+		<div v-show="tabState== 11" >
+			<div class="bl_page_cont" v-show="pageNum == 1">
 					<div class="bl_pht011_p01_m">
 						<img :class="[photoState_m? 'el_img_ver_js': 'el_img_ver']" @click="isUP(0),emitData(11,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>

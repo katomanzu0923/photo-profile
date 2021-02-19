@@ -1,6 +1,6 @@
 <template>
 	<div class="ly_port">
-		<div class="bl_pop" v-if="isPop">
+		<div class="bl_pop" v-show="isPop">
 			<button @click="offf()" class="el_pop_btn">✖︎</button>
 			<div class="'bl_pop_l'" >
 				<img :src="popmainPhoto" :class="[popState? 'el_popImg': 'el_popImg_ver']">
@@ -22,8 +22,8 @@
 			<p :class="[tabCheck== 1? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(1)">Girls</p>
 			<p :class="[tabCheck== 2? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(2)">Boys</p>
 		</div>
-		<div v-if="tabState==1" >
-				<div v-if="pageNum == 1">
+		<div v-show="tabState==1" >
+				<div v-show="pageNum == 1">
 					<div class="bl_pht01_p01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(1,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -39,7 +39,7 @@
 						</div>
 					</div>
 				</div>
-				<div v-if="pageNum == 2">
+				<div v-show="pageNum == 2">
 					<div class="bl_pht01_p02_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(1,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -69,8 +69,8 @@
 					<div @click="pageNext(1)" :class="[pageNum !== 2? 'el_imgNum_txt_js': 'el_imgNum_txt_def']" :disable="nextBtn">次のページへ</div>
 			</div>
 			</div>
-			<div v-if="tabState==2" >
-				<div v-if="pageNum == 1">
+			<div v-show="tabState==2" >
+				<div v-show="pageNum == 1">
 					<div class="bl_pht02_p01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,1,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>
@@ -86,7 +86,7 @@
 						</div>
 					</div>
 				</div>
-				<div v-if="pageNum == 2">
+				<div v-show="pageNum == 2">
 					<div class="bl_pht02_p01_m">
 						<img :class="[photoState_m? 'el_img_hor_js': 'el_img_hor']" @click="isUP(0),emitData(2,2,1)" v-on:mouseover="u(0)" v-on:mouseleave="out(0)" :src="mainPhoto">
 						<p class="el_pht_txt" v-show="imgTxt_m">詳細をみる</p>

@@ -1,6 +1,6 @@
 <template>
 	<div class="ly_cnta">
-		<div class="bl_popCnta" v-if="isPop">
+		<div class="bl_popCnta" v-show="isPop">
 			<div class="bl_popCnta"> 
 				<h1 class="bl_popCnta_ttl">
 					<span class="el_popCnta_ttl_nam">{{name}}様</span><br>お問い合わせいただきありがとうございます
