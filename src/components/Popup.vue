@@ -5,28 +5,16 @@
       <vue-loading type="spiningDubbles" color="rgba(29, 29, 29, 0.904)"  class="el_load_icn">読み込み中</vue-loading>
     </div>
 		<div v-show="num==3" class="bl_part_l">
-			<div class="bl_pop_img_l">
+				<div class="el_pop_imgTxt01">Port Raiot</div>
 				<img  class="el_popImg01" :src="popImg01">
-			</div>
-			<div class="bl_pop_txt_r">
-				<h1>--  PortRait --</h1>
-			</div>
 		</div>
-		<div v-show="num==2" class="bl_part_r"> 
-			<div class="bl_pop_txt_r">
-				<h1>--  Star  Bucks --</h1>
-			</div>
-			<div class="bl_pop_img_l">
+		<div v-show="num==2" class="bl_part_l">
+				<div class="el_pop_imgTxt01">STAR  BUCKS</div>
 				<img  class="el_popImg01" :src="stbImg01">
-			</div>
 		</div>
-		<div v-show="num==1" class="bl_part_c"> 
-			<div class="bl_pop_img_l">
+		<div v-show="num==1" class="bl_part_l">
+				<div class="el_pop_imgTxt01">Japan  Trip</div>
 				<img  class="el_popImg01" :src="jpImg01">
-			</div>
-			<div class="bl_pop_txt_r">
-				<h1>--  Japan  Trip --</h1>
-			</div>
 		</div>
 		<transition name="first">
 			<h2 v-show="up==1">Photo Gyaraly</h2>
@@ -195,31 +183,35 @@ h2{
 
 .bl_part_l {
 	position: absolute;
-	align-items: center;
 	left: 0;
+	top: 0;
 	width: 100%;
-	height: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 }
+
+.el_pop_imgTxt01 {
+	text-align: center;
+	margin: 5% 0;
+	font-weight: bold;
+	font-size: 2rem;
+}
+
 .el_popImg01{
-	position: absolute;
-	width: 100%;
-	height:100%;
+	text-align: center;
+	margin: 0 20%;
+	width: 60%;
+	height:50%;
+	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
 }
 .bl_pop_img_l{
-	margin: 2%;
+
 }
 .bl_pop_txt_r{
 	text-align: center;
 }
-.bl_part_r {
-	display: flex;
-	position: absolute;
-	align-items: center;
-	right: 0;
-	margin: 15%;
-	margin-right: 1%;
-	width: 70%;
-}
+
 .bl_part_c {
 	display: flex;
 	position: absolute;
