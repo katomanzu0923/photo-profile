@@ -6,20 +6,18 @@
 				<img :src="popmainPhoto" :class="[popState? 'el_popImg': 'el_popImg_ver']">
 			</div>
 			<div class="bl_pop_r">
-				<div class="bl_pop_r_cont">
 					<h1 class="el_pop_bodyTtl">撮影機材</h1>
 					<p class="el_pop_bodyTtl_cont"><span class="el_pop_bodyTtl_cont_txt">本体:</span>{{Body}}</p><br><p class="el_pop_bodyTtl_cont"><span class="el_pop_bodyTtl_cont_txt">レンズ:</span>{{Renzu}}</p>
 					<h1 class="el_pop_stateTtl">撮影状態</h1>
-					<p class="el_pop_stateTtl_cont"><span class="el_pop_stateTtl_cont_txt">F値:</span>{{State}}</p>
+					<p class="el_pop_stateTtl_cont">ISO:{{IsoNum}},画角:{{RenzuNum}}mm<br>F値:{{FNum}},SS:{{SSNum}}sec</p>
 					<h1 class="el_pop_lcnTtl">撮影場所</h1>
 					<p class="el_pop_lcnTtl_cont"><span class="el_pop_stateTtl_cont_txt">場所:</span>{{location}}</p>
 					<h2 class="el_pop_pointTtl">ポイント</h2>
 					<p class="el_pop_pointTtl_cont">{{Point}}</p>
-				</div>
 			</div>
 		</div>
 		<div class="bl_btn">
-				<p :class="[tabCheck== 1? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(1)">北海道・東北</p>
+				<button :class="[tabCheck== 1? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(1)">北海道・東北</button>
 				<p :class="[tabCheck== 2? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(2)">関東</p>
 				<p :class="[tabCheck== 3? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(3)">北信越</p>
 				<p :class="[tabCheck== 4? 'el_img_ttl':'el_img_ttl_def' ]"  @click="changeTab(4)">東海</p>
@@ -431,7 +429,7 @@ export default {
 			State:'F4',
 			location:'函館ベイサイド店',
 			CameraData:{
-				Body:['x-t2','x-Pro2'],
+				Body:['x-t2','x-Pro2','iPhone11 Pro'],
 				Renzu:['10-24','16-80'],
 				State:['F4'],
 			},
@@ -516,6 +514,10 @@ export default {
 					'鹿児島店','沖縄本町店',
 				]
 			},
+			IsoNum:'100',
+			RenzuNum:'16',
+			FNum:'4',
+			SSNum:'1/20',
 			PointData:{
 				stbHKD: [
 					'日の丸構図で建築物を主役に。フラッシュで雪の夜空が欲しかった',//0
@@ -604,17 +606,30 @@ export default {
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbHKD[0]
+						this.IsoNum = 12800
+						this.RenzuNum = 20
+						this.FNum = 6.4
+						this.SSNum = '1/18'
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbHKD[1]
+						this.IsoNum = 200
+						this.RenzuNum = 16
+						this.FNum = 4.0
+						this.SSNum = '1/340'
 					}
 					else if(photoNum == 3)
 					{
 						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbHKD[2]
+						this.IsoNum = 2500
+						this.RenzuNum = 16
+						this.FNum = 4.0
+						this.SSNum = '1/20'
 					}
 				}
 				else if(pageNum == 2)
@@ -624,17 +639,29 @@ export default {
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbHSK[0]
+						this.IsoNum = 3200
+						this.RenzuNum = 16
+						this.FNum = 4.0
+						this.SSNum = '1/20'
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbHSK[1]
+						this.IsoNum = 4000
+						this.RenzuNum = 16
+						this.FNum = 4.0
+						this.SSNum ='1/20'
 					}
 					else if(photoNum == 3)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Point = this.PointData.stbHSK[2]
+						this.IsoNum = 800
+						this.RenzuNum = 16
+						this.FNum = 4.0
+						this.SSNum = '1/20'
 					}
 				}
 			}
@@ -647,17 +674,30 @@ export default {
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbKWG[0]
+						this.IsoNum = 12800
+						this.RenzuNum = 16
+						this.FNum = 4.0
+						this.SSNum = '1/20'
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbKWG[1]
+						this.IsoNum = 500
+						this.RenzuNum = 37
+						this.FNum = 4.0
+						this.SSNum = '1/55'
 					}
 					else if(photoNum == 3)
 					{
-						this.Body = this.CameraData.Body[0]
+						this.Body = this.CameraData.Body[2]
+						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbKWG[2]
+						this.IsoNum = 1000
+						this.RenzuNum = '9(APS-C換算)'
+						this.FNum = 2.4
+						this.SSNum = '1/25'
 					}
 				}
 				else if(pageNum == 2)
@@ -667,17 +707,29 @@ export default {
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbUEN[0]
+						this.IsoNum = 1000
+						this.RenzuNum = 30
+						this.FNum = 9.0
+						this.SSNum = '1/320'
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbUEN[1]
+						this.IsoNum = 1000
+						this.RenzuNum = 30
+						this.FNum = 4.5
+						this.SSNum = '1/60'
 					}
 					else if(photoNum == 3)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Point = this.PointData.stbUEN[2]
+						this.IsoNum = 1000
+						this.RenzuNum = 16
+						this.FNum = 4.0
+						this.SSNum = '1/80'
 					}
 				}
 			}
@@ -690,17 +742,30 @@ export default {
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbTYM[0]
+						this.IsoNum = 200
+						this.RenzuNum = 32
+						this.FNum = 4.0
+						this.SSNum = '1/500'
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbTYM[1]
+						this.IsoNum = 200
+						this.RenzuNum = 67
+						this.FNum = 4.0
+						this.SSNum = '1/2200'
 					}
 					else if(photoNum == 3)
 					{
 						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbTYM[2]
+						this.IsoNum = 200
+						this.RenzuNum = 80
+						this.FNum = 7.0
+						this.SSNum = '1/60'
 					}
 				}
 				else if(pageNum == 2)
@@ -710,17 +775,29 @@ export default {
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbTYS[0]
+						this.IsoNum = 200
+						this.RenzuNum = 40
+						this.FNum = 4.0
+						this.SSNum = '1/3800'
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbTYS[1]
+						this.IsoNum = 200
+						this.RenzuNum = 80
+						this.FNum = 4.0
+						this.SSNum = '1/480'
 					}
 					else if(photoNum == 3)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Point = this.PointData.stbTYS[2]
+						this.IsoNum = 500
+						this.RenzuNum = 35
+						this.FNum = 5
+						this.SSNum = '1/60'
 					}
 				}
 			}
@@ -733,17 +810,29 @@ export default {
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbFOD[0]
+						this.IsoNum = 640
+						this.RenzuNum = 17
+						this.FNum = 4.0
+						this.SSNum = '1/25'
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbFOD[1]
+						this.IsoNum = 10000
+						this.RenzuNum = 25
+						this.FNum = 7.0
+						this.SSNum = '1/40'
 					}
 					else if(photoNum == 3)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Point = this.PointData.stbFOD[2]
+						this.IsoNum = 3200
+						this.RenzuNum = 18
+						this.FNum = 4.0
+						this.SSNum = '1/25'
 					}
 				}
 				else if(pageNum == 2)
@@ -753,12 +842,20 @@ export default {
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbHMM[0]
+						this.IsoNum = 200
+						this.RenzuNum = 16
+						this.FNum = 5.0
+						this.SSNum = '1/20'
 					}
 					else if(photoNum == 2)
 					{
-						this.Body = this.CameraData.Body[0]
-						this.Renzu = this.CameraData.Renzu[1]
+						this.Body = this.CameraData.Body[2]
+						this.Renzu = this.CameraData.Body[2]
 						this.Point = this.PointData.stbHMMHSK[1]
+						this.IsoNum = 500
+						this.RenzuNum = 20
+						this.FNum = 2.4
+						this.SSNum = '1/60'
 					}
 				}
 			}
@@ -768,20 +865,32 @@ export default {
 				{
 					if(photoNum == 1)
 					{
-						this.Body = this.CameraData.Body[0]
-						this.Renzu = this.CameraData.Renzu[1]
+						this.Body = this.CameraData.Body[2]
+						this.Renzu = this.CameraData.Body[2]
 						this.Point = this.PointData.stbNNZ[0]
+						this.IsoNum = 200
+						this.RenzuNum = 16
+						this.FNum = 2.5
+						this.SSNum = '1/120'
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbNNZ[1]
+						this.IsoNum = 5000
+						this.RenzuNum = 80
+						this.FNum = 5
+						this.SSNum = '1/120'
 					}
 					else if(photoNum == 3)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Point = this.PointData.stbNNZ[2]
+						this.IsoNum = 200
+						this.RenzuNum = 21
+						this.FNum = 4.0
+						this.SSNum = '1/210'
 					}
 				}
 				else if(pageNum == 2)
@@ -791,17 +900,29 @@ export default {
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbKTN[0]
+						this.IsoNum = 200
+						this.RenzuNum = 35
+						this.FNum = 4.0
+						this.SSNum = '1/750'
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbKTN[1]
+						this.IsoNum = 200
+						this.RenzuNum = 65
+						this.FNum = 4.0
+						this.SSNum = '1/170'
 					}
 					else if(photoNum == 3)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Point = this.PointData.stbKTN[2]
+						this.IsoNum = 250
+						this.RenzuNum = 19
+						this.FNum = 4.0
+						this.SSNum = '1/25'
 					}
 				}
 			}
@@ -814,17 +935,29 @@ export default {
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbIZM[0]
+						this.IsoNum = 8000
+						this.RenzuNum = 56
+						this.FNum = 6.0
+						this.SSNum = '1/85'
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbIZM[1]
+						this.IsoNum = 640
+						this.RenzuNum = 19
+						this.FNum = 4.0
+						this.SSNum = '1/27'
 					}
 					else if(photoNum == 3)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Point = this.PointData.stbIZM[2]
+						this.IsoNum = 800
+						this.RenzuNum = 80
+						this.FNum = 4.0
+						this.SSNum = '1/120'
 					}
 				}
 				else if(pageNum == 2)
@@ -832,19 +965,31 @@ export default {
 					if(photoNum == 1)
 					{
 						this.Body = this.CameraData.Body[0]
-						this.Renzu = this.CameraData.Renzu[1]
+						this.Renzu = this.CameraData.Renzu[0]
 						this.Point = this.PointData.stbDGO[0]
+						this.IsoNum = 200
+						this.RenzuNum = 18
+						this.FNum = 4
+						this.SSNum = '1/850'
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbDGO[1]
+						this.IsoNum = 200
+						this.RenzuNum = 80
+						this.FNum = 4.0
+						this.SSNum = '1/210'
 					}
 					else if(photoNum == 3)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Point = this.PointData.stbDGO[2]
+						this.IsoNum = 320
+						this.RenzuNum = 42
+						this.FNum = 4.0
+						this.SSNum = '1/60'
 					}
 				}
 			}
@@ -857,37 +1002,68 @@ export default {
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbOKW[0]
+						this.IsoNum = 640
+						this.RenzuNum = 72
+						this.FNum = 5.0
+						this.SSNum = '1/105'
 					}
 					else if(photoNum == 2)
 					{
 						this.Body = this.CameraData.Body[0]
 						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbOKW[1]
+						this.IsoNum = 20
+						this.RenzuNum = 15
+						this.FNum = 2.5
+						this.SSNum = '1/710'
+						this.IsoNum = 
+						this.RenzuNum = 
+						this.FNum = 
+						this.SSNum = ''
+						
 					}
 					else if(photoNum == 3)
 					{
-						this.Body = this.CameraData.Body[0]
+						this.Body = this.CameraData.Body[2]
+						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbOKW[2]
+						this.IsoNum = 200
+						this.RenzuNum = 26
+						this.FNum = 4.0
+						this.SSNum = '1/1800'
 					}
 				}
 				else if(pageNum == 2)
 				{
 					if(photoNum == 1)
 					{
-						this.Body = this.CameraData.Body[0]
-						this.Renzu = this.CameraData.Renzu[1]
+						this.Body = this.CameraData.Body[2]
+						this.Renzu = this.CameraData.Body[2]
 						this.Point = this.PointData.stbKGM[0]
+						this.IsoNum = 100
+						this.RenzuNum = 15
+						this.FNum = 2.5
+						this.SSNum = '1/121'
 					}
 					else if(photoNum == 2)
 					{
-						this.Body = this.CameraData.Body[0]
-						this.Renzu = this.CameraData.Renzu[1]
+						this.Body = this.CameraData.Body[2]
+						this.Renzu = this.CameraData.Body[2]
 						this.Point = this.PointData.stbKGM[1]
+						this.IsoNum = 100
+						this.RenzuNum = 18	
+						this.FNum = 2.5
+						this.SSNum = '1/250'
 					}
 					else if(photoNum == 3)
 					{
 						this.Body = this.CameraData.Body[0]
+						this.Renzu = this.CameraData.Renzu[1]
 						this.Point = this.PointData.stbKGM[2]
+						this.IsoNum = 200
+						this.RenzuNum = 16
+						this.FNum = 4.0
+						this.SSNum = '1/20'
 					}
 				}
 			}
@@ -1196,6 +1372,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$breakpoints: (
+	m: "only screen and (max-width: 980px)",
+	pc: "only screen and (max-width: 1199px)",
+);
+@mixin media($breakpoint) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
 .ly {
 	position: absolute;
 	width: 98%;
@@ -1204,6 +1389,9 @@ export default {
 	height: 85%;
 	background: rgba(236, 235, 235, 0.856);
 	border-left: rgb(206, 206, 221) 2px solid;
+	@include media(m){
+		font-size: 0.8rem;
+	}
 }
 p{
 	display: inline-block;
@@ -1212,12 +1400,15 @@ p{
 button{
 	border: none;
 	background: none;
+	outline: none;
 }
 .bl_btn{
 	position: absolute;
 	top: 0;
 	left: 0;
-
+	@include media(m){
+		font-size: 0.8rem;
+	}
 }
 
 .el_btn{
@@ -1250,6 +1441,9 @@ button{
 	border-top: none;
 	border-bottom:none;
 	box-shadow:  none;
+	@include media(m){
+		padding: 1px;
+	}
 }
 .el_img_ttl_def{
   display: inline-block;
@@ -1257,7 +1451,6 @@ button{
 	padding: 5px 5px;
 	margin: 0;
 	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
-
 }
 
 .el_img_txt{
@@ -1299,6 +1492,11 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+	}
 }
 .bl_pht01_p01_sub01{
 	position: absolute;
@@ -1307,14 +1505,23 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 50%;
+	}
 }
 .bl_pht01_p01_sub02{
 	position: absolute;
+	display: block;
 	left: 60%;
 	top: 60%;
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		display: none;
+	}
 }
 
 .bl_pht01_p02_m{
@@ -1324,22 +1531,40 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht01_p02_sub01{
 	position: absolute;
 	left: 60%;
 	top: 10%;
 	width: 20%;
-	height: 30%;
+	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 .bl_pht01_p02_sub02{
 	position: absolute;
-	left: 60%;
-	top: 60%;
+	left: 70%;
+	top: 50%;
 	width: 20%;
-	height: 30%;
+	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 50%;
+		height: 30%;
+		width:40%;
+	}
 }
 
 .bl_pht02_p01_m{
@@ -1349,6 +1574,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht02_p01_sub01{
 	position: absolute;
@@ -1357,6 +1588,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 .bl_pht02_p01_sub02{
 	position: absolute;
@@ -1365,6 +1602,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 50%;
+		height: 30%;
+		width:40%;
+	}
 }
 
 .bl_pht02_p02_m{
@@ -1402,6 +1645,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht03_p01_sub01{
 	position: absolute;
@@ -1410,6 +1659,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 55%;
+		height: 30%;
+		width:40%;
+	}
 }
 .bl_pht03_p01_sub02{
 	position: absolute;
@@ -1418,6 +1673,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht03_p02_m{
@@ -1427,6 +1688,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht03_p02_sub01{
 	position: absolute;
@@ -1435,6 +1702,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 55%;
+		height: 30%;
+		width:40%;
+	}
 }
 .bl_pht03_p02_sub02{
 	position: absolute;
@@ -1443,6 +1716,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht04_p01_m{
@@ -1452,6 +1731,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht04_p01_sub01{
 	position: absolute;
@@ -1460,6 +1745,13 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+		font-size: 0.5rem;
+	}
 }
 .bl_pht04_p01_sub02{
 	position: absolute;
@@ -1468,6 +1760,13 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 55%;
+		height: 30%;
+		width: 40%;
+		font-size: 0.5rem;
+	}
 }
 
 .bl_pht04_p02_m{
@@ -1477,6 +1776,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht04_p02_sub01{
 	position: absolute;
@@ -1485,6 +1790,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 .bl_pht04_p02_sub02{
 	position: absolute;
@@ -1493,6 +1804,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 55%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 
@@ -1503,6 +1820,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht05_p01_sub01{
 	position: absolute;
@@ -1511,6 +1834,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 55%;
+		height: 30%;
+		width:40%;
+	}
 }
 .bl_pht05_p01_sub02{
 	position: absolute;
@@ -1519,6 +1848,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht05_p02_m{
@@ -1528,6 +1863,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht05_p02_sub01{
 	position: absolute;
@@ -1536,6 +1877,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 55%;
+		height: 30%;
+		width:40%;
+	}
 }
 .bl_pht05_p02_sub02{
 	position: absolute;
@@ -1544,6 +1891,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 
@@ -1556,7 +1909,14 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
+
 .bl_pht06_p01_sub01{
 	position: absolute;
 	left: 60%;
@@ -1564,7 +1924,15 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+		font-size: 0.5rem;
+	}
 }
+
 .bl_pht06_p01_sub02{
 	position: absolute;
 	left: 60%;
@@ -1572,6 +1940,13 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 55%;
+		height: 30%;
+		width: 40%;
+		font-size: 0.5rem;
+	}
 }
 
 .bl_pht06_p02_m{
@@ -1581,7 +1956,14 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
+
 .bl_pht06_p02_sub01{
 	position: absolute;
 	left: 60%;
@@ -1589,7 +1971,15 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+		font-size: 0.5rem;
+	}
 }
+
 .bl_pht06_p02_sub02{
 	position: absolute;
 	left: 60%;
@@ -1597,6 +1987,13 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 55%;
+		height: 30%;
+		width: 40%;
+		font-size: 0.5rem;
+	}
 }
 
 .bl_pht07_p01_m{
@@ -1606,6 +2003,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht07_p01_sub01{
 	position: absolute;
@@ -1614,6 +2017,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 .bl_pht07_p01_sub02{
 	position: absolute;
@@ -1622,6 +2031,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 55%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht07_p02_m{
@@ -1631,6 +2046,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht07_p02_sub01{
 	position: absolute;
@@ -1639,6 +2060,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 .bl_pht07_p02_sub02{
 	position: absolute;
@@ -1647,6 +2074,12 @@ button{
 	width: 20%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 55%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_btnNum{
@@ -1755,17 +2188,6 @@ button{
   box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.795);
 }
 
-.bl_pop{
-	position: absolute;
-	height: 100%;
-	left: 0;
-	top: 0;
-	width: 100%;
-	display: flex;
-	background: rgba(233, 231, 231, 0.856);
-	filter: blur(30%);
-	justify-content: space-around;
-}
 
 
 .bl_pop_ver{
@@ -1802,6 +2224,12 @@ button{
 	background: rgba(233, 231, 231, 0.856);
 	filter: blur(30%);
 	justify-content: space-around;
+	@include media(m){
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
 }
 
 
@@ -1821,12 +2249,18 @@ button{
 	margin: 2.5% 5%;
 	width: 90%;
 	height: 94%;
+	max-width:100%;
+	max-height:100%;
+	@include media(m){
+	}
 }
 
 .el_popImg_ver{
 	margin: 5% 25%;
 	width: 50%;
 	height: 88%;
+	@include media(m){
+	}
 }
 
 .el_pop_btn{
@@ -1835,6 +2269,10 @@ button{
 	top: 0;
 }
 .bl_pop_l{
+	@include media(m){
+		margin: 0 5%;
+		width: 90%;
+	}
 }
 
 .bl_pop_ver{
@@ -1847,11 +2285,28 @@ button{
 	width: 40%;
 	margin: 5% 5%;
 	background: rgba(128, 128, 128, 0.521);
+	@include media(m){
+		margin: 0 5%;
+		width: 90%;
+		height: 90%;
+	}
 }
 .bl_pop_r_cont{
-	margin-top: 10%;
+	margin-top: 5%;
 	text-align: center;
+	@include media(m){
+		margin: 2% 0 0;
+		height: 99%;
+	}
 }
+
+.el_pop_bodyTtl{
+	margin: 1% 0;
+	@include media(m){
+		margin: 2% 1% 0;
+	}
+}
+
 .el_pop_bodyTtl_cont{
 	width: 80%;
 	padding: 1% 1%;
@@ -1864,16 +2319,32 @@ button{
 	font-weight:bold;
 }
 
+.el_pop_stateTtl{
+	margin: 5% 1% 0;
+	@include media(m){
+		margin: 2% 1% 0;
+	}
+}
+
 .el_pop_stateTtl_cont{
-	width: 80%;
 	padding: 1% 1%;
 	background: white;
-	text-align: start;
+	text-align: center;
 	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
+	@include media(m){
+		width: 80%;
+	}
 }
 
 .el_pop_stateTtl_cont_txt{
 	font-weight:bold;
+}
+
+.el_pop_lcnTtl{
+	margin: 5% 1% 0;
+	@include media(m){
+		margin: 2% 1% 0;
+	}
 }
 
 .el_pop_lcnTtl_cont{
@@ -1886,6 +2357,13 @@ button{
 
 .el_pop_lcnTtl_cont_txt{
 	font-weight:bold;
+}
+
+.el_pop_pointTtl{
+	margin: 5% 1% 0;
+	@include media(m){
+		margin: 2% 1% 0;
+	}
 }
 
 .el_pop_pointTtl_cont{

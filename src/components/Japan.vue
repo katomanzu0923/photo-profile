@@ -6,7 +6,6 @@
 				<img :src="popmainPhoto" :class="[popState? 'el_popImg': 'el_popImg_ver']">
 			</div>
 			<div class="bl_pop_r">
-				<div class="bl_pop_r_cont">
 					<h1 class="el_pop_bodyTtl">撮影機材</h1>
 					<p class="el_pop_bodyTtl_cont"><span class="el_pop_bodyTtl_cont_txt">本体:</span>{{Body}}</p><br><p class="el_pop_bodyTtl_cont"><span class="el_pop_bodyTtl_cont_txt">レンズ:</span>{{Renzu}}</p>
 					<h1 class="el_pop_stateTtl">撮影状態</h1>
@@ -15,7 +14,6 @@
 					<p class="el_pop_lcnTtl_cont"><span class="el_pop_stateTtl_cont_txt">場所:</span>{{location}}</p>
 					<h2 class="el_pop_pointTtl">ポイント</h2>
 					<p class="el_pop_pointTtl_cont">{{point}}</p>
-				</div>
 			</div>
 		</div>
 		<div class="bl_btn">
@@ -1953,6 +1951,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$breakpoints: (
+	m: "only screen and (max-width: 980px)",
+	pc: "only screen and (max-width: 1199px)",
+);
+@mixin media($breakpoint) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
 .ly {
 	position: absolute;
 	width: 98%;
@@ -1961,6 +1968,9 @@ export default {
 	height: 85%;
 	background: rgba(236, 235, 235, 0.856);
 	border-left: rgb(206, 206, 221) 2px solid;
+	@include media(m){
+		font-size: 0.8rem;
+	}
 }
 p{
 	display: inline-block;
@@ -2029,6 +2039,12 @@ button{
 	width: 30%;
 	height: 75%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 50%;
+	}
 }
 .bl_pht01_p01_sub01{
 	position: absolute;
@@ -2037,6 +2053,12 @@ button{
 	width: 30%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 65%;
+		left: 5%;
+		height: 25%;
+		width: 40%;
+	}
 }
 .bl_pht01_p01_sub02{
 	position: absolute;
@@ -2045,6 +2067,12 @@ button{
 	width: 30%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 50%;
+		height: 25%;
+		width:40%;
+	}
 }
 
 .bl_pht01_p02_m{
@@ -2054,6 +2082,12 @@ button{
 	width: 70%;
 	height: 75%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 25%;
+		width: 80%;
+	}
 }
 
 .bl_pht01_p03_m{
@@ -2063,6 +2097,12 @@ button{
 	width: 40%;
 	height: 55%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 40%;
+	}
 }
 .bl_pht01_p03_sub01{
 	position: absolute;
@@ -2071,6 +2111,12 @@ button{
 	width: 40%;
 	height: 55%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 50%;
+		height: 40%;
+	}
 }
 
 .bl_pht02_p01_m{
@@ -2080,6 +2126,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 50%;
+	}
 }
 
 .bl_pht02_p01_sub01{
@@ -2089,6 +2141,12 @@ button{
 	width: 20%;
 	height: 50%;
 	z-index: 1;
+	@include media(m){
+		left: 30%;
+		width: 40%;
+		top: 60%;
+		height: 20%;
+	}
 }
 
 .bl_pht02_p02_m{
@@ -2098,6 +2156,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 50%;
+	}
 }
 
 .bl_pht02_p02_sub01{
@@ -2107,6 +2171,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		left: 30%;
+		width: 40%;
+		top: 60%;
+		height: 20%;
+	}
 }
 
 .bl_pht02_p03_m{
@@ -2116,6 +2186,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 
 .bl_pht02_p03_sub01{
@@ -2125,6 +2201,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht02_p03_sub02{
@@ -2134,6 +2216,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 50%;
+		height: 30%;
+		width:40%;
+	}
 }
 
 .bl_pht03_p01_m{
@@ -2143,6 +2231,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 
 .bl_pht03_p01_sub01{
@@ -2152,6 +2246,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 55%;
+		height: 30%;
+		width:40%;
+	}
 }
 
 .bl_pht03_p01_sub02{
@@ -2161,6 +2261,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht03_p02_m{
@@ -2170,6 +2276,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 
 .bl_pht03_p02_sub01{
@@ -2179,6 +2291,12 @@ button{
 	width: 20%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 55%;
+		height: 30%;
+		width:40%;
+	}
 }
 
 .bl_pht03_p02_sub02{
@@ -2188,6 +2306,12 @@ button{
 	width: 20%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht03_p03_m{
@@ -2197,6 +2321,12 @@ button{
 	width: 20%;
 	height: 70%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 20%;
+		height: 40%;
+		width: 60%;
+	}
 }
 
 .bl_pht03_p03_sub01{
@@ -2206,6 +2336,12 @@ button{
 	width: 20%;
 	height: 70%;
 	z-index: 1;
+		@include media(m){
+		top: 55%;
+		left: 55%;
+		height: 30%;
+		width:40%;
+	}
 }
 
 .bl_pht03_p03_sub02{
@@ -2215,6 +2351,12 @@ button{
 	width: 40%;
 	height: 70%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht03_p04_m{
@@ -2224,6 +2366,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 40%;
+	}
 }
 
 .bl_pht03_p04_sub01{
@@ -2233,6 +2381,12 @@ button{
 	width: 20%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 20%;
+		width: 60%;
+		top: 50%;
+		height: 40%;
+	}
 }
 
 .bl_pht04_p01_m{
@@ -2242,6 +2396,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 40%;
+	}
 }
 
 .bl_pht04_p01_sub01{
@@ -2251,6 +2411,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 50%;
+		height: 40%;
+	}
 }
 
 .bl_pht04_p02_m{
@@ -2260,6 +2426,12 @@ button{
 	width: 20%;
 	height: 70%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht04_p02_sub01{
@@ -2269,6 +2441,12 @@ button{
 	width: 40%;
 	height: 70%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 
 .bl_pht04_p02_sub02{
@@ -2278,6 +2456,12 @@ button{
 	width: 20%;
 	height: 70%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 50%;
+		height: 30%;
+		width:45%;
+	}
 }
 
 .bl_pht05_p01_m{
@@ -2287,6 +2471,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 30%;
+	}
 }
 
 .bl_pht05_p01_sub01{
@@ -2296,6 +2486,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 50%;
+		height: 30%;
+	}
 }
 
 .bl_pht05_p02_m{
@@ -2305,6 +2501,12 @@ button{
 	width: 30%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 30%;
+	}
 }
 
 .bl_pht05_p02_sub01{
@@ -2314,6 +2516,12 @@ button{
 	width: 20%;
 	height: 50%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 50%;
+		height: 30%;
+	}
 }
 
 .bl_pht06_p01_m{
@@ -2323,6 +2531,12 @@ button{
 	width: 40%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 30%;
+	}
 }
 
 .bl_pht06_p01_sub01{
@@ -2332,6 +2546,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 50%;
+		height: 30%;
+	}
 }
 
 .bl_pht06_p02_m{
@@ -2341,6 +2561,12 @@ button{
 	width: 40%;
 	height: 55%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 30%;
+	}
 }
 
 .bl_pht06_p02_sub01{
@@ -2350,6 +2576,12 @@ button{
 	width: 40%;
 	height: 55%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 50%;
+		height: 30%;
+	}
 }
 
 .bl_pht07_p01_m{
@@ -2359,6 +2591,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 30%;
+	}
 }
 
 .bl_pht07_p01_sub01{
@@ -2368,6 +2606,12 @@ button{
 	width: 20%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 30%;
+		width: 40%;
+		top: 50%;
+		height: 30%;
+	}
 }
 
 .bl_pht07_p02_m{
@@ -2377,6 +2621,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 40%;
+	}
 }
 
 .bl_pht07_p02_sub01{
@@ -2386,6 +2636,12 @@ button{
 	width: 20%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht07_p02_sub02{
@@ -2395,6 +2651,12 @@ button{
 	width: 20%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 50%;
+		height: 30%;
+		width:45%;
+	}
 }
 
 .bl_pht07_p03_m{
@@ -2404,6 +2666,12 @@ button{
 	width: 20%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 40%;
+		top: 10%;
+		height: 40%;
+	}
 }
 
 .bl_pht07_p03_sub01{
@@ -2413,6 +2681,12 @@ button{
 	width: 20%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 50%;
+		width: 40%;
+		top: 50%;
+		height: 40%;
+	}
 }
 
 .bl_pht08_p01_m{
@@ -2422,6 +2696,12 @@ button{
 	width: 40%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 40%;
+	}
 }
 
 .bl_pht08_p01_sub01{
@@ -2431,6 +2711,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 50%;
+		height: 40%;
+	}
 }
 
 .bl_pht08_p02_m{
@@ -2440,6 +2726,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 40%;
+	}
 }
 
 .bl_pht08_p02_sub01{
@@ -2449,6 +2741,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 50%;
+		height: 40%;
+	}
 }
 
 .bl_pht08_p03_m{
@@ -2458,6 +2756,12 @@ button{
 	width: 40%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 40%;
+	}
 }
 
 .bl_pht08_p03_sub01{
@@ -2467,6 +2771,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 50%;
+		height: 40%;
+	}
 }
 
 .bl_pht09_p01_m{
@@ -2476,6 +2786,12 @@ button{
 	width: 40%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 
 .bl_pht09_p01_sub01{
@@ -2485,6 +2801,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht09_p01_sub02{
@@ -2494,6 +2816,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 50%;
+		height: 30%;
+		width:40%;
+	}
 }
 
 .bl_pht09_p02_m{
@@ -2503,6 +2831,12 @@ button{
 	width: 40%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 
 .bl_pht09_p02_sub01{
@@ -2512,6 +2846,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht09_p02_sub02{
@@ -2521,6 +2861,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 50%;
+		height: 30%;
+		width:40%;
+	}
 }
 
 .bl_pht010_p01_m{
@@ -2530,6 +2876,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 50%;
+	}
 }
 
 .bl_pht010_p01_sub01{
@@ -2539,6 +2891,12 @@ button{
 	width: 20%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 20%;
+		width: 60%;
+		top: 60%;
+		height: 30%;
+	}
 }
 
 .bl_pht010_p02_m{
@@ -2548,6 +2906,12 @@ button{
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		left: 20%;
+		width: 60%;
+		top: 50%;
+		height: 30%;
+	}
 }
 
 .bl_pht010_p02_sub01{
@@ -2557,6 +2921,12 @@ button{
 	width: 40%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 40%;
+	}
 }
 
 .bl_pht010_p03_m{
@@ -2567,6 +2937,12 @@ button{
 	height: 70%;
 	z-index: 1;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 .bl_pht010_p03_sub01{
@@ -2576,6 +2952,12 @@ button{
 	width: 30%;
 	height: 70%;
 	z-index: 1;
+	@include media(m){
+		top: 10%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 
 .bl_pht010_p03_sub02{
@@ -2585,6 +2967,12 @@ button{
 	width: 30%;
 	height: 70%;
 	z-index: 1;
+	@include media(m){
+		top: 60%;
+		left: 50%;
+		height: 30%;
+		width:40%;
+	}
 }
 
 
@@ -2595,6 +2983,12 @@ button{
 	width: 30%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 20%;
+		width: 60%;
+		top: 50%;
+		height: 30%;
+	}
 }
 
 .bl_pht011_p01_sub01{
@@ -2604,6 +2998,12 @@ button{
 	width: 50%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		height: 40%;
+	}
 }
 
 .el_img_hor{
@@ -2749,6 +3149,30 @@ button{
 	left: 4%;
 }
 
+.bl_pop_ver{
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	display: flex;
+	background: rgba(233, 231, 231, 0.856);
+	filter: blur(30%);
+	justify-content: space-around;
+}
+
+.el_popImg{
+	margin: 2.5% 5%;
+	width: 90%;
+	height: 94%;
+}
+
+
+.el_pop_btn{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
 .bl_pop{
 	position: absolute;
 	height: 100%;
@@ -2759,6 +3183,12 @@ button{
 	background: rgba(233, 231, 231, 0.856);
 	filter: blur(30%);
 	justify-content: space-around;
+	@include media(m){
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
 }
 
 
@@ -2778,12 +3208,18 @@ button{
 	margin: 2.5% 5%;
 	width: 90%;
 	height: 94%;
+	max-width:100%;
+	max-height:100%;
+	@include media(m){
+	}
 }
 
 .el_popImg_ver{
 	margin: 5% 25%;
 	width: 50%;
 	height: 88%;
+	@include media(m){
+	}
 }
 
 .el_pop_btn{
@@ -2792,6 +3228,10 @@ button{
 	top: 0;
 }
 .bl_pop_l{
+	@include media(m){
+		margin: 0 5%;
+		width: 90%;
+	}
 }
 
 .bl_pop_ver{
@@ -2804,11 +3244,28 @@ button{
 	width: 40%;
 	margin: 5% 5%;
 	background: rgba(128, 128, 128, 0.521);
+	@include media(m){
+		margin: 0 5%;
+		width: 90%;
+		height: 90%;
+	}
 }
 .bl_pop_r_cont{
-	margin-top: 10%;
+	margin-top: 5%;
 	text-align: center;
+	@include media(m){
+		margin: 2% 0 0;
+		height: 99%;
+	}
 }
+
+.el_pop_bodyTtl{
+	margin: 1% 0;
+	@include media(m){
+		margin: 2% 1% 0;
+	}
+}
+
 .el_pop_bodyTtl_cont{
 	width: 80%;
 	padding: 1% 1%;
@@ -2821,16 +3278,32 @@ button{
 	font-weight:bold;
 }
 
+.el_pop_stateTtl{
+	margin: 5% 1% 0;
+	@include media(m){
+		margin: 2% 1% 0;
+	}
+}
+
 .el_pop_stateTtl_cont{
-	width: 80%;
 	padding: 1% 1%;
 	background: white;
-	text-align: start;
+	text-align: center;
 	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
+	@include media(m){
+		width: 80%;
+	}
 }
 
 .el_pop_stateTtl_cont_txt{
 	font-weight:bold;
+}
+
+.el_pop_lcnTtl{
+	margin: 5% 1% 0;
+	@include media(m){
+		margin: 2% 1% 0;
+	}
 }
 
 .el_pop_lcnTtl_cont{
@@ -2843,6 +3316,13 @@ button{
 
 .el_pop_lcnTtl_cont_txt{
 	font-weight:bold;
+}
+
+.el_pop_pointTtl{
+	margin: 5% 1% 0;
+	@include media(m){
+		margin: 2% 1% 0;
+	}
 }
 
 .el_pop_pointTtl_cont{

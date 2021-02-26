@@ -6,7 +6,6 @@
 				<img :src="popmainPhoto" :class="[popState? 'el_popImg': 'el_popImg_ver']">
 			</div>
 			<div class="bl_pop_r">
-				<div class="bl_pop_r_cont">
 					<h1 class="el_pop_bodyTtl">撮影機材</h1>
 					<p class="el_pop_bodyTtl_cont"><span class="el_pop_bodyTtl_cont_txt">本体:</span>{{Body}}</p><br><p class="el_pop_bodyTtl_cont"><span class="el_pop_bodyTtl_cont_txt">レンズ:</span>{{Renzu}}</p>
 					<h1 class="el_pop_stateTtl">撮影状態</h1>
@@ -15,7 +14,6 @@
 					<p class="el_pop_lcnTtl_cont"><span class="el_pop_stateTtl_cont_txt">場所:</span>{{location}}</p>
 					<h2 class="el_pop_pointTtl">ポイント</h2>
 					<p class="el_pop_pointTtl_cont">{{Point}}</p>
-				</div>
 			</div>
 		</div>
 		<div class="bl_btn">
@@ -416,6 +414,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$breakpoints: (
+	m: "only screen and (max-width: 980px)",
+	pc: "only screen and (max-width: 1199px)",
+);
+@mixin media($breakpoint) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
 .ly_port {
 	position: absolute;
 	width: 98%;
@@ -424,6 +431,9 @@ export default {
 	height: 85%;
 	background: rgba(236, 235, 235, 0.856);
 	border-left: rgb(206, 206, 221) 2px solid;
+	@include media(m){
+		font-size: 0.8rem;
+	}
 }
 p{
 	display: inline-block;
@@ -437,7 +447,8 @@ button{
 	position: absolute;
 	top: 0;
 	left: 0;
-
+	@include media(m){
+	}
 }
 
 .page-l{
@@ -505,7 +516,6 @@ height: 98vh;
 	padding: 5px 5px;
 	margin: 0;
 	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
-
 }
 
 .el_img_txt{
@@ -547,6 +557,13 @@ height: 98vh;
 	width: 40%;
 	height: 45%;
 	z-index: 1;
+	@include media(m){
+		top: 5%;
+		position: none;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht01_p01_sub01{
 	position: absolute;
@@ -555,6 +572,11 @@ height: 98vh;
 	width: 30%;
 	height: 30%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 
 .bl_pht01_p02_m{
@@ -564,6 +586,12 @@ height: 98vh;
 	width: 40%;
 	height: 60%;
 	z-index: 1;
+	@include media(m){
+		top: 5%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht01_p02_sub01{
 	position: absolute;
@@ -572,6 +600,12 @@ height: 98vh;
 	width: 20%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 50%;
+		left: 5%;
+		height: 30%;
+		width: 40%;
+	}
 }
 .bl_pht01_p02_sub02{
 	position: absolute;
@@ -580,6 +614,12 @@ height: 98vh;
 	width: 20%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		top: 55%;
+		left: 55%;
+		height: 30%;
+		width: 40%;
+	}
 }
 
 
@@ -591,6 +631,12 @@ height: 98vh;
 	width: 40%;
 	height: 45%;
 	z-index: 1;
+	@include media(m){
+		top: 5%;
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 .bl_pht02_p01_sub01{
 	position: absolute;
@@ -599,6 +645,11 @@ height: 98vh;
 	width: 30%;
 	height: 40%;
 	z-index: 1;
+	@include media(m){
+		left: 10%;
+		height: 45%;
+		width: 80%;
+	}
 }
 
 .bl_btnNum{
@@ -709,6 +760,13 @@ height: 98vh;
 	background: rgba(233, 231, 231, 0.856);
 	filter: blur(30%);
 	justify-content: space-around;
+	ustify-content: space-around;
+	@include media(m){
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
 }
 
 
@@ -722,48 +780,12 @@ height: 98vh;
 	background: rgba(233, 231, 231, 0.856);
 	filter: blur(30%);
 	justify-content: space-around;
-}
-
-.el_popImg{
-	margin: 2.5% 5%;
-	width: 90%;
-	height: 94%;
-}
-
-.el_popImg_ver{
-	margin: 5% 25%;
-	width: 50%;
-	height: 88%;
-}
-
-.el_pop_btn{
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-.bl_pop{
-	position: absolute;
-	height: 100%;
-	left: 0;
-	top: 0;
-	width: 100%;
-	display: flex;
-	background: rgba(233, 231, 231, 0.856);
-	filter: blur(30%);
-	justify-content: space-around;
-}
-
-
-.bl_pop_ver{
-	position: absolute;
-	height: 100%;
-	left: 0;
-	top: 0;
-	width: 100%;
-	display: flex;
-	background: rgba(233, 231, 231, 0.856);
-	filter: blur(30%);
-	justify-content: space-around;
+	@include media(m){
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
 }
 
 .el_popImg{
@@ -784,6 +806,10 @@ height: 98vh;
 	top: 0;
 }
 .bl_pop_l{
+	@include media(m){
+		margin: 0 5%;
+		width: 90%;
+	}
 }
 
 .bl_pop_ver{
@@ -796,11 +822,29 @@ height: 98vh;
 	width: 40%;
 	margin: 5% 5%;
 	background: rgba(128, 128, 128, 0.521);
+	@include media(m){
+		margin: 0 5%;
+		width: 90%;
+		height: 90%;
+	}
 }
+
 .bl_pop_r_cont{
-	margin-top: 10%;
+	margin-top: 5%;
 	text-align: center;
+	@include media(m){
+		margin: 2% 0 0;
+		height: 99%;
+	}
 }
+
+.el_pop_bodyTtl{
+	margin: 1% 0;
+	@include media(m){
+		margin: 2% 1% 0;
+	}
+}
+
 .el_pop_bodyTtl_cont{
 	width: 80%;
 	padding: 1% 1%;
@@ -813,16 +857,33 @@ height: 98vh;
 	font-weight:bold;
 }
 
+.el_pop_stateTtl{
+	margin: 5% 1% 0;
+	@include media(m){
+		margin: 2% 1% 0;
+	}
+}
+
 .el_pop_stateTtl_cont{
 	width: 80%;
 	padding: 1% 1%;
 	background: white;
 	text-align: start;
 	box-shadow:  0 1px 1px 1px rgba(0, 0, 0, 0.29);
+	@include media(m){
+		width: 80%;
+	}
 }
 
 .el_pop_stateTtl_cont_txt{
 	font-weight:bold;
+}
+
+.el_pop_lcnTtl{
+	margin: 5% 1% 0;
+	@include media(m){
+		margin: 2% 1% 0;
+	}
 }
 
 .el_pop_lcnTtl_cont{
@@ -835,6 +896,13 @@ height: 98vh;
 
 .el_pop_lcnTtl_cont_txt{
 	font-weight:bold;
+}
+
+.el_pop_pointTtl{
+	margin: 5% 1% 0;
+	@include media(m){
+		margin: 2% 1% 0;
+	}
 }
 
 .el_pop_pointTtl_cont{

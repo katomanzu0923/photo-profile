@@ -33,7 +33,7 @@ export default {
   name: 'App',
   data(){
     return{
-      isPop:true,
+      isPop:false,
       tab:0
     }
   },
